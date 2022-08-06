@@ -1,0 +1,74 @@
+---
+title: "Getting Started with Quarto"
+author: "Tom Mock"
+format: html
+---
+
+
+:::{.callout-tip}
+
+## Pre Work
+
+- Install latest version of RStudio, [`v2022.07.1` or later](https://www.rstudio.com/products/rstudio/download/#download)
+
+Please clone <https://github.com/jthomasmock/quarto-workshop.git> via RStudio 
+
+- Install these R packages:
+
+```{r pkg-list}
+#| eval: false
+pkg_list <- c(
+  "tidyverse", "gt", "gtExtras", "reactable", 
+  "ggiraph",  "here", "quarto", "rmarkdown", 
+  "gtsummary", "palmerpenguins", "fs", "skimr"
+  )
+install.packages(pkg_list)
+```
+
+:::
+
+:::{.callout-caution collapse="true"}
+
+## How to clone a Github repo
+
+1. Navigate to <https://github.com/jthomasmock/quarto-workshop>
+
+1. Click on the green "Code" button and copy the url under the HTTPS tab <https://github.com/jthomasmock/quarto-workshop.git>
+
+1. In RStudio, use File > New Project > Version Control > From Git > and then paste the URL into the source repo box and then click enter!
+
+![](materials/images/clone-repo.gif)
+
+:::
+
+## Overview
+
+This workshop is designed for those who have no or little prior
+experience with Quarto. Quarto is the
+next generation of RMarkdown for publishing, including dynamic and
+static documents and multi-lingual programming language support. With Quarto 
+you can create documents, books, presentations, blogs or other
+online resources. 
+
+
+### Schedule
+
+| Activity                                              |
+|:------------------------------------------------------|
+| [Intro to Quarto](materials/01-intro-quarto.html) |
+| [Authoring Quarto](materials/02-authoring.html)  |
+
+## Instructor
+
+Tom Mock, PhD is the Customer Enablement Lead at RStudio, helping
+RStudio's customers be as successful as possible. He is deeply involved
+in the global data science community, sharing tips on `#RStats` Twitter
+(find him at @thomas_mock), as co-founder of `#TidyTuesday`, a weekly
+Data Science learning challenge, and presenting on various Data Science
+topics on YouTube or at conferences.
+
+------------------------------------------------------------------------
+
+![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is
+licensed under a [Creative Commons Attribution 4.0 International
+License](https://creativecommons.org/licenses/by/4.0/).

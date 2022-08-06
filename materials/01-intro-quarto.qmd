@@ -1,0 +1,696 @@
+---
+format: 
+  revealjs:
+    slide-number: true
+    width: 1600
+    height: 900
+    logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
+    footer: "[Quarto in 2 Hours](https://jthomasmock.github.io/quarto-2hr-webinar/)"
+    css: ["theme/theme.css"]
+    theme: simple
+editor: source
+---
+
+##  {#TitleSlide data-menu-title="TitleSlide" background-color="#303436" background-image="images/hamlet-quarto.jpeg" background-position="left" background-size="contain"}
+
+```{r setup, include=FALSE}
+library(fontawesome)
+library(tidyverse)
+library(quarto)
+library(gt)
+library(gtExtras)
+library(gtsummary)
+```
+
+
+::: {style="position: absolute; left: 480px; top: 200px; height: 525px; width: 1500px; background-color: #69b1e9; padding: 20px; padding-left: 50px; box-shadow: 15px 15px 0px 0px #a9bcd2; border-radius: 5px;"}
+[Quarto in 2 Hours]{style="font-size: 120px; font-weight: bold; line-height: 1em; margin: 0px"}
+
+<br>
+
+[Tom Mock, RStudio PBC]{style="font-size: 60px; font-weight: bold;"}
+
+<a href="https://jthomasmock.github.io/quarto-2hr-webinar">`r fontawesome::fa("link", "white", height="45px")`</a>&nbsp;[jthomasmock.github.io/quarto-2hr-webinar](https://jthomasmock.github.io/quarto-2hr-webinar){style="font-size: 60px; font-weight: bold; font-color: white;"}
+
+[2022-07-27]{style="font-size: 50px;font-weight: bold;"}
+:::
+
+::: footer
+[You are sneaky!]{style="color: transparent;"}
+:::
+
+#  {background-color="#447099"}
+
+[Hello Quarto]{.r-fit-text}
+
+## We assume
+
+`r fa("r-project")` You know R
+
+`r fa("markdown")` You know a little bit of Markdown
+
+<img src="https://raw.githubusercontent.com/quarto-dev/quarto-web/main/favicon.png" style="display: inline-block; margin: 0; margin-bottom: -2px; height: 35px;"/></img> You want to learn about Quarto, the next-generation of RMarkdown
+
+. . .
+
+<h2>We'll teach you</h2>
+
+Quarto syntax and formats
+
+More Markdown
+
+Even more R along the way!
+
+## 
+
+::: {style="text-align: right;"}
+![](images/tom-howard.png){height="450px"}
+
+Find me at:
+
+`r fa("twitter")` [\@thomas_mock](https://twitter.com/thomas_mock)
+
+`r fa("github")` [\@jthomasmock](https://github.com/jthomasmock)
+
+`r fa("link")` [themockup.blog](https://themockup.blog/)
+:::
+
+## Workshop Prep
+
+-   Content Website: <https://jthomasmock.github.io/quarto-2hr-webinar/>
+-   FULL workshop materials: [rstd.io/get-started-quarto](https://rstd.io/get-started-quarto)
+-   Are you on the latest version of RStudio i.e. [`v2022.07.1` or later](https://www.rstudio.com/products/rstudio/download/#download)?
+
+``` r
+pkg_list <- c(
+  "tidyverse", "gt", "gtExtras", "reactable", "ggiraph", "here", "quarto",
+  "rmarkdown", "gtsummary", "palmerpenguins", "fs", "skimr"
+  )
+install.packages(pkg_list)
+```
+
+. . .
+
+[Great, let's get started!]{.r-fit-text}
+
+# `r fontawesome::fa("laptop-code", "white")` Our Turn {background-color="#447099" transition="slide-in"}
+
+-   Open ~~Sesame~~ RStudio v2022.07.1 or RStudio Cloud
+-   If you haven't already, clone the workshop: `https://github.com/jthomasmock/quarto-workshop.git`
+-   Open the `quarto-workshop` RProject
+
+## Hello Quarto
+
+> ### Quarto^®^ is an open-source scientific and technical publishing system built on [Pandoc](https://pandoc.org/)
+
+. . .
+
+> You can weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more.
+
+## How does RMarkdown work?
+
+- `knitr` started in 2011, RMarkdown in 2014
+
+![](images/rmd-knitr.png){fig-alt="A diagram of how a RMD is turned into output formats via knitr and pandoc"}
+
+## Quarto, more than *just* `knitr`
+
+. . .
+
+We learned from 10 years of literate programming with `knitr` + `rmarkdown`
+
+![](images/qmd-knitr.jpeg)
+
+## Quarto, more internals
+
+-   `knitr` or `jupyter` evaluates R/Python/Julia code and returns a `.md` file along with the evaluated code
+
+. . .
+
+-   Quarto uses an engine like `knitr` to execute R code, applies Lua filters pre-processors to generate a `.md` file
+
+. . .
+
+The `.md` file is processed via Pandoc and Quarto's Lua filters + Bootstrap CSS for HTML or LaTeX for PDF and converted to a final output format
+
+. . .
+
+Lua filters written by R/Python/Julia developers should be interchangeable between formats - not language specific and often not even _format_ specific!
+
+## Quarto, more than *just* `knitr`
+
+![](images/qmd-jupyter.jpeg)
+
+## Quarto, more than *just* `knitr`
+
+![](images/jupyter-alone.jpeg)
+
+## Quarto is a big universe!
+
+![](images/horst_quarto_schematic.png)
+
+## So what is Quarto?
+
+> Quarto is a command line interface (CLI) that renders plain text formats (`.qmd`, `.rmd`, `.md`) OR mixed formats (`.ipynb`/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more
+
+```{py}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|1|4|10|14|15"
+thomasmock$ quarto --help
+
+  Usage:   quarto
+  Version: 1.0.36
+
+  Description:
+    Quarto CLI
+
+  Options:
+    -h, --help     - Show this help.                            
+    -V, --version  - Show the version number for this program.  
+
+  Commands:
+    render          [input] [args...]   - Render input file(s) to various document types.            
+    preview         [file] [args...]    - Render and preview a document or website project.          
+    serve           [input]             - Serve a Shiny interactive document.                        
+    create-project  [dir]               - Create a project for rendering multiple documents          
+    convert         <input>             - Convert documents to alternate representations.            
+    pandoc          [args...]           - Run the version of Pandoc embedded within Quarto.          
+    run             [script] [args...]  - Run a TypeScript, R, Python, or Lua script.                
+    install         <type> [target]     - Installs an extension or global dependency.                
+    publish         [provider] [path]   - Publish a document or project. Available providers include:
+    check           [target]            - Verify correct functioning of Quarto installation.         
+    help            [command]           - Show this help or the help of a sub-command.    
+```
+
+
+## Comfort of your own workspace
+
+::: r-stack
+![](https://quarto.org/docs/tools/images/rstudio-preview.png){.fragment width="1500" fig-alt="A screenshot of a Quarto document rendered inside RStudio"}
+
+![](https://quarto.org/docs/tools/images/jupyterlab-preview.png){.fragment width="1500" fig-alt="A screenshot of a Quarto document rendered inside JupyterLab"}
+
+![](https://quarto.org/docs/computations/images/python-vscode.png){.fragment width="1500" fig-alt="A screenshot of a Quarto document rendered inside VSCode"}
+:::
+
+## Quarto, for collaboration
+
+::: {style="font-size: 100px;"}
+```yaml
+contents:
+  contents:
+    - lab-notes/datalake-extracts-dplyr-aws.rmd
+    - lab-notes/data-cleaning-siuba.ipynb
+    - lab-notes/python-r-handoff.qmd  
+    - lab-notes/computer-vision-torch.qmd
+```
+:::
+
+## RStudio Visual Editor
+
+![](https://quarto.org/docs/visual-editor/images/visual-editing.png)
+
+# `r fontawesome::fa("laptop-code", "white")` Our turn {background-color="#447099" transition="slide-in"}
+
+- Open `materials/workshop/03-authoring/visual-editor.qmd`
+- Explore the UI elements and visual editor mode
+- Turn Visual Editor mode on/off and explore the sections
+- Render the document and compare the viewer to Visual Mode!
+
+## VS Code
+
+![](https://quarto.org/docs/tools/images/vscode-render.png)
+
+## VS Code YAML
+
+![](https://quarto.org/docs/tools/images/vscode-raw.png)
+
+## VS Code, YAML Intelligence
+
+![](https://quarto.org/docs/tools/images/vscode-yaml-completion.png)
+
+## Jupyter/Jupyter Lab
+
+![](https://quarto.org/docs/tools/images/jupyter-lab.png)
+
+## Jupyter
+
+`quarto preview notebook.ipynb --to html`
+
+![](https://quarto.org/docs/tools/images/jupyterlab-preview.png)
+
+## Jupyter YAML
+
+Treat YAML as a "raw cell" in Jupyter - Jupyter doesn't care about YAML, but it's needed/used by Quarto
+
+![](https://quarto.org/docs/tools/images/jupyter-lab-yaml.png)
+
+
+## One install, "Batteries included"
+
+-   Quarto is bundled and comes pre-installed with RStudio [v2022.07.1](https://www.rstudio.com/products/rstudio/download/#download) and beyond!
+
+. . .
+
+![](images/quarto-bundle.png){width="1200" fig-align="center" fig-alt="RStudio 2022.07.1+554 'Spotted Wakerobin', July 25th, 2022 New: Update Quarto to 1.0.36"}
+
+## 
+
+:::: {.columns style="margin-top=-20px;"}
+
+::: {.column .fragment style="font-size:30px;"}
+
++-----------------+----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+| Feature         | R Markdown                                                                                               | Quarto                                                                             |
++=================+==========================================================================================================+====================================================================================+
+| Basic Formats   | -   [html_document](https://pkgs.rstudio.com/rmarkdown/reference/html_document.html)                     | -   [html](https://quarto.org/docs/output-formats/html-basics.html)                |
+|                 |                                                                                                          |                                                                                    |
+|                 | -   [pdf_document](https://pkgs.rstudio.com/rmarkdown/reference/pdf_document.html)                       | -   [pdf](https://quarto.org/docs/output-formats/pdf-basics.html)                  |
+|                 |                                                                                                          |                                                                                    |
+|                 | -   [word_document](https://pkgs.rstudio.com/rmarkdown/reference/word_document.html)                     | -   [docx](https://quarto.org/docs/output-formats/ms-word.html)                    |
++-----------------+----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+| Beamer          | -   [beamer_presentation](https://pkgs.rstudio.com/rmarkdown/reference/beamer_presentation.html)         | -   [beamer](https://quarto.org/docs/presentations/beamer.html)                    |
++-----------------+----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+| PowerPoint      | -   [powerpoint_presentation](https://pkgs.rstudio.com/rmarkdown/reference/powerpoint_presentation.html) | -   [pptx](https://quarto.org/docs/presentations/powerpoint.html)                  |
++-----------------+----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+| HTML Slides     | -   [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html)                                       | -   [revealjs](https://quarto.org/docs/presentations/revealjs/)                    |
+|                 |                                                                                                          |                                                                                    |
+|                 | -   [revealjs](https://bookdown.org/yihui/rmarkdown/revealjs.html)                                       |                                                                                    |
++-----------------+----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+| Advanced Layout | -   [tufte](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html)                                    | -   [Quarto Article Layout](https://quarto.org/docs/authoring/article-layout.html) |
+|                 |                                                                                                          |                                                                                    |
+|                 | -   [distill](https://rstudio.github.io/distill/figures.html)                                            |                                                                                    |
++-----------------+----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+
+:::
+
+<!-- ## Many Quarto formats -->
+
+::: {.column .fragment style="font-size:30px;"}
+
++------------------+----------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| Feature          | R Markdown                                                                       | Quarto                                                                          |
++==================+==================================================================================+=================================================================================+
+| Cross References | -   [html_document2](https://bookdown.org/yihui/bookdown/a-single-document.html) | -   [Quarto Crossrefs](https://quarto.org/docs/authoring/cross-references.html) |
+|                  |                                                                                  |                                                                                 |
+|                  | -   [pdf_document2](https://bookdown.org/yihui/bookdown/a-single-document.html)  |                                                                                 |
+|                  |                                                                                  |                                                                                 |
+|                  | -   [word_document2](https://bookdown.org/yihui/bookdown/a-single-document.html) |                                                                                 |
++------------------+----------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| Websites & Blogs | -   [blogdown](https://pkgs.rstudio.com/blogdown/)                               | -   [Quarto Websites](https://quarto.org/docs/websites/)                        |
+|                  |                                                                                  |                                                                                 |
+|                  | -   [distill](https://pkgs.rstudio.com/distill/)                                 | -   [Quarto Blogs](https://quarto.org/docs/websites/website-blog.html)          |
++------------------+----------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| Books            | -   [bookdown](https://pkgs.rstudio.com/bookdown/)                               | -   [Quarto Books](https://quarto.org/docs/books/)                              |
++------------------+----------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| Interactivity    | [Shiny Documents](https://bookdown.org/yihui/rmarkdown/shiny-documents.html)     | [Quarto Interactive Documents](https://quarto.org/docs/interactive/shiny/)      |
++------------------+----------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| Paged HTML       | [pagedown](https://github.com/rstudio/pagedown)                                  | Summer 2022                                                                     |
++------------------+----------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| Journal Articles | [rticles](https://pkgs.rstudio.com/rticles/)                                     | Summer 2022                                                                     |
++------------------+----------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| Dashboards       | [flexdashboard](https://pkgs.rstudio.com/flexdashboard/)                         | Fall 2022                                                                       |
++------------------+----------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+
+:::
+
+::::
+
+## What to do with my existing `.Rmd` or `.ipynb`?
+
+For some of you - nothing changes! Keep using RMarkdown and Jupyter.
+
+<br>
+
+. . .
+
+However, most existing `.rmd` or `.ipynb` can be rendered as-is via Quarto
+
+::: {style="font-size: 100px;"}
+``` bash
+quarto render my-favorite.rmd --to html
+```
+:::
+
+. . .
+
+<br>
+
+Since Jupyter notebooks can either be treated as a linear document to be re-executed or an already evaluated document there are additional options like: `--execute`
+
+::: {style="font-size: 100px;"}
+``` bash
+quarto render my-favorite.ipynb --to html --execute
+```
+:::
+
+## Why Quarto, instead of RMarkdown
+
+-   Batteries included, shared syntax
+-   Choose your own editor and your preferred data science language
+-   Better accessibility and richer features out of the box
+-   More enhancements overtime - RMarkdown still maintained, but majority of new features built into Quarto
+
+. . .
+
+Collaboration with other colleagues in other languages - shared format, choose your editor and your native language
+
+## Rendering
+
+1.  Render in RStudio  
+
+![](https://quarto.org/docs/tools/images/rstudio-render.png){fig-alt="A screenshot of the render button in RStudio"}
+
+. . .
+
+2.  System shell via `quarto render`
+
+::: {style="font-size: 100px;"}
+```{bash}
+#| eval: false
+#| echo: true
+quarto render document.qmd # defaults to html
+quarto render document.qmd --to pdf
+quarto render document.qmd --to docx
+```
+:::
+
+. . .
+
+3.  R console via `quarto` R package
+
+::: {style="font-size: 100px;"}
+```{r}
+#| eval: false
+#| echo: true
+library(quarto)
+quarto_render("document.qmd") # defaults to html
+quarto_render("document.qmd", output_format = "pdf")
+```
+:::
+
+## Change your mental model
+
+::: columns
+::: {.column width="50%"}
+Source
+
+![](images/word.png){width="650px" fig-alt="A blank Word document"}
+:::
+
+::: {.column width="50%"}
+Output
+
+![](images/word.png){width="650px" fig-alt="A blank Word document"}
+:::
+:::
+
+## Change your mental model
+
+::: columns
+::: {.column width="50%"}
+    ---
+    title: "ggplot2 demo"
+    author: "Norah Jones"
+    date: "5/22/2021"
+    format: 
+      html:
+        fig-width: 8
+        fig-height: 4
+        code-fold: true
+    ---
+
+    ## Air Quality
+
+    @fig-airquality further explores the impact of temperature 
+      on ozone level.
+
+    ```{{r}}
+    #| label: fig-airquality
+    #| fig-cap: Temperature and ozone level.
+    #| warning: false
+
+    library(ggplot2)
+    ggplot(airquality, aes(Temp, Ozone)) + 
+
+      geom_point() + 
+      geom_smooth(method = "loess"
+    )
+    ```
+:::
+
+::: {.column width="50%"}
+![](https://quarto.org/images/hello-knitr.png)
+:::
+:::
+
+## A `.qmd` is a plain text file
+
+. . .
+
+-   Metadata (YAML)
+
+:::: {.columns style="font-size: 60px;"}
+
+::: {.column width="50%"}
+``` yaml
+format: html
+engine: knitr
+```
+
+:::
+
+::: {.column width="50%"}
+
+``` yaml
+format: html
+engine: jupyter
+```
+
+:::
+
+::::
+
+. . .
+
+-   Code
+
+:::: {.columns style="font-size: 60px;"}
+
+::: {.column width="45%"}
+
+````code
+```{{r}}
+library(dplyr)
+mtcars |> 
+  group_by(cyl) |> 
+  summarize(mean = mean(mpg))
+```
+````
+
+:::
+
+:::: {.column width="55%"}
+
+````code
+```{{python}}
+from siuba import *
+(mtcars
+  >> group_by(_.cyl)
+  >> summarize(avg_mpg = _.mpg.mean()))
+```
+````
+
+:::
+
+::::
+
+. . .
+
+-   Text
+
+::: {style="font-size: 70px;"}
+``` markdown
+# Heading 1
+This is a sentence with some **bold text**, *italic text* and an 
+![image](image.png){fig-alt="Alt text for this image"}.
+```
+
+:::
+
+## Metadata: YAML
+
+The [YAML](https://yaml.org/) metadata or header is:
+
+> processed in many stages of the rendering process and can influence the final document in many different ways. It is placed at the very beginning of the document and is read by each of Pandoc, Quarto and `knitr`. Along the way, the information that it contains can affect the code, content, and the rendering process.
+
+## YAML
+
+``` yaml
+---
+title: "My Document"
+format: 
+  html:
+    toc: true
+    code-fold: true
+---
+```
+
+## Markdown
+
+> Quarto is based on Pandoc and uses its variation of markdown as its underlying document syntax. Pandoc markdown is an extended and slightly revised version of John Gruber's [Markdown](https://daringfireball.net/projects/markdown/) syntax.
+
+. . .
+
+> Markdown is a plain text format that is designed to be easy to write, and, even more importantly, easy to read
+
+## Text Formatting
+
++-----------------------------------+-------------------------------+
+| Markdown Syntax                   | Output                        |
++===================================+===============================+
+|     *italics* and **bold**        | *italics* and **bold**        |
++-----------------------------------+-------------------------------+
+|     superscript^2^ / subscript~2~ | superscript^2^ / subscript~2~ |
++-----------------------------------+-------------------------------+
+|     ~~strikethrough~~             | ~~strikethrough~~             |
++-----------------------------------+-------------------------------+
+|     `verbatim code`               | `verbatim code`               |
++-----------------------------------+-------------------------------+
+
+## Headings
+
++---------------------+-----------------+
+| Markdown Syntax     | Output          |
++=====================+=================+
+|     # Header 1      | # Header 1      |
++---------------------+-----------------+
+|     ## Header 2     | ## Header 2     |
++---------------------+-----------------+
+|     ### Header 3    | ### Header 3    |
++---------------------+-----------------+
+|     #### Header 4   | #### Header 4   |
++---------------------+-----------------+
+|     ##### Header 5  | ##### Header 5  |
++---------------------+-----------------+
+|     ###### Header 6 | ###### Header 6 |
++---------------------+-----------------+
+
+## Code
+
+```{r}
+#| echo: fenced
+#| output-location: column
+#| label: fig-airquality
+#| fig-cap: Temperature and ozone level.
+#| warning: false
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess"
+)
+```
+
+## Code, more than just R
+
+::: columns
+::: {.column width="50%"}
+```{python}
+#| echo: fenced
+#| eval: false
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+:::
+
+::: {.column width="50%"}
+![](images/polar-axis.png){width="650px"}
+:::
+:::
+
+## What about the CLI?
+
+> Quarto is a command line interface (CLI) that renders plain text formats (`.qmd`, `.rmd`, `.md`) OR mixed formats (`.ipynb`/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more
+
+```{py}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|1|4|10|14|15"
+thomasmock$ quarto --help
+
+  Usage:   quarto
+  Version: 1.0.36
+
+  Description:
+    Quarto CLI
+
+  Options:
+    -h, --help     - Show this help.                            
+    -V, --version  - Show the version number for this program.  
+
+  Commands:
+    render          [input] [args...]   - Render input file(s) to various document types.            
+    preview         [file] [args...]    - Render and preview a document or website project.          
+    serve           [input]             - Serve a Shiny interactive document.                        
+    create-project  [dir]               - Create a project for rendering multiple documents          
+    convert         <input>             - Convert documents to alternate representations.            
+    pandoc          [args...]           - Run the version of Pandoc embedded within Quarto.          
+    run             [script] [args...]  - Run a TypeScript, R, Python, or Lua script.                
+    install         <type> [target]     - Installs an extension or global dependency.                
+    publish         [provider] [path]   - Publish a document or project. Available providers include:
+    check           [target]            - Verify correct functioning of Quarto installation.         
+    help            [command]           - Show this help or the help of a sub-command.    
+```
+
+## Navigating in the terminal
+
+Because Quarto is a command line interface (CLI), there are times you'll need to use it via the terminal. A great overview of using the command line and navigating files/directories is available via the [Data Carpentries](https://datacarpentry.org/shell-genomics/02-the-filesystem/index.html) or a great interactive tool for understanding commands: <https://tldr.ostera.io>
+
+. . .
+
++------------------------------------+-------------------------------------------------------+
+| Command                            | Action                                                |
++====================================+=======================================================+
+| `pwd`                              | Print name of current working directory               |
++------------------------------------+-------------------------------------------------------+
+| `cd`                               | Change current working directory                      |
++------------------------------------+-------------------------------------------------------+
+| `ls`                               | List directory contents                               |
++------------------------------------+-------------------------------------------------------+
+| `quarto --help`                    | Return `quarto` help docs                             |
++------------------------------------+-------------------------------------------------------+
+| `mkdir howdy`                      | Make a new folder/directory called "howdy"            |
++------------------------------------+-------------------------------------------------------+
+| `rm folder-name/some-file.qmd`     | Remove a file called `some-file.qmd` from the a sub folder |
++------------------------------------+-------------------------------------------------------+
+
+# `r fontawesome::fa("laptop-code", "white")` Our Turn {background-color="#447099" transition="slide-in"}
+
+-   In RStudio, open `materials/workshop/01-intro/history.qmd`
+-   Render with the RStudio `Render ->` button
+-   Look at it and compare to [Wikipedia source](https://en.wikipedia.org/wiki/Boston_Terrier)
+
+<br>
+
+-   Move to the integrated terminal and execute:
+
+-   Render via terminal with `quarto render history.qmd --to pdf`
+
+-   Compare to the HTML version
+

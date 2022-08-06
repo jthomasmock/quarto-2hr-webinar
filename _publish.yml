@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: a82ef65d-95b0-464f-99df-db29bb8b9e2c
+      url: 'https://quartopub.com/sites/thomasmock/get-started-with-quarto'

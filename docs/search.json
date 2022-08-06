@@ -1,0 +1,681 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Getting Started with Quarto",
+    "section": "",
+    "text": "Pre Work\n\n\n\n\nInstall latest version of RStudio, v2022.07.1 or later\n\nPlease clone https://github.com/jthomasmock/quarto-workshop.git via RStudio\n\nInstall these R packages:\n\n\npkg_list <- c(\n  \"tidyverse\", \"gt\", \"gtExtras\", \"reactable\", \n  \"ggiraph\",  \"here\", \"quarto\", \"rmarkdown\", \n  \"gtsummary\", \"palmerpenguins\", \"fs\", \"skimr\"\n  )\ninstall.packages(pkg_list)"
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Getting Started with Quarto",
+    "section": "Overview",
+    "text": "Overview\nThis workshop is designed for those who have no or little prior experience with Quarto. Quarto is the next generation of RMarkdown for publishing, including dynamic and static documents and multi-lingual programming language support. With Quarto you can create documents, books, presentations, blogs or other online resources.\n\nSchedule\n\n\n\nActivity\n\n\n\n\nIntro to Quarto\n\n\nAuthoring Quarto"
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "Getting Started with Quarto",
+    "section": "Instructor",
+    "text": "Instructor\nTom Mock, PhD is the Customer Enablement Lead at RStudio, helping RStudio’s customers be as successful as possible. He is deeply involved in the global data science community, sharing tips on #RStats Twitter (find him at @thomas_mock), as co-founder of #TidyTuesday, a weekly Data Science learning challenge, and presenting on various Data Science topics on YouTube or at conferences.\n\n This work is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#section",
+    "href": "materials/01-intro-quarto.html#section",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "01 - Performing magic\n\n\nwith Quarto\n\n\nTom Mock\n\n\n2022-08-09"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#we-assume",
+    "href": "materials/01-intro-quarto.html#we-assume",
+    "title": "Get Started with Quarto",
+    "section": "We assume",
+    "text": "We assume\n You know R\n You know a little bit of Markdown\n You want to learn about Quarto, the next-generation of RMarkdown\n\n\nWe’ll teach you\n\nQuarto syntax and formats\nMore Markdown\nEven more R along the way!"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#section-2",
+    "href": "materials/01-intro-quarto.html#section-2",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "Feature\nR Markdown\nQuarto\n\n\n\n\nBasic Formats\n\nhtml_document\npdf_document\nword_document\n\n\nhtml\npdf\ndocx\n\n\n\nBeamer\n\nbeamer_presentation\n\n\nbeamer\n\n\n\nPowerPoint\n\npowerpoint_presentation\n\n\npptx\n\n\n\nHTML Slides\n\nxaringan\nrevealjs\n\n\nrevealjs\n\n\n\nAdvanced Layout\n\ntufte\ndistill\n\n\nQuarto Article Layout\n\n\n\n\n\n\n\n\nFeature\nR Markdown\nQuarto\n\n\n\n\nCross References\n\nhtml_document2\npdf_document2\nword_document2\n\n\nQuarto Crossrefs\n\n\n\nWebsites & Blogs\n\nblogdown\ndistill\n\n\nQuarto Websites\nQuarto Blogs\n\n\n\nBooks\n\nbookdown\n\n\nQuarto Books\n\n\n\nInteractivity\nShiny Documents\nQuarto Interactive Documents\n\n\nPaged HTML\npagedown\nSummer 2022\n\n\nJournal Articles\nrticles\nSummer 2022\n\n\nDashboards\nflexdashboard\nFall 2022"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#workshop-prep",
+    "href": "materials/01-intro-quarto.html#workshop-prep",
+    "title": "Get Started with Quarto",
+    "section": "Workshop Prep",
+    "text": "Workshop Prep\n\nContent Website: https://jthomasmock.github.io/quarto-2hr-webinar/\nFULL workshop materials: rstd.io/get-started-quarto\nAre you on the latest version of RStudio i.e. v2022.07.1 or later?\n\npkg_list <- c(\n  \"tidyverse\", \"gt\", \"gtExtras\", \"reactable\", \"ggiraph\", \"here\", \"quarto\",\n  \"rmarkdown\", \"gtsummary\", \"palmerpenguins\", \"fs\", \"skimr\"\n  )\ninstall.packages(pkg_list)\n\nGreat, let’s get started!"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#hello-quarto",
+    "href": "materials/01-intro-quarto.html#hello-quarto",
+    "title": "Get Started with Quarto",
+    "section": "Hello Quarto",
+    "text": "Hello Quarto\n\nQuarto® is an open-source scientific and technical publishing system built on Pandoc\n\n\n\nYou can weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more."
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#how-does-rmarkdown-work",
+    "href": "materials/01-intro-quarto.html#how-does-rmarkdown-work",
+    "title": "Get Started with Quarto",
+    "section": "How does RMarkdown work?",
+    "text": "How does RMarkdown work?\n\nknitr started in 2011, RMarkdown in 2014"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#quarto-more-than-just-knitr",
+    "href": "materials/01-intro-quarto.html#quarto-more-than-just-knitr",
+    "title": "Get Started with Quarto",
+    "section": "Quarto, more than just knitr",
+    "text": "Quarto, more than just knitr\n\nWe learned from 10 years of literate programming with knitr + rmarkdown"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#quarto-more-internals",
+    "href": "materials/01-intro-quarto.html#quarto-more-internals",
+    "title": "Get Started with Quarto",
+    "section": "Quarto, more internals",
+    "text": "Quarto, more internals\n\nknitr or jupyter evaluates R/Python/Julia code and returns a .md file along with the evaluated code\n\n\n\nQuarto uses an engine like knitr to execute R code, applies Lua filters pre-processors to generate a .md file\n\n\n\nThe .md file is processed via Pandoc and Quarto’s Lua filters + Bootstrap CSS for HTML or LaTeX for PDF and converted to a final output format\n\n\nLua filters written by R/Python/Julia developers should be interchangeable between formats - not language specific and often not even format specific!"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#quarto-more-than-just-knitr-1",
+    "href": "materials/01-intro-quarto.html#quarto-more-than-just-knitr-1",
+    "title": "Get Started with Quarto",
+    "section": "Quarto, more than just knitr",
+    "text": "Quarto, more than just knitr"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#quarto-more-than-just-knitr-2",
+    "href": "materials/01-intro-quarto.html#quarto-more-than-just-knitr-2",
+    "title": "Get Started with Quarto",
+    "section": "Quarto, more than just knitr",
+    "text": "Quarto, more than just knitr"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#quarto-is-a-big-universe",
+    "href": "materials/01-intro-quarto.html#quarto-is-a-big-universe",
+    "title": "Get Started with Quarto",
+    "section": "Quarto is a big universe!",
+    "text": "Quarto is a big universe!"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#so-what-is-quarto",
+    "href": "materials/01-intro-quarto.html#so-what-is-quarto",
+    "title": "Get Started with Quarto",
+    "section": "So what is Quarto?",
+    "text": "So what is Quarto?\n\nQuarto is a command line interface (CLI) that renders plain text formats (.qmd, .rmd, .md) OR mixed formats (.ipynb/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more\n\n\nthomasmock$ quarto --help\n\n  Usage:   quarto\n  Version: 1.0.36\n\n  Description:\n    Quarto CLI\n\n  Options:\n    -h, --help     - Show this help.                            \n    -V, --version  - Show the version number for this program.  \n\n  Commands:\n    render          [input] [args...]   - Render input file(s) to various document types.            \n    preview         [file] [args...]    - Render and preview a document or website project.          \n    serve           [input]             - Serve a Shiny interactive document.                        \n    create-project  [dir]               - Create a project for rendering multiple documents          \n    convert         <input>             - Convert documents to alternate representations.            \n    pandoc          [args...]           - Run the version of Pandoc embedded within Quarto.          \n    run             [script] [args...]  - Run a TypeScript, R, Python, or Lua script.                \n    install         <type> [target]     - Installs an extension or global dependency.                \n    publish         [provider] [path]   - Publish a document or project. Available providers include:\n    check           [target]            - Verify correct functioning of Quarto installation.         \n    help            [command]           - Show this help or the help of a sub-command."
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#comfort-of-your-own-workspace",
+    "href": "materials/01-intro-quarto.html#comfort-of-your-own-workspace",
+    "title": "Get Started with Quarto",
+    "section": "Comfort of your own workspace",
+    "text": "Comfort of your own workspace"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#quarto-for-collaboration",
+    "href": "materials/01-intro-quarto.html#quarto-for-collaboration",
+    "title": "Get Started with Quarto",
+    "section": "Quarto, for collaboration",
+    "text": "Quarto, for collaboration\n\ncontents:\n  contents:\n    - lab-notes/datalake-extracts-dplyr-aws.rmd\n    - lab-notes/data-cleaning-siuba.ipynb\n    - lab-notes/python-r-handoff.qmd  \n    - lab-notes/computer-vision-torch.qmd"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#rstudio-visual-editor",
+    "href": "materials/01-intro-quarto.html#rstudio-visual-editor",
+    "title": "Get Started with Quarto",
+    "section": "RStudio Visual Editor",
+    "text": "RStudio Visual Editor"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#vs-code",
+    "href": "materials/01-intro-quarto.html#vs-code",
+    "title": "Get Started with Quarto",
+    "section": "VS Code",
+    "text": "VS Code"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#vs-code-yaml",
+    "href": "materials/01-intro-quarto.html#vs-code-yaml",
+    "title": "Get Started with Quarto",
+    "section": "VS Code YAML",
+    "text": "VS Code YAML"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#vs-code-yaml-intelligence",
+    "href": "materials/01-intro-quarto.html#vs-code-yaml-intelligence",
+    "title": "Get Started with Quarto",
+    "section": "VS Code, YAML Intelligence",
+    "text": "VS Code, YAML Intelligence"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#jupyterjupyter-lab",
+    "href": "materials/01-intro-quarto.html#jupyterjupyter-lab",
+    "title": "Get Started with Quarto",
+    "section": "Jupyter/Jupyter Lab",
+    "text": "Jupyter/Jupyter Lab"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#jupyter",
+    "href": "materials/01-intro-quarto.html#jupyter",
+    "title": "Get Started with Quarto",
+    "section": "Jupyter",
+    "text": "Jupyter\nquarto preview notebook.ipynb --to html"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#jupyter-yaml",
+    "href": "materials/01-intro-quarto.html#jupyter-yaml",
+    "title": "Get Started with Quarto",
+    "section": "Jupyter YAML",
+    "text": "Jupyter YAML\nTreat YAML as a “raw cell” in Jupyter - Jupyter doesn’t care about YAML, but it’s needed/used by Quarto"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#one-install-batteries-included",
+    "href": "materials/01-intro-quarto.html#one-install-batteries-included",
+    "title": "Get Started with Quarto",
+    "section": "One install, “Batteries included”",
+    "text": "One install, “Batteries included”\n\nQuarto is bundled and comes pre-installed with RStudio v2022.07.1 and beyond!"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#section-3",
+    "href": "materials/01-intro-quarto.html#section-3",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "Feature\nR Markdown\nQuarto\n\n\n\n\nBasic Formats\n\nhtml_document\npdf_document\nword_document\n\n\nhtml\npdf\ndocx\n\n\n\nBeamer\n\nbeamer_presentation\n\n\nbeamer\n\n\n\nPowerPoint\n\npowerpoint_presentation\n\n\npptx\n\n\n\nHTML Slides\n\nxaringan\nrevealjs\n\n\nrevealjs\n\n\n\nAdvanced Layout\n\ntufte\ndistill\n\n\nQuarto Article Layout\n\n\n\n\n\n\n\n\nFeature\nR Markdown\nQuarto\n\n\n\n\nCross References\n\nhtml_document2\npdf_document2\nword_document2\n\n\nQuarto Crossrefs\n\n\n\nWebsites & Blogs\n\nblogdown\ndistill\n\n\nQuarto Websites\nQuarto Blogs\n\n\n\nBooks\n\nbookdown\n\n\nQuarto Books\n\n\n\nInteractivity\nShiny Documents\nQuarto Interactive Documents\n\n\nPaged HTML\npagedown\nSummer 2022\n\n\nJournal Articles\nrticles\nSummer 2022\n\n\nDashboards\nflexdashboard\nFall 2022"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#what-to-do-with-my-existing-.rmd-or-.ipynb",
+    "href": "materials/01-intro-quarto.html#what-to-do-with-my-existing-.rmd-or-.ipynb",
+    "title": "Get Started with Quarto",
+    "section": "What to do with my existing .Rmd or .ipynb?",
+    "text": "What to do with my existing .Rmd or .ipynb?\nFor some of you - nothing changes! Keep using RMarkdown and Jupyter.\n\n\nHowever, most existing .rmd or .ipynb can be rendered as-is via Quarto\n\nquarto render my-favorite.rmd --to html\n\n\n\n\nSince Jupyter notebooks can either be treated as a linear document to be re-executed or an already evaluated document there are additional options like: --execute\n\nquarto render my-favorite.ipynb --to html --execute"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#why-quarto-instead-of-rmarkdown",
+    "href": "materials/01-intro-quarto.html#why-quarto-instead-of-rmarkdown",
+    "title": "Get Started with Quarto",
+    "section": "Why Quarto, instead of RMarkdown",
+    "text": "Why Quarto, instead of RMarkdown\n\nBatteries included, shared syntax\nChoose your own editor and your preferred data science language\nBetter accessibility and richer features out of the box\nMore enhancements overtime - RMarkdown still maintained, but majority of new features built into Quarto\n\n\nCollaboration with other colleagues in other languages - shared format, choose your editor and your native language"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#rendering",
+    "href": "materials/01-intro-quarto.html#rendering",
+    "title": "Get Started with Quarto",
+    "section": "Rendering",
+    "text": "Rendering\n\nRender in RStudio\n\n\n\n\nSystem shell via quarto render\n\n\n\nquarto render document.qmd # defaults to html\nquarto render document.qmd --to pdf\nquarto render document.qmd --to docx\n\n\n\n\n\nR console via quarto R package\n\n\n\nlibrary(quarto)\nquarto_render(\"document.qmd\") # defaults to html\nquarto_render(\"document.qmd\", output_format = \"pdf\")"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#change-your-mental-model",
+    "href": "materials/01-intro-quarto.html#change-your-mental-model",
+    "title": "Get Started with Quarto",
+    "section": "Change your mental model",
+    "text": "Change your mental model\n\n\nSource\n\n\nOutput"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#change-your-mental-model-1",
+    "href": "materials/01-intro-quarto.html#change-your-mental-model-1",
+    "title": "Get Started with Quarto",
+    "section": "Change your mental model",
+    "text": "Change your mental model\n\n\n---\ntitle: \"ggplot2 demo\"\nauthor: \"Norah Jones\"\ndate: \"5/22/2021\"\nformat: \n  html:\n    fig-width: 8\n    fig-height: 4\n    code-fold: true\n---\n\n## Air Quality\n\n@fig-airquality further explores the impact of temperature \n  on ozone level.\n\n```{r}\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n\nlibrary(ggplot2)\nggplot(airquality, aes(Temp, Ozone)) + \n\n  geom_point() + \n  geom_smooth(method = \"loess\"\n)\n```"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#a-.qmd-is-a-plain-text-file",
+    "href": "materials/01-intro-quarto.html#a-.qmd-is-a-plain-text-file",
+    "title": "Get Started with Quarto",
+    "section": "A .qmd is a plain text file",
+    "text": "A .qmd is a plain text file\n\n\nMetadata (YAML)\n\n\n\nformat: html\nengine: knitr\n\nformat: html\nengine: jupyter\n\n\n\n\n\nCode\n\n\n\n```{r}\nlibrary(dplyr)\nmtcars |> \n  group_by(cyl) |> \n  summarize(mean = mean(mpg))\n```\n\n```{python}\nfrom siuba import *\n(mtcars\n  >> group_by(_.cyl)\n  >> summarize(avg_mpg = _.mpg.mean()))\n```\n\n\n\n\n\nText\n\n\n# Heading 1\nThis is a sentence with some **bold text**, *italic text* and an \n![image](image.png){fig-alt=\"Alt text for this image\"}."
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#metadata-yaml",
+    "href": "materials/01-intro-quarto.html#metadata-yaml",
+    "title": "Get Started with Quarto",
+    "section": "Metadata: YAML",
+    "text": "Metadata: YAML\nThe YAML metadata or header is:\n\nprocessed in many stages of the rendering process and can influence the final document in many different ways. It is placed at the very beginning of the document and is read by each of Pandoc, Quarto and knitr. Along the way, the information that it contains can affect the code, content, and the rendering process."
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#yaml",
+    "href": "materials/01-intro-quarto.html#yaml",
+    "title": "Get Started with Quarto",
+    "section": "YAML",
+    "text": "YAML\n---\ntitle: \"My Document\"\nformat: \n  html:\n    toc: true\n    code-fold: true\n---"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#markdown",
+    "href": "materials/01-intro-quarto.html#markdown",
+    "title": "Get Started with Quarto",
+    "section": "Markdown",
+    "text": "Markdown\n\nQuarto is based on Pandoc and uses its variation of markdown as its underlying document syntax. Pandoc markdown is an extended and slightly revised version of John Gruber’s Markdown syntax.\n\n\n\nMarkdown is a plain text format that is designed to be easy to write, and, even more importantly, easy to read"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#text-formatting",
+    "href": "materials/01-intro-quarto.html#text-formatting",
+    "title": "Get Started with Quarto",
+    "section": "Text Formatting",
+    "text": "Text Formatting\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\n*italics* and **bold**\nitalics and bold\n\n\nsuperscript^2^ / subscript~2~\nsuperscript2 / subscript2\n\n\n~~strikethrough~~\nstrikethrough\n\n\n`verbatim code`\nverbatim code"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#headings",
+    "href": "materials/01-intro-quarto.html#headings",
+    "title": "Get Started with Quarto",
+    "section": "Headings",
+    "text": "Headings\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\n# Header 1\nHeader 1\n\n\n## Header 2\nHeader 2\n\n\n### Header 3\nHeader 3\n\n\n#### Header 4\nHeader 4\n\n\n##### Header 5\nHeader 5\n\n\n###### Header 6\nHeader 6"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#code",
+    "href": "materials/01-intro-quarto.html#code",
+    "title": "Get Started with Quarto",
+    "section": "Code",
+    "text": "Code\n\n\n```{r}\n#| output-location: column\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\"\n)\n```\n\n\n\n\n\nFigure 1: Temperature and ozone level."
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#code-more-than-just-r",
+    "href": "materials/01-intro-quarto.html#code-more-than-just-r",
+    "title": "Get Started with Quarto",
+    "section": "Code, more than just R",
+    "text": "Code, more than just R\n\n\n\n```{python}\n#| eval: false\n#| label: fig-polar\n#| fig-cap: \"A line plot on a polar axis\"\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n```"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#what-about-the-cli",
+    "href": "materials/01-intro-quarto.html#what-about-the-cli",
+    "title": "Get Started with Quarto",
+    "section": "What about the CLI?",
+    "text": "What about the CLI?\n\nQuarto is a command line interface (CLI) that renders plain text formats (.qmd, .rmd, .md) OR mixed formats (.ipynb/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more\n\n\nthomasmock$ quarto --help\n\n  Usage:   quarto\n  Version: 1.0.36\n\n  Description:\n    Quarto CLI\n\n  Options:\n    -h, --help     - Show this help.                            \n    -V, --version  - Show the version number for this program.  \n\n  Commands:\n    render          [input] [args...]   - Render input file(s) to various document types.            \n    preview         [file] [args...]    - Render and preview a document or website project.          \n    serve           [input]             - Serve a Shiny interactive document.                        \n    create-project  [dir]               - Create a project for rendering multiple documents          \n    convert         <input>             - Convert documents to alternate representations.            \n    pandoc          [args...]           - Run the version of Pandoc embedded within Quarto.          \n    run             [script] [args...]  - Run a TypeScript, R, Python, or Lua script.                \n    install         <type> [target]     - Installs an extension or global dependency.                \n    publish         [provider] [path]   - Publish a document or project. Available providers include:\n    check           [target]            - Verify correct functioning of Quarto installation.         \n    help            [command]           - Show this help or the help of a sub-command."
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#navigating-in-the-terminal",
+    "href": "materials/01-intro-quarto.html#navigating-in-the-terminal",
+    "title": "Get Started with Quarto",
+    "section": "Navigating in the terminal",
+    "text": "Navigating in the terminal\nBecause Quarto is a command line interface (CLI), there are times you’ll need to use it via the terminal. A great overview of using the command line and navigating files/directories is available via the Data Carpentries or a great interactive tool for understanding commands: https://tldr.ostera.io\n\n\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\npwd\nPrint name of current working directory\n\n\ncd\nChange current working directory\n\n\nls\nList directory contents\n\n\nquarto --help\nReturn quarto help docs\n\n\nmkdir howdy\nMake a new folder/directory called “howdy”\n\n\nrm folder-name/some-file.qmd\nRemove a file called some-file.qmd from the a sub folder"
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-anatomy",
+    "href": "materials/02-authoring.html#quarto-anatomy",
+    "title": "Get Started with Quarto",
+    "section": "Quarto, anatomy",
+    "text": "Quarto, anatomy\n\nMetadata: YAML\nText: Markdown\nCode: knitr or jupyter\n\n\nAdd it all together, and you have beautiful, powerful, and useful outputs!"
+  },
+  {
+    "objectID": "materials/02-authoring.html#literate-programming",
+    "href": "materials/02-authoring.html#literate-programming",
+    "title": "Get Started with Quarto",
+    "section": "Literate programming",
+    "text": "Literate programming\n\nLiterate programming is writing out the program logic in a human language with included (separated by a primitive markup) code snippets and macros. - Wikipedia\n\n---\ntitle: \"ggplot2 demo\"\ndate: \"5/22/2021\"\nformat: html\n---\n\n## Air Quality\n\nThere is a relationship between temperature and the ozone level.\n\n```{r}\n#| label: fig-airquality\nlibrary(ggplot2)\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\"\n)\n```"
+  },
+  {
+    "objectID": "materials/02-authoring.html#metadata-yaml",
+    "href": "materials/02-authoring.html#metadata-yaml",
+    "title": "Get Started with Quarto",
+    "section": "Metadata: YAML",
+    "text": "Metadata: YAML\n“Yet Another Markup Language” or “YAML Ain’t Markup Language”\n---\nkey: value\n---"
+  },
+  {
+    "objectID": "materials/02-authoring.html#output-options",
+    "href": "materials/02-authoring.html#output-options",
+    "title": "Get Started with Quarto",
+    "section": "Output Options",
+    "text": "Output Options\n---\nformat: something\n---\n\n---\nformat: html\n---\n---\nformat: pdf\n---\n---\nformat: revealjs\n---\n\n\nThen add option arguments!\n---\nformat: \n  html:\n    toc: true\n    code-fold: true\n---\n\n\nSub-options should be below the main format output and spacing matters!\n---\nformat: \n  html:\n    option1: text\n    option2: logical\n---"
+  },
+  {
+    "objectID": "materials/02-authoring.html#why-yaml",
+    "href": "materials/02-authoring.html#why-yaml",
+    "title": "Get Started with Quarto",
+    "section": "Why YAML?",
+    "text": "Why YAML?\nTo avoid manually typing out all the options, every time!\n\n\nquarto render document.qmd --to html\n\n\n\n\n\nquarto render document.qmd --to html -M code fold:true\n\n\n\n\n\nquarto render document.qmd --to html -M code-fold:true -P alpha:0.2 -P ratio:0.3"
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-workflow",
+    "href": "materials/02-authoring.html#quarto-workflow",
+    "title": "Get Started with Quarto",
+    "section": "Quarto workflow",
+    "text": "Quarto workflow\nExecuting the Quarto Render button in RStudio will call Quarto render in a background job - this will prevent Quarto rendering from cluttering up the R console, and gives you and easy way to stop."
+  },
+  {
+    "objectID": "materials/02-authoring.html#rendering",
+    "href": "materials/02-authoring.html#rendering",
+    "title": "Get Started with Quarto",
+    "section": "Rendering",
+    "text": "Rendering\n\nRender in RStudio, starts a background job and previews the output\n\n\n\n\nSystem shell via quarto render\n\n\n\nquarto render document.qmd # defaults to html\nquarto render document.qmd --to pdf\nquarto render document.qmd --to docx\n\n\n\nRenders via terminal\n\n\n\n\nR console via quarto R package\n\n\n\nlibrary(quarto)\nquarto_render(\"document.qmd\") # defaults to html\nquarto_render(\"document.qmd\", output_format = \"pdf\")"
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-linting",
+    "href": "materials/02-authoring.html#quarto-linting",
+    "title": "Get Started with Quarto",
+    "section": "Quarto linting",
+    "text": "Quarto linting\n\nLint, or a linter, is a static code analysis tool used to flag programming errors, bugs, stylistic errors and suspicious constructs. - Lint"
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-yaml-intelligence",
+    "href": "materials/02-authoring.html#quarto-yaml-intelligence",
+    "title": "Get Started with Quarto",
+    "section": "Quarto YAML Intelligence",
+    "text": "Quarto YAML Intelligence\nRStudio + VSCode provide rich tab-completion - start a word and tab to complete, or Ctrl + space to see all available options."
+  },
+  {
+    "objectID": "materials/02-authoring.html#divs-and-spans",
+    "href": "materials/02-authoring.html#divs-and-spans",
+    "title": "Get Started with Quarto",
+    "section": "Divs and Spans",
+    "text": "Divs and Spans\nPandoc and therefore Quarto can parse “fenced Div blocks”\n\n.big-text {\n  font-size: 120px;\n}\n::: {.big-text}\nA paragraph with big text.\n:::\n\n\n\n\n\n\nA paragraph with big text.\n\n\n\nThis is text with [special]{style=\"color:red;\"} formatting.\n\n\nThis is text with special formatting."
+  },
+  {
+    "objectID": "materials/02-authoring.html#divs-and-spans-1",
+    "href": "materials/02-authoring.html#divs-and-spans-1",
+    "title": "Get Started with Quarto",
+    "section": "Divs and spans",
+    "text": "Divs and spans\nA fenced div always starts and ends with equal/matching ::::\n\n\nMinimum and typical :::\n::: <- Starts\nContent\n::: <- Ends\n\nAny number can be used: ::::::\n:::::: <- Starts\nContent\n:::::: <- Ends\n\n\n\nYou can also nest fenced div, just make sure to match start -> end\n\n:::: {.columns}\n::: {.column}\ncontent\n:::\n\n::: {.column}\ncontent 2\n:::\n::::"
+  },
+  {
+    "objectID": "materials/02-authoring.html#why-instead-of-div",
+    "href": "materials/02-authoring.html#why-instead-of-div",
+    "title": "Get Started with Quarto",
+    "section": "Why ::: instead of <div>",
+    "text": "Why ::: instead of <div>\nYou’re not limited to HTML/CSS concepts - Pandoc and Quarto also have “attributes” that can be assigned in this way.\n\n\nYou can think of a ::: div as a HTML <div> but it can also apply in specific situations to content in PDF or other formats (Word, Powerpoint, etc)\nSimilarly, [text]{.class} spans can be thought of a <span .class>Text</span> but again are a bit more transferable if using Pandoc/Quarto native attributes.\n\n\n\nThe following, uses a ::: to apply a figure layout Quarto class across formats AND applies a span with {alt-text=\"text\"}\n::: {layout-ncol=2}\n\n![Male boston terrier](male-boston-terrier.png){fig-alt=\"An image of a male boston terrier\"}\n\n![Female boston terrier](female-boston-terrier.png){fig-alt=\"An image of a female boston terrier\"}\n\n:::"
+  },
+  {
+    "objectID": "materials/02-authoring.html#callout-blocks",
+    "href": "materials/02-authoring.html#callout-blocks",
+    "title": "Get Started with Quarto",
+    "section": "Callout Blocks",
+    "text": "Callout Blocks\n:::{.callout-note}\nNote that there are five types of callouts, including: \n`note`, `tip`, `warning`, `caution`, and `important`.\n:::\n\n\n\n\n\n\nNote\n\n\nNote that there are five types of callouts, including: note, tip, warning, caution, and important.\n\n\n\n\n\n\n\n\n\nWarning\n\n\nCallouts provide a simple way to attract attention, for example, to this warning.\n\n\n\n\n\n\n\n\n\nThis is important\n\n\nDanger, callouts will really improve your writing.\n\n\n\n\n\n\n\n\n\nTip with caption\n\n\n\n\n\n\n\n\n\n\n\n\nCaution, under construction\n\n\nHere is something under construction"
+  },
+  {
+    "objectID": "materials/02-authoring.html#callout-markdown-syntax",
+    "href": "materials/02-authoring.html#callout-markdown-syntax",
+    "title": "Get Started with Quarto",
+    "section": "Callout markdown syntax",
+    "text": "Callout markdown syntax\n:::{.callout-note}\nNote that there are five types of callouts, including:\n`note`, `warning`, `important`, `tip`, and `caution`.\n:::\n\n\n:::{.callout-tip}\n## Tip With Caption\n\nThis is an example of a callout with a caption.\n:::\n \n:::{.callout-caution collapse=\"true\"}\n## Expand To Learn About Collapse\n\nThis is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse=\"true\"` to collapse it by default or `collapse=\"false\"` to make a collapsible callout that is expanded by default.\n:::"
+  },
+  {
+    "objectID": "materials/02-authoring.html#tabsets",
+    "href": "materials/02-authoring.html#tabsets",
+    "title": "Get Started with Quarto",
+    "section": "Tabsets",
+    "text": "Tabsets\nSplit up and flip between sections of a page, alternative to just two columns\n::: {.panel-tabset}\n\n## Element 1\n\n## Element 2\n\n:::"
+  },
+  {
+    "objectID": "materials/02-authoring.html#tabsets-1",
+    "href": "materials/02-authoring.html#tabsets-1",
+    "title": "Get Started with Quarto",
+    "section": "Tabsets",
+    "text": "Tabsets\n\nCodeOutput\n\n\n\n```{r}\n#| eval: false\nhead(mtcars)\n```\n\n\n\n\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1"
+  },
+  {
+    "objectID": "materials/02-authoring.html#tabsets-2",
+    "href": "materials/02-authoring.html#tabsets-2",
+    "title": "Get Started with Quarto",
+    "section": "Tabsets",
+    "text": "Tabsets\n\n::: {.panel-tabset}\n\n## Code\n\n```{r}\n#| echo: fenced\n#| eval: false\nhead(mtcars)\n```\n\n\n## Output\n\n```{r}\n#| eval: true\n#| echo: false\nhead(mtcars)\n```\n\n:::"
+  },
+  {
+    "objectID": "materials/02-authoring.html#figure-layout",
+    "href": "materials/02-authoring.html#figure-layout",
+    "title": "Get Started with Quarto",
+    "section": "Figure layout",
+    "text": "Figure layout\n\nUse a layout div: ::: {layout=???}"
+  },
+  {
+    "objectID": "materials/02-authoring.html#spans",
+    "href": "materials/02-authoring.html#spans",
+    "title": "Get Started with Quarto",
+    "section": "Spans",
+    "text": "Spans\nWhereas a ::: fenced div is useful for application across a paragraph of text or set of images, a [span]{.class} is useful for application to a single item/string within a sentence.\n\nMaybe a footnote1\n\n\nOr a magically appearing word with an additional point after\nOr a magically [appearing word]{.fragment} [with an additional point after]{.fragment}\n\nMaybe a footnote^[This is important text]"
+  },
+  {
+    "objectID": "materials/02-authoring.html#choose-your-engine",
+    "href": "materials/02-authoring.html#choose-your-engine",
+    "title": "Get Started with Quarto",
+    "section": "Choose your engine",
+    "text": "Choose your engine\n\n\nIf no engine specified, Quarto will use whatever language is found first (R = knitr, Python/Julia = Jupyter)\n---\nformat: html\n---\n\nYou can force using knitr if you’re mixing R/Python content via reticulate or if your first code chunk is not R but you want to use R.\n---\nformat: html\nengine: knitr\n---\n\nYou can specify Jupyter to use defaults\n---\nengine: jupyter\n---\n\nOr a specific Python version\n---\nengine: python3\n---\n\nOr even a specific Jupyter Kernel!\n---\njupyter: \n  kernelspec:\n    name: \"venvPython\"\n    language: \"python\"\n    display_name: \"Python 3.7 (venv Python)\"\n---"
+  },
+  {
+    "objectID": "materials/02-authoring.html#knitr-code-cells",
+    "href": "materials/02-authoring.html#knitr-code-cells",
+    "title": "Get Started with Quarto",
+    "section": "knitr code cells",
+    "text": "knitr code cells\nThere’s a lot of knitr options!\n\nSee Quarto specific knitr details at: https://quarto.org/docs/reference/cells/cells-knitr.html\nknitr overview in total: https://yihui.org/knitr/\nJupyter specific chunk options: https://quarto.org/docs/reference/cells/cells-jupyter.html"
+  },
+  {
+    "objectID": "materials/02-authoring.html#anatomy-of-a-code-chunk",
+    "href": "materials/02-authoring.html#anatomy-of-a-code-chunk",
+    "title": "Get Started with Quarto",
+    "section": "Anatomy of a code chunk",
+    "text": "Anatomy of a code chunk\n\n\n```{r}\n#| label: car-cyl\n#| echo: false\nmtcars %>% \n  distinct(cyl)\n```\n\n\nHas 3x backticks on each end ```\n\nPlace engine (r) between curly braces {r}\n\nPlace options underneath, behind the #| (hashpipe): #| option1: value"
+  },
+  {
+    "objectID": "materials/02-authoring.html#code-2",
+    "href": "materials/02-authoring.html#code-2",
+    "title": "Get Started with Quarto",
+    "section": "Code",
+    "text": "Code\n\n# label: example-code-introduction\n#| echo: fenced\n#| output-location: column\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\"\n)"
+  },
+  {
+    "objectID": "materials/02-authoring.html#code-more-than-just-r",
+    "href": "materials/02-authoring.html#code-more-than-just-r",
+    "title": "Get Started with Quarto",
+    "section": "Code, more than just R",
+    "text": "Code, more than just R\n\n\n\n```{python}\n#| label: fig-polar\n#| eval: false\n#| fig-cap: \"A line plot on a polar axis\"\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n```"
+  },
+  {
+    "objectID": "materials/02-authoring.html#create-code-chunks",
+    "href": "materials/02-authoring.html#create-code-chunks",
+    "title": "Get Started with Quarto",
+    "section": "Create code chunks",
+    "text": "Create code chunks\n\nYou can manually type out code chunks: ```{r}\nthe keyboard shortcut Ctrl + Alt + I (OS X: Cmd + Option + I)\nthe Add Chunk command in the editor toolbar\n\n\nOr use the Command Palette: Cmd + Shift + P/Ctrl + Shift + P"
+  },
+  {
+    "objectID": "materials/02-authoring.html#code-chunks-options",
+    "href": "materials/02-authoring.html#code-chunks-options",
+    "title": "Get Started with Quarto",
+    "section": "Code chunks options",
+    "text": "Code chunks options\nAll code chunk options at yihui.org/knitr/options/\n\nIf you’ve used RMarkdown before, you’re likely used to syntax like:\n```{r chunk-label, option=TRUE}\n\n\n\n```{r, echo = \"fenced\", eval = TRUE}\nmtcars %>% filter(mpg >= 25)\n```\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\n\n\n\n\nQuarto introduces the “hash pipe” in #| - this is the preferred syntax, although Quarto is backwards compatible with the older RMarkdown syntax.\n\n```{r}\n#| eval: true\nmtcars %>% filter(mpg >= 25)\n```\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2"
+  },
+  {
+    "objectID": "materials/02-authoring.html#quartos-hash-pipe",
+    "href": "materials/02-authoring.html#quartos-hash-pipe",
+    "title": "Get Started with Quarto",
+    "section": "Quarto’s hash pipe #|",
+    "text": "Quarto’s hash pipe #|\n\nWeezer - Hash Pipe"
+  },
+  {
+    "objectID": "materials/02-authoring.html#why-quarto",
+    "href": "materials/02-authoring.html#why-quarto",
+    "title": "Get Started with Quarto",
+    "section": "Why Quarto + #|?",
+    "text": "Why Quarto + #|?\n\nConsistency across engine (Jupyter/knitr)\nConsistency across YAML/Chunk options - decrease mental burden when learning/remembering\nMore control over order/spacing of chunk options - not limited to one running line of options!"
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-chunk-options",
+    "href": "materials/02-authoring.html#quarto-chunk-options",
+    "title": "Get Started with Quarto",
+    "section": "Quarto chunk options",
+    "text": "Quarto chunk options\n\n```{r}\n#| warning: false\n#| fig-cap: \"Air Quality\"\n#| fig-align: left\n#| fig-alt: |\n#|   \"A ggplot2 with temperature by ozone levels along with a trend line\n#|   indicating the increase in temperature with increasing ozone levels.\"\n\nlibrary(ggplot2)\nggplot(airquality, aes(Ozone, Temp)) + \n        geom_point() + \n        geom_smooth(method = \"loess\", se = FALSE)\n```\n\n\nAir Quality"
+  },
+  {
+    "objectID": "materials/02-authoring.html#code-in-chunk-option",
+    "href": "materials/02-authoring.html#code-in-chunk-option",
+    "title": "Get Started with Quarto",
+    "section": "Code in chunk option",
+    "text": "Code in chunk option\nYou can also execute code inside a chunk option via the !expr syntax:\n\n```{r}\n#| fig-cap: !expr glue::glue(\"The mean temperature was {mean(airquality$Temp)}\")\n#| fig-alt: |\n#|   \"A ggplot2 with temperature by ozone levels along with a trend line\n#|   indicating the increase in temperature with increasing ozone levels.\"\nggplot(airquality, aes(Ozone, Temp)) + \n        geom_point() + \n        geom_smooth(method = \"loess\", se = FALSE)\n```\n\n\nThe mean temperature was 77.8823529411765"
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-and-rmarkdown",
+    "href": "materials/02-authoring.html#quarto-and-rmarkdown",
+    "title": "Get Started with Quarto",
+    "section": "Quarto and RMarkdown",
+    "text": "Quarto and RMarkdown\n\nBasic RMarkdown documents that render to static HTML and PDF are the most transferable directly to Quarto\n\n\n\n\nR Markdown\ntitle: \"My Document\"\noutput:\n  html_document:\n    toc: true\n    number_sections: true\n    css: styles.css\n\nQuarto\ntitle: \"My Document\"\nformat:\n  html:\n    toc: true\n    number-sections: true\n    css: styles.css\n\n\n\n\n\nNote that the YAML for Quarto: - Will follow a word-word syntax - Instead of using output: html_document, you’ll use format: html\n\nOne source of the difference in syntax is that Quarto is more closely aligned with Pandoc format names and options (thus the use of - as a word separator rather than _)."
+  },
+  {
+    "objectID": "materials/02-authoring.html#section",
+    "href": "materials/02-authoring.html#section",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "Converting RMarkdown -> Quarto\n\n\nOption 1: Change .rmd -> .qmd - this will ALWAYS use Quarto for rendering\nOption 2: Change YAML’s output: html_document -> format: html - uses Quarto\n\n\nConverting knitr chunks\n\nknitr dev version as of 2022-08-06 has: knitr::convert_chunk_header(\"doc.qmd\", output = identity)\n\n\n\nknitr::convert_chunk_header() converts:\n\nfig.width=1 syntax to\n#| fig-width: 1\nacross all code chunks in a entire document\n\n\n\n\n\nBut again - you don’t have to convert syntax of all your old documents, can use quarto render at terminal or use R + quarto::quarto_render() to render existing RMarkdown docs via Quarto"
+  },
+  {
+    "objectID": "materials/02-authoring.html#html-appearance",
+    "href": "materials/02-authoring.html#html-appearance",
+    "title": "Get Started with Quarto",
+    "section": "HTML Appearance",
+    "text": "HTML Appearance\nOut of the box, Quarto’s HTML is styled with Bootstrap 5 and opinionated defaults.\nBootstrap is the most popular CSS Framework for responsive websites, where v5 is the latest.\n\nQuarto comes pre-installed with 25 themes from Bootswatch and you can use them like so:\n---\nformat:\n  html:\n    theme: litera\n---\n\n\n\nOr you can use a theme and further customize components with SCSS/SASS.\n---\nformat:\n  html:\n    theme: \n      - litera\n      - custom.scss\n---"
+  },
+  {
+    "objectID": "materials/02-authoring.html#bootswatch-themes",
+    "href": "materials/02-authoring.html#bootswatch-themes",
+    "title": "Get Started with Quarto",
+    "section": "Bootswatch themes",
+    "text": "Bootswatch themes"
+  },
+  {
+    "objectID": "materials/02-authoring.html#embrace-reveal.js",
+    "href": "materials/02-authoring.html#embrace-reveal.js",
+    "title": "Get Started with Quarto",
+    "section": "Embrace reveal.js",
+    "text": "Embrace reveal.js\n---\ntitle: \"My first presentation\"\nformat: revealjs\n---\n## Slide 1\n\n- Content\n\n## Slide 2\n\n- Content\n\n![](image.png){fig-alt=\"A description of an image\"}\n\n## Slide 3\n\n```{r}\n#| echo: false\nggplot(mtcars, aes(x = disp, y = mpg)) +\n  geom_point()\n```"
+  },
+  {
+    "objectID": "materials/02-authoring.html#embrace-reveal.js-1",
+    "href": "materials/02-authoring.html#embrace-reveal.js-1",
+    "title": "Get Started with Quarto",
+    "section": "Embrace reveal.js",
+    "text": "Embrace reveal.js\n\nCreate new slides with level 1 or level 2 headers (## Heading)\nAdd content/lists/images/code\n\n\nUse fenced divs ::: for columns\n\n\n\nContent on the left\nMore content\nAdditional list\n\nA paragraph of text that is important to hold on the left, but it’s fun to include below a list.\n\n\nImage on the right"
+  },
+  {
+    "objectID": "materials/02-authoring.html#columns",
+    "href": "materials/02-authoring.html#columns",
+    "title": "Get Started with Quarto",
+    "section": "Columns",
+    "text": "Columns\n:::: {.columns}\n\n::: {.column .fragment}\n\n- Content on the left\n\n:::\n\n::: {.column .fragment}\n- Image on the right\n\n![](images/howard-comfy.png){fig-alt=\"A picture of my dog Howard sleeping with his head smushed against the side of the couch\"}\n\n:::\n\n::::"
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-projects-1",
+    "href": "materials/02-authoring.html#quarto-projects-1",
+    "title": "Get Started with Quarto",
+    "section": "Quarto projects",
+    "text": "Quarto projects\nQuarto projects are directories that provide:\n\n\nA way to render all or some of the files in a directory with a single command (e.g. quarto render myproject).\nA way to share YAML configuration across multiple documents.\nThe ability to redirect output artifacts to another directory.\nThe ability to freeze rendered output (i.e. don’t re-execute documents unless they have changed).\nIn addition, projects can have special “types” that introduce additional behavior (e.g. websites or books)."
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-projects-2",
+    "href": "materials/02-authoring.html#quarto-projects-2",
+    "title": "Get Started with Quarto",
+    "section": "Quarto Projects",
+    "text": "Quarto Projects\n\nA Quarto Project is at minimal one Quarto document and the _quarto.yml file\n\n\n\n _quarto.yml\n\nproject:\n  output-dir: _output\n\ntoc: true\nnumber-sections: true\nbibliography: references.bib  \n  \nformat:\n  html:\n    css: styles.css\n    html-math-method: katex\n  pdf:\n    documentclass: report\n    margin-left: 30mm\n    margin-right: 30mm"
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-projects-3",
+    "href": "materials/02-authoring.html#quarto-projects-3",
+    "title": "Get Started with Quarto",
+    "section": "Quarto Projects",
+    "text": "Quarto Projects\n\nBooks, Websites, Blogs are a Quarto project\nWant to learn how to build a blog? Join Isabella Velasquez from RStudio in our next Quarto webinar!\n\n\n\n\nQuarto in 2 Hours"
+  },
+  {
+    "objectID": "materials/images/mermaid.html",
+    "href": "materials/images/mermaid.html",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "graph LR\n%% classDef\nclassDef classBlue color: #55a5f6,fill:#f1f1f1,stroke-width:2px,stroke:#55a5f6,font-weight:bold\nclassDef classRed color: #af0659,fill:#e0e5eb,stroke-width:2px,stroke:#af0659\nclassDef classMd color: #c96195,fill:#f1f1f1,stroke-width:2px,stroke:#c96195,font-weight:bold\nclassDef classPandoc color: #0980b0,fill:#e0e5eb,stroke-width:2px,stroke:#0980b0\nclassDef classFile color:#17559e,fill:#f1f1f1,stroke:#55a5f6\nclassDef classFile2 color:#17559e,fill:#f1f1f1,stroke:#55a5f6\n\n    A(fa:fa-file-code .qmd) -.-> B{{fa:fa-code knitr}}\n    B -.-> C(fa:fa-file md)\n    C -.-> D{{pandoc withLua filters}}\n    D -->| Report| E[fa:fa-file-pdf, fa:fa-file, fa:fa-file-word]\n    D -->|Presentation| F[revealjs, fa:fa-file-powerpoint ]\n    D -->|Projects| G[fa:fa-globe,fa:fa-book]\n\n%%Style\n\nclass A classBlue\nclass B classRed\nclass C classMd\nclass D classPandoc\nclass E,F classFile\nclass G classFile2\n\n\n\n\n\n\n\n\n\n\n\n\ngraph LR\n%% classDef\nclassDef classBlue color: #55a5f6,fill:#f1f1f1,stroke-width:2px,stroke:#55a5f6,font-weight:bold\nclassDef classRed color: #e05b00,fill:#e0e5eb,stroke-width:2px,stroke:#e05b00\nclassDef classMd color: #c96195,fill:#f1f1f1,stroke-width:2px,stroke:#c96195,font-weight:bold\nclassDef classPandoc color: #0980b0,fill:#e0e5eb,stroke-width:2px,stroke:#0980b0\nclassDef classFile color:#17559e,fill:#f1f1f1,stroke:#55a5f6\nclassDef classFile2 color:#17559e,fill:#f1f1f1,stroke:#55a5f6\n\n    A(fa:fa-file-code .qmd) -.-> B{{fa:fa-code jupyter}}\n    B -.-> C(fa:fa-file md)\n    C -.-> D{{pandoc withLua filters}}\n    D -->| Report| E[fa:fa-file-pdf, fa:fa-file, fa:fa-file-word]\n    D -->|Presentation| F[revealjs, fa:fa-file-powerpoint ]\n    D -->|Projects| G[fa:fa-globe,fa:fa-book]\n\n%%Style\n\nclass A classBlue\nclass B classRed\nclass C classMd\nclass D classPandoc\nclass E,F classFile\nclass G classFile2\n\n\n\n\n\n\n\n\n\n\n\n\ngraph LR\n%% classDef\nclassDef classBlue color: #55a5f6,fill:#f1f1f1,stroke-width:2px,stroke:#55a5f6,font-weight:bold\nclassDef classRed color: #e05b00,fill:#e0e5eb,stroke-width:2px,stroke:#e05b00\nclassDef classMd color: #c96195,fill:#f1f1f1,stroke-width:2px,stroke:#c96195,font-weight:bold\nclassDef classPandoc color: #0980b0,fill:#e0e5eb,stroke-width:2px,stroke:#0980b0\nclassDef classFile color:#17559e,fill:#f1f1f1,stroke:#55a5f6\nclassDef classFile2 color:#17559e,fill:#f1f1f1,stroke:#55a5f6\n\n    B{{fa:fa-code jupyter}} -.-> C(fa:fa-file md)\n    C -.-> D{{pandoc withLua filters}}\n    D -->| Report| E[fa:fa-file-pdf, fa:fa-file, fa:fa-file-word]\n    D -->|Presentation| F[revealjs, fa:fa-file-powerpoint ]\n    D -->|Projects| G[fa:fa-globe,fa:fa-book  ]\n\n%%Style\n\nclass A classBlue\nclass B classRed\nclass C classMd\nclass D classPandoc\nclass E,F classFile\nclass G classFile2\n\n\n\n\n\n\n\n\n\n\n\n\ngraph LR\n%% classDef\nclassDef classBlue color: #55a5f6,fill:#f1f1f1,stroke-width:2px,stroke:#55a5f6,font-weight:bold\nclassDef classRed color: #af0659,fill:#e0e5eb,stroke-width:2px,stroke:#af0659\nclassDef classMd color: #c96195,fill:#f1f1f1,stroke-width:2px,stroke:#c96195,font-weight:bold\nclassDef classPandoc color: #0980b0,fill:#e0e5eb,stroke-width:2px,stroke:#0980b0\nclassDef classFile color:#17559e,fill:#f1f1f1,stroke:#55a5f6\nclassDef classFile2 color:#17559e,fill:#f1f1f1,stroke:#55a5f6\n\n    A(Liquor ) -.-> B{{fa:fa-lemon Citrus }}\n    B -.-> C(Sugar)\n    C -.-> D{{Shaker}}\n    D -->| Whiskey| E[Whiskey Sour]\n    D -->|Rum| F[Daquiri]\n    D -->|Gin| G[Gimlet]\n\n%%Style\n\nclass A classBlue\nclass B classRed\nclass C classMd\nclass D classPandoc\nclass E,F classFile\nclass G classFile2"
+  },
+  {
+    "objectID": "materials/static/custom-layout.html",
+    "href": "materials/static/custom-layout.html",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "::: {layout=\"[[1,1], [1]]\"}\n![Howard sleeping](images/howard-glamour.jpg)\n\n![Howard in a table](images/howard-table.png)\n\n![Howard on a couch](images/howard-comfy.png)\n:::\n\n\n\n\n\n\nHoward sleeping\n\n\n\n\n\n\n\nHoward in a table\n\n\n\n\n\n\n\n\n\nHoward on a couch"
+  },
+  {
+    "objectID": "materials/static/custom-layout.html#layout7030-100",
+    "href": "materials/static/custom-layout.html#layout7030-100",
+    "title": "Get Started with Quarto",
+    "section": "layout=\"[[70,30], [100]]\"",
+    "text": "layout=\"[[70,30], [100]]\"\n::: {layout=\"[[70,30], [100]]\"}\n\n![Howard on a couch](images/howard-comfy.png)\n\n![Howard sleeping](images/boston-sleep.png)\n\n![Howard in a table](images/howard-table.png)\n:::\n\n\n\n\n\n\nHoward on a couch\n\n\n\n\n\n\n\nHoward sleeping\n\n\n\n\n\n\n\n\n\nHoward in a table"
+  },
+  {
+    "objectID": "materials/static/custom-layout.html#layout40-2040-100",
+    "href": "materials/static/custom-layout.html#layout40-2040-100",
+    "title": "Get Started with Quarto",
+    "section": "layout=\"[[40,-20,40], [100]]\"",
+    "text": "layout=\"[[40,-20,40], [100]]\"\n::: {layout=\"[[40,-20,40], [100]]\"}\n![Howard on a couch](images/howard-comfy.png)\n\n![Howard sleeping](images/howard-glamour.jpg)\n\n![Howard in a table](images/howard-table.png)\n:::\n\n\n\n\n\n\nHoward on a couch\n\n\n\n\n \n\n\n\n\n\nHoward sleeping\n\n\n\n\n\n\n\n\n\nHoward in a table"
+  },
+  {
+    "objectID": "materials/static/custom-layout.html#layout25-210-layout-valignbottom",
+    "href": "materials/static/custom-layout.html#layout25-210-layout-valignbottom",
+    "title": "Get Started with Quarto",
+    "section": "layout=\"[25,-2,10]\" layout-valign=\"bottom\"",
+    "text": "layout=\"[25,-2,10]\" layout-valign=\"bottom\"\n::: {layout=\"[25,-2,10]\" layout-valign=\"bottom\"}\n![Howard on a couch](images/howard-comfy.png)\n\n![Howard in a table](images/howard-table.png)\n:::\n\n\n\n\n\n\nHoward on a couch\n\n\n\n\n \n\n\n\n\n\nHoward in a table"
+  },
+  {
+    "objectID": "materials/static/fancy-footnotes.html",
+    "href": "materials/static/fancy-footnotes.html",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "Pandoc supports numbering and formatting footnotes using the following syntax:"
+  },
+  {
+    "objectID": "materials/static/fancy-footnotes.html#output",
+    "href": "materials/static/fancy-footnotes.html#output",
+    "title": "Get Started with Quarto",
+    "section": "Output",
+    "text": "Output\nHere is a footnote reference,1 and another.2\nThis paragraph won’t be part of the note, because it isn’t indented."
+  },
+  {
+    "objectID": "materials/static/figure-layout.html",
+    "href": "materials/static/figure-layout.html",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "::: {layout-ncol=2}\n![Howard on a couch](images/howard-comfy.png)\n\n![Howard in a table](images/howard-table.png)\n:::\n\n\n\n\n\n\nHoward on a couch\n\n\n\n\n\n\n\nHoward in a table"
+  },
+  {
+    "objectID": "materials/static/figure-layout.html#layout-nrow2",
+    "href": "materials/static/figure-layout.html#layout-nrow2",
+    "title": "Get Started with Quarto",
+    "section": "layout-nrow=2",
+    "text": "layout-nrow=2\n\n\n\n\n\n\nHoward on a couch\n\n\n\n\n\n\n\nHoward in a table\n\n\n\n\n\n\n\n\n\nHoward sleeping\n\n\n\n\n\n\n\nHoward awake"
+  },
+  {
+    "objectID": "materials/static/footnote.html",
+    "href": "materials/static/footnote.html",
+    "title": " ",
+    "section": "",
+    "text": "Footnotes\n\n\nSpecifically he is a Boston Terrier, although sometimes he acts like a cat↩︎"
+  },
+  {
+    "objectID": "materials/static/sub-figure.html",
+    "href": "materials/static/sub-figure.html",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "(a) Excited\n\n\n\n\n\n\n\n(b) Sleeping\n\n\n\n\nFigure 1: Two states of Howard"
+  },
+  {
+    "objectID": "materials/static/toc-1.html",
+    "href": "materials/static/toc-1.html",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n\n\n\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+  },
+  {
+    "objectID": "materials/static/vertical-align.html",
+    "href": "materials/static/vertical-align.html",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "Howard on a couch\n\n\n\n\n \n\n\n\n\n\nHoward sleeping\n\n\n\n\n\n\n\n\n\nHoward in a table"
+  },
+  {
+    "objectID": "materials/test-layout.html",
+    "href": "materials/test-layout.html",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "Excited\n\n\n\n\n\n\n\nSleeping\n\n\n\n\n\n\n\n\n\nStill Excited\n\n\n\n\n\n\n\nStill sleeping\n\n\n\n\n\n\nTwo states of Howard, twice"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#TitleSlide",
+    "href": "materials/01-intro-quarto.html#TitleSlide",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "Quarto in 2 Hours\n\nTom Mock, RStudio PBC\n jthomasmock.github.io/quarto-2hr-webinar\n2022-07-27\n\n\nYou are sneaky!"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#section-1",
+    "href": "materials/01-intro-quarto.html#section-1",
+    "title": "Get Started with Quarto",
+    "section": "",
+    "text": "Find me at:\n @thomas_mock\n @jthomasmock\n themockup.blog"
+  }
+]

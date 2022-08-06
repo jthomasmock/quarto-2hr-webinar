@@ -1,0 +1,132 @@
+---
+format: html
+---
+
+```{r}
+fontawesome::fa_html_dependency()
+```
+
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+
+<!-- Editor: -->
+
+<!-- https://mermaid.live/edit#pako:eNqVU1FvmzAQ_iuWo0ibBBWpRFb8UKkJSV82qUofSx8MPidujI2MWVaR_PeZECcs6rQOXo7vvu_zcb5rcaEZYILXhlYb9H2VqfEYFZLWdQo8Uz7qoZlsABVaakPQKI5pzKcBF1KSEZ90b1Bbo7cQ7gSzG3Jb_ToB5EzWyoY7EOuNJbmW7PqAFbCzP-XRNE5O_hBBDPnf_Xvytd2Pi1uRTCdJ_MlqPfkf1T5RxXRxPiJK7qI8-mTBPfnacSmkb_Bo8i2OE_ioYt_Oj9S3_yPPFHLPwxdOCaeho0LYjQO6WZXsKwpvwns0a9s-e0xslbDmcOh1s54xH8iR0_XJeZ9M27Y6dsmLUhSG93u0gkobu0eLl8HZFeMBunwP43CnDXsdWjwZqEFZaoVWe7R8MfATqHyr_1BVegem0kJZdCXWb1DYeo8eTwWspc5dt45xrvX2tevOePxs3yV04bHB6OGyBx6anSfXI3M_fB5Ih-PiwUWwvNyaBx8HF4kDXIIpqWBuPduu-gzbDZSQYeJCBpw20mY4UwdHbSpGLSyYsNpg9xOyhgDTxurnd1VgYk0DnpQK6ra9PLEOvwGfrVnA -->
+
+<!-- Rmd: https://mermaid.live/view#pako:eNqVU1Fv2jAQ_iuWEdImJVWoFNb4oVIh0JdNquhj0wcnPoOLY0eOM1YF_vsSjCFDndYlL-fvvu-70_nc4kIzwASvDa026PsqU-MxKiSt6xR4pnzkoJlsABVaakPQKI5pzKcBF1KSEZ_0f1Bbo7cQ7gSzG3Jb_ToB5EzWyoY7EOuNJbmW7LrACtjZn_JoGicnf4gghvzv_o58bffj4lYk00kSf7JbT_5Ht09UMV2cS0TJXZRHn2zYka8dl0L6AY8m3-I4gY869uP8SH37P_JMoe57-MIp4TTsqBD264BuViX7isKb8B7N2tZlj4mtEtYcDk43c4z5QI46nUvOXTJt2-o4JS9KURje79EKKm3sHi1eBrUrxgN0OQ_jcKcNex1aPBmoQVlqhVZ7tHwx8BOofKv_UFV6B6bSQll0JdZvUNh6jx5PDaylzrtpHeNc6-1rP53x-Nm-S-jD44DRw-UdeGh23lyPzP3yeSAdrosHF8HycmsefBxcJA5wCaakgnXPs-27z7DdQAkZJl3IgNNG2gxn6tBRm4pRCwsmrDaYWNNAgGlj9fO7KvzZcVJBu8deOvDwG_A2WSo -->
+
+<!-- Jupyter: https://mermaid.live/view#pako:eNqVU9FumzAU_RXLUaRNgolUomv8UGkJSV82qUofSx8MviSkxtcyZllE-PdBiEMWdWoLL9fH5xwfLtc1TVEAZXRtuN6Qn6tYjccklbwsI8hi5aoemskKSIoSDSOjMORhdutluZRslE261yutwVfwd7mwG3aj_5wAdiajsv4O8vXGsgSluD5gBeLsD0GYBMHJHwIIIfm_f0--tvs1uKXT28k0_GBaR34n7SNXAtPzEcH0Lkg-GrgnXzsuc-kaPJp8D8MpvJXYtfMt9c1n5LEi7TOr64yzjPvdKJBtpfcWTNMQ_5t_T-Zf-r2sS1aIr71k3m9Gda2PPWiaHo-I798fyAo0Gnsgi-dB7GuReWRYX9b-Do14ubR4NFCCstzmqA5k-WzgN3C5Lf9RadyB0ZgrS67EuIXUlgfycAqwlpi0vTjWCeLrS_ft4_GT3UvoymP7yI9hyh00O8-lQ-ZutBwQXQ6DAxfecvgnDny4-E3UowWYgueivXx1lz6mdgMFxJS1pYCMV9LGNFZNS6204BYWIrdoKLOmAo_yyuLTXqVu3XOinLdXuejB5i_1d1AF -->
+
+<!-- Qmd -> Jupyter: https://mermaid.live/view#pako:eNqVU8Fu4jAQ_RXLCGlXiqtQKd3Fh0qFQC9bqaLHpgcnnoCpY2cdZykK_PsmGEMWtWo3uYzfvPdmNB43ONMcMMVLw8oV-rVI1HCIMsmqKoY8UT5y0ETWgDIttaFoEEUsym-CXEhJB_mo-4PKGv0KZCO4XdHr8u0I0BNZK0s2IJYrS1Mt-WWBBfCTP4RRGoZHfwghgvRjf0e-tHs4u2Xjm9E4-mK3nvxJt49McZ2dSoTjn2H61YYd-dJxLqQf8GD0I4rG8F7Hfpzvqa__R54o1H5333JGc0ZaKpBuHdDV74J_R-SK3KJJ07jsIbGuy60Fs9875cRxpj0D1CpdcuqScdOUhzl5UYwIud2hBZTa2B2aPfeqlzwP0Pncj8lGG_7St3g0UIGyzAqtdmj-bOAPMLmu_lGVegOm1EJZdCHWa8hstUP3xwaWUqftvA5xqvXrSzef4fDJbiV04WHE6O78Ejw0Oe2uR6Z-_TwQ9xfGg7Ngfr43D973rhIHuABTMMHbB9p03SfYrqCABNM25JCzWtoEJ2rfUuuSMwszLqw2mFpTQ4BZbfXTVmX-7DixYO1zLxy4_wvquVoW -->
+
+<!-- Qmd: https://mermaid.live/view#pako:eNqNU8Fu4jAQ_RXLCGlXiqtQKbTJoVIh0MtWquix6cGJJ-Di2FnHWVoF_r0JxpCiVktyGb95b-ZpPG5wphjgCC81LVfozyKRwyHKBK2qGPJEushCE1EDypRQOkKDIKBBPvZyLkQ0yEfd71VGqzWQDWdmFV2X7wcgOpKVNGQDfLkyUaoEO2-wAHasT3N_HISH-uBDAOnP9S35vNzjqVoWjkdhcKFbR_6P2ycqmcqOLfzw1k_9Cw1b8nnFORduwIPRTRCE8J1jN87v1NeXyz3r6sYv3xOZSNR-979yGuWUtCog3Wagq78F-43IFblDk6ax2X1iLbnRu53VTSxj2pOjVmeTU5uMm6bcD8yJYkTI3RYtoFTabNHspde7ZLmHTud-TDZKs9d-iScNFUhDDVdyi-YvGv4BFW_VF1WpNqBLxaVBZ2L1BpmptujhYGApVNoObh-nSq1fu-kMh8_mQ0AX7meN7k9PwkGT4xI7ZOr20AFxf3McOPPmpwt04EPvTrGHC9AF5ax9qU3nPsFmBQUkOGpDBjmthUlwIncttS4ZNTBj3CiNI6Nr8DCtjXr-kJk7W07MafvuCwvuPgFc510e -->
+
+```{mermaid knitr}
+graph LR
+%% classDef
+classDef classBlue color: #55a5f6,fill:#f1f1f1,stroke-width:2px,stroke:#55a5f6,font-weight:bold
+classDef classRed color: #af0659,fill:#e0e5eb,stroke-width:2px,stroke:#af0659
+classDef classMd color: #c96195,fill:#f1f1f1,stroke-width:2px,stroke:#c96195,font-weight:bold
+classDef classPandoc color: #0980b0,fill:#e0e5eb,stroke-width:2px,stroke:#0980b0
+classDef classFile color:#17559e,fill:#f1f1f1,stroke:#55a5f6
+classDef classFile2 color:#17559e,fill:#f1f1f1,stroke:#55a5f6
+
+    A(fa:fa-file-code .qmd) -.-> B{{fa:fa-code knitr}}
+    B -.-> C(fa:fa-file md)
+    C -.-> D{{pandoc with<br>Lua filters}}
+    D -->| Report| E[fa:fa-file-pdf, fa:fa-file, fa:fa-file-word]
+    D -->|Presentation| F[revealjs, fa:fa-file-powerpoint ]
+    D -->|Projects| G[fa:fa-globe,fa:fa-book]
+
+%%Style
+
+class A classBlue
+class B classRed
+class C classMd
+class D classPandoc
+class E,F classFile
+class G classFile2
+```
+
+
+```{mermaid jupyter}
+graph LR
+%% classDef
+classDef classBlue color: #55a5f6,fill:#f1f1f1,stroke-width:2px,stroke:#55a5f6,font-weight:bold
+classDef classRed color: #e05b00,fill:#e0e5eb,stroke-width:2px,stroke:#e05b00
+classDef classMd color: #c96195,fill:#f1f1f1,stroke-width:2px,stroke:#c96195,font-weight:bold
+classDef classPandoc color: #0980b0,fill:#e0e5eb,stroke-width:2px,stroke:#0980b0
+classDef classFile color:#17559e,fill:#f1f1f1,stroke:#55a5f6
+classDef classFile2 color:#17559e,fill:#f1f1f1,stroke:#55a5f6
+
+    A(fa:fa-file-code .qmd) -.-> B{{fa:fa-code jupyter}}
+    B -.-> C(fa:fa-file md)
+    C -.-> D{{pandoc with<br>Lua filters}}
+    D -->| Report| E[fa:fa-file-pdf, fa:fa-file, fa:fa-file-word]
+    D -->|Presentation| F[revealjs, fa:fa-file-powerpoint ]
+    D -->|Projects| G[fa:fa-globe,fa:fa-book]
+
+%%Style
+
+class A classBlue
+class B classRed
+class C classMd
+class D classPandoc
+class E,F classFile
+class G classFile2
+```
+
+```{mermaid jupyter-alone}
+graph LR
+%% classDef
+classDef classBlue color: #55a5f6,fill:#f1f1f1,stroke-width:2px,stroke:#55a5f6,font-weight:bold
+classDef classRed color: #e05b00,fill:#e0e5eb,stroke-width:2px,stroke:#e05b00
+classDef classMd color: #c96195,fill:#f1f1f1,stroke-width:2px,stroke:#c96195,font-weight:bold
+classDef classPandoc color: #0980b0,fill:#e0e5eb,stroke-width:2px,stroke:#0980b0
+classDef classFile color:#17559e,fill:#f1f1f1,stroke:#55a5f6
+classDef classFile2 color:#17559e,fill:#f1f1f1,stroke:#55a5f6
+
+    B{{fa:fa-code jupyter}} -.-> C(fa:fa-file md)
+    C -.-> D{{pandoc with<br>Lua filters}}
+    D -->| Report| E[fa:fa-file-pdf, fa:fa-file, fa:fa-file-word]
+    D -->|Presentation| F[revealjs, fa:fa-file-powerpoint ]
+    D -->|Projects| G[fa:fa-globe,fa:fa-book &nbsp]
+
+%%Style
+
+class A classBlue
+class B classRed
+class C classMd
+class D classPandoc
+class E,F classFile
+class G classFile2
+```
+
+```{mermaid cocktail}
+graph LR
+%% classDef
+classDef classBlue color: #55a5f6,fill:#f1f1f1,stroke-width:2px,stroke:#55a5f6,font-weight:bold
+classDef classRed color: #af0659,fill:#e0e5eb,stroke-width:2px,stroke:#af0659
+classDef classMd color: #c96195,fill:#f1f1f1,stroke-width:2px,stroke:#c96195,font-weight:bold
+classDef classPandoc color: #0980b0,fill:#e0e5eb,stroke-width:2px,stroke:#0980b0
+classDef classFile color:#17559e,fill:#f1f1f1,stroke:#55a5f6
+classDef classFile2 color:#17559e,fill:#f1f1f1,stroke:#55a5f6
+
+    A(Liquor&nbsp) -.-> B{{fa:fa-lemon Citrus&nbsp}}
+    B -.-> C(Sugar)
+    C -.-> D{{Shaker}}
+    D -->| Whiskey| E[Whiskey Sour]
+    D -->|Rum| F[Daquiri]
+    D -->|Gin| G[Gimlet]
+
+%%Style
+
+class A classBlue
+class B classRed
+class C classMd
+class D classPandoc
+class E,F classFile
+class G classFile2
+
+```
+

@@ -1,0 +1,1029 @@
+---
+format: 
+  revealjs:
+    # self-contained: true
+    slide-number: true
+    width: 1600
+    height: 900
+    logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
+    footer: "[Quarto in 2 Hours](https://jthomasmock.github.io/quarto-2hr-webinar/)"
+    css: ["theme/theme.css"]
+    theme: simple
+editor: source
+execute: 
+  echo: true
+filters:
+  - code-filename
+---
+
+# 02 - Authoring Quarto {background-color="#447099" background-image="images/typewriter.jpg" background-size="cover"}
+
+## Quarto, anatomy
+
+1.  Metadata: YAML
+
+2.  Text: Markdown
+
+3.  Code: `knitr` or `jupyter`
+
+. . .
+
+Add it all together, and you have beautiful, powerful, and useful outputs!
+
+```{r include=FALSE}
+library(tidyverse)
+```
+
+
+## Literate programming
+
+> Literate programming is writing out the program logic in a human language with included (separated by a primitive markup) code snippets and macros. - [Wikipedia](https://en.wikipedia.org/wiki/Literate_programming)
+
+    ---
+    title: "ggplot2 demo"
+    date: "5/22/2021"
+    format: html
+    ---
+
+    ## Air Quality
+
+    There is a relationship between temperature and the ozone level.
+
+    ```{{r}}
+    #| label: fig-airquality
+    library(ggplot2)
+    ggplot(airquality, aes(Temp, Ozone)) + 
+      geom_point() + 
+      geom_smooth(method = "loess"
+    )
+    ```
+
+. . .
+
+::: {style="background: #a13c6530; width: 400px; height: 145px; margin: 5px; position: absolute; top: 245px; left: 0px;"}
+:::
+
+. . .
+
+::: {style="background: #fa551c30; width: 900px; height: 110px; margin: 5px; position: absolute; top: 405px; left: 0px;"}
+:::
+
+. . .
+
+::: {style="background: #6a9c4230; width: 550px; height: 210px; margin: 5px; position: absolute; top: 520px; left: 0px;"}
+:::
+
+# 1 Metadata {background-color="#a13c65"}
+
+## Metadata: YAML
+
+"Yet Another Markup Language" or "YAML Ain't Markup Language"
+
+``` yaml
+---
+key: value
+---
+```
+
+## Output Options
+
+``` yaml
+---
+format: something
+---
+```
+
+. . .
+
+``` yaml
+---
+format: html
+---
+```
+
+``` yaml
+---
+format: pdf
+---
+```
+
+``` yaml
+---
+format: revealjs
+---
+```
+
+. . .
+
+Then add option arguments!
+
+``` yaml
+---
+format: 
+  html:
+    toc: true
+    code-fold: true
+---
+```
+
+. . .
+
+Sub-options should be below the main format output and spacing matters!
+
+``` yaml
+---
+format: 
+  html:
+    option1: text
+    option2: logical
+---
+```
+
+## Why YAML?
+
+To avoid manually typing out all the options, every time!
+
+. . .
+
+::: {style="font-size: 70px;"}
+```bash
+quarto render document.qmd --to html
+```
+:::
+
+<br>
+
+. . .
+
+::: {style="font-size: 70px;"}
+```bash
+quarto render document.qmd --to html -M code fold:true
+```
+:::
+
+<br>
+
+. . .
+
+::: {style="font-size: 70px;"}
+```bash
+quarto render document.qmd --to html -M code-fold:true -P alpha:0.2 -P ratio:0.3
+```
+:::
+
+# Demo: Navigating within RStudio {background-color="black"}
+
+## Quarto workflow
+
+Executing the Quarto Render button in RStudio will call Quarto render in a background job - this will prevent Quarto rendering from cluttering up the R console, and gives you and easy way to stop.
+
+![](images/background-job.png)
+
+## Rendering
+
+1. Render in RStudio, starts a background job and previews the output  
+
+![](https://quarto.org/docs/tools/images/rstudio-render.png){width="1600" fig-alt="A screenshot of the RStudio Render button, a blue arrow facing to the right with the text 'Render' next to it"}
+
+. . .
+
+2. System shell via `quarto render`
+
+::: {style="font-size: 70px;"}
+
+```{bash}
+#| eval: false
+#| echo: true
+quarto render document.qmd # defaults to html
+quarto render document.qmd --to pdf
+quarto render document.qmd --to docx
+```
+
+:::
+
+- Renders via terminal
+
+. . .
+
+3. R console via `quarto` R package
+
+::: {style="font-size: 70px;"}
+```{r}
+#| eval: false
+#| echo: true
+library(quarto)
+quarto_render("document.qmd") # defaults to html
+quarto_render("document.qmd", output_format = "pdf")
+```
+
+:::
+# `r fontawesome::fa("laptop-code", "white")` Our Turn {background-color="#447099" transition="slide-in"}
+
+- Open RStudio and `materials/workshop/visual-editor.qmd`
+- Compare behavior of rendering from RStudio > Render, using the CLI with `quarto render`, and in R console via `quarto::quarto_render()`
+
+## Quarto linting
+
+> Lint, or a linter, is a static code analysis tool used to flag programming errors, bugs, stylistic errors and suspicious constructs. - [Lint](https://en.wikipedia.org/wiki/Lint_(software)#:~:text=Lint%2C%20or%20a%20linter%2C%20is,examined%20C%20language%20source%20code.)
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+![](images/lint-rstudio.png)
+:::
+
+::: {.column width="50%"}
+![](images/lint-vscode.png)
+:::
+:::
+
+## Quarto YAML Intelligence
+
+RStudio + VSCode provide rich tab-completion - start a word and tab to complete, or <kbd>`Ctrl + space`</kbd> to see all available options.
+
+:::: {.columns}
+
+::: {.column .fragment}
+
+![](images/yaml-autocomplete.gif)
+
+:::
+
+::: {.column .fragment}
+
+![](images/knitr-autocomplete.gif)
+
+:::
+
+::::
+
+# Single source publishing
+
+## Divs and Spans
+
+Pandoc and therefore Quarto can parse ["fenced `Div` blocks"](https://pandoc.org/MANUAL.html#divs-and-spans)
+
+. . .
+
+```css
+.big-text {
+  font-size: 120px;
+}
+```
+
+```markdown
+::: {.big-text}
+A paragraph with big text.
+:::
+```
+
+. . .
+
+```{css, echo=FALSE}
+.big-text {
+  font-size: 100px;
+}
+```
+
+::: {.big-text}
+A paragraph with big text.
+:::
+
+. . .
+
+```code
+This is text with [special]{style="color:red;"} formatting.
+```
+
+. . .
+
+This is text with [special]{style="color:red;"} formatting.
+
+## Divs and spans
+
+A fenced div always starts and ends with equal/matching `:::`:
+
+:::: {.columns}
+
+::: {.column .fragment}
+Minimum and typical `:::`
+```code
+::: <- Starts
+Content
+::: <- Ends
+```
+:::
+
+::: {.column}
+
+Any number can be used: `::::::`
+
+```code
+:::::: <- Starts
+Content
+:::::: <- Ends
+
+```
+
+:::
+
+::::
+
+. . .
+
+You can also _nest_ fenced div, just make sure to match start -> end
+
+```code
+
+:::: {.columns}
+::: {.column}
+content
+:::
+
+::: {.column}
+content 2
+:::
+::::
+
+```
+
+## Why `:::` instead of `<div>`
+
+You're not limited to HTML/CSS concepts - Pandoc and Quarto also have "attributes" that can be assigned in this way.
+
+. . .
+
+-   You can think of a `:::` div as a HTML `<div>` but it can also apply in specific situations to content in PDF or other formats (Word, Powerpoint, etc)
+-   Similarly, `[text]{.class}` spans can be thought of a `<span .class>Text</span>` but again are a bit more transferable if using Pandoc/Quarto native attributes.
+
+. . .
+
+The following, uses a `:::` to apply a figure layout Quarto class across formats AND applies a span with `{alt-text="text"}`
+
+``` code
+::: {layout-ncol=2}
+
+![Male boston terrier](male-boston-terrier.png){fig-alt="An image of a male boston terrier"}
+
+![Female boston terrier](female-boston-terrier.png){fig-alt="An image of a female boston terrier"}
+
+:::
+```
+
+## Callout Blocks
+
+    :::{.callout-note}
+    Note that there are five types of callouts, including: 
+    `note`, `tip`, `warning`, `caution`, and `important`.
+    :::
+
+::: callout-note
+## Note
+
+Note that there are five types of callouts, including: `note`, `tip`, `warning`, `caution`, and `important`.
+:::
+
+::: callout-warning
+## Warning
+
+Callouts provide a simple way to attract attention, for example, to this warning.
+:::
+
+::: callout-important
+## This is important
+
+Danger, callouts will really improve your writing.
+:::
+
+::: callout-tip
+## Tip with caption
+:::
+
+::: callout-caution
+## Caution, under construction
+
+Here is something under construction
+:::
+
+## Callout markdown syntax
+
+    :::{.callout-note}
+    Note that there are five types of callouts, including:
+    `note`, `warning`, `important`, `tip`, and `caution`.
+    :::
+
+
+    :::{.callout-tip}
+    ## Tip With Caption
+
+    This is an example of a callout with a caption.
+    :::
+
+<br> <br>
+
+    :::{.callout-caution collapse="true"}
+    ## Expand To Learn About Collapse
+
+    This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
+    :::
+
+# `r fontawesome::fa("laptop-code", "white")` Our turn {background-color="#447099" transition="slide-in"}
+
+-   Open `materials/workshop/02-authoring/callout-boxes.qmd`
+-   Try changing the types of callouts/remove them from code boxes and then render
+-   Open `materials/workshop/02-authoring/callout-pdf.qmd` and render it as well
+
+## Tabsets
+
+Split up and flip between sections of a page, alternative to just two columns
+
+```
+::: {.panel-tabset}
+
+## Element 1
+
+## Element 2
+
+:::
+```
+
+## Tabsets
+
+::: {.panel-tabset}
+
+## Code
+
+```{r}
+#| echo: fenced
+#| eval: false
+head(mtcars)
+```
+
+
+## Output
+
+```{r}
+#| eval: true
+#| echo: false
+head(mtcars)
+```
+
+:::
+
+## Tabsets
+
+````
+
+::: {.panel-tabset}
+
+## Code
+
+```{{r}}
+#| echo: fenced
+#| eval: false
+head(mtcars)
+```
+
+
+## Output
+
+```{{r}}
+#| eval: true
+#| echo: false
+head(mtcars)
+```
+
+:::
+````
+
+## Figure layout
+
+- Use a `layout` div: `::: {layout=???}`
+
+## Spans
+
+Whereas a `:::` fenced div is useful for application across a paragraph of text or set of images, a `[span]{.class}` is useful for application to a single item/string within a sentence.
+
+. . .
+
+Maybe a footnote^[`Maybe a footnote^[This is important text]`]
+
+. . .
+
+Or a magically [appearing word]{.fragment} [with an additional point after]{.fragment}
+
+```code
+Or a magically [appearing word]{.fragment} [with an additional point after]{.fragment}
+```
+
+# Code {background-color="#446b99"}
+
+## Choose your engine
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+If no engine specified, Quarto will use whatever language is found first (R = knitr, Python/Julia = Jupyter)
+
+```yaml
+---
+format: html
+---
+```
+
+<br>
+
+You can force using `knitr` if you're mixing R/Python content via `reticulate` or if your first code chunk is not R but you want to use R.
+
+```yaml
+---
+format: html
+engine: knitr
+---
+```
+
+:::
+
+::: {.column width="50%" .fragment}
+
+You can specify Jupyter to use defaults
+
+```yaml
+---
+engine: jupyter
+---
+```
+
+<br>
+
+Or a specific Python version
+
+```yaml
+---
+engine: python3
+---
+```
+
+<br>
+
+Or even a specific Jupyter Kernel!
+
+```yaml
+---
+jupyter: 
+  kernelspec:
+    name: "venvPython"
+    language: "python"
+    display_name: "Python 3.7 (venv Python)"
+---
+```
+
+:::
+
+::::
+
+## `knitr` code cells
+
+There's a lot of `knitr` options!
+
+- See Quarto specific `knitr` details at: [https://quarto.org/docs/reference/cells/cells-knitr.html](https://quarto.org/docs/reference/cells/cells-knitr.html)
+- `knitr` overview in total: <https://yihui.org/knitr/>
+- Jupyter specific chunk options: <https://quarto.org/docs/reference/cells/cells-jupyter.html>
+
+## Anatomy of a code chunk
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+````md
+```{{r}}
+#| label: car-cyl
+#| echo: false
+mtcars %>% 
+  distinct(cyl)
+```
+````
+
+:::
+
+::: {.column width="50%"}
+
+- Has 3x backticks on each end ```` ``` ````  
+- Place engine (`r`) between curly braces `{r}`  
+- Place options underneath, behind the `#|` (hashpipe): `#| option1: value`  
+
+:::
+
+::::
+
+
+## Code
+
+```{r}
+# label: example-code-introduction
+#| echo: fenced
+#| output-location: column
+#| label: fig-airquality
+#| fig-cap: Temperature and ozone level.
+#| warning: false
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess"
+)
+```
+
+## Code, more than just R
+
+::: columns
+
+::: {.column width="50%"}
+
+```{python}
+#| label: fig-polar
+#| echo: fenced
+#| eval: false
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](images/polar-axis.png){width="650px"}
+
+:::
+
+:::
+
+## Create code chunks
+
+- You can manually type out code chunks: ```` ```{r} ````
+- the keyboard shortcut <kbd>`Ctrl + Alt + I`</kbd> (OS X: <kbd>`Cmd + Option + I`</kbd>)
+- the Add Chunk command in the editor toolbar
+
+. . .
+
+Or use the Command Palette: <kbd>`Cmd + Shift + P`</kbd>/<kbd>`Ctrl + Shift + P`</kbd>
+
+## Code chunks options
+
+All code chunk options at [yihui.org/knitr/options/](https://yihui.org/knitr/options/)
+
+. . .
+
+If you've used RMarkdown before, you're likely used to syntax like:
+
+```` ```{r chunk-label, option=TRUE} ````
+
+. . .
+
+```{r, echo = "fenced", eval = TRUE}
+mtcars %>% filter(mpg >= 25)
+```
+
+. . .
+
+Quarto introduces the "hash pipe" in `#|`  - this is the preferred syntax, although Quarto is backwards compatible with the older RMarkdown syntax.
+
+```{r}
+#| echo: fenced
+#| eval: true
+mtcars %>% filter(mpg >= 25)
+```
+
+## Quarto's hash pipe `#|`
+
+![](images/hash-pipe.gif){width="800px" fig-alt="Gif of Weezer's lead singer singing into a microphone saying 'I've got my hashpipe'"}
+
+[Weezer - Hash Pipe](https://www.youtube.com/watch?v=_9BGLtqqkVI)
+
+## Why Quarto + `#|`?
+
+1. Consistency across engine (Jupyter/knitr)
+1. Consistency across YAML/Chunk options - decrease mental burden when learning/remembering
+1. More control over order/spacing of chunk options - not limited to one running line of options!
+
+## Quarto chunk options
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| fig-cap: "Air Quality"
+#| fig-align: left
+#| fig-alt: |
+#|   "A ggplot2 with temperature by ozone levels along with a trend line 
+#|   indicating the increase in temperature with increasing ozone levels."
+
+library(ggplot2)
+ggplot(airquality, aes(Ozone, Temp)) + 
+        geom_point() + 
+        geom_smooth(method = "loess", se = FALSE)
+```
+
+## Code in chunk option
+
+You can also execute code inside a chunk option via the `!expr` syntax:
+
+```{r}
+#| echo: fenced
+#| fig-cap: !expr glue::glue("The mean temperature was {mean(airquality$Temp)}")
+#| fig-alt: |
+#|   "A ggplot2 with temperature by ozone levels along with a trend line 
+#|   indicating the increase in temperature with increasing ozone levels."
+ggplot(airquality, aes(Ozone, Temp)) + 
+        geom_point() + 
+        geom_smooth(method = "loess", se = FALSE)
+
+```
+
+## Quarto and RMarkdown
+
+- Basic RMarkdown documents that render to static HTML and PDF are the most transferable directly to Quarto
+
+. . .
+
+:::: columns
+
+::: {.column width="50%"}
+
+### R Markdown
+
+```yaml
+title: "My Document"
+output:
+  html_document:
+    toc: true
+    number_sections: true
+    css: styles.css
+```    
+:::
+
+::: {.column width="50%"}
+
+### Quarto
+
+```yaml
+title: "My Document"
+format:
+  html:
+    toc: true
+    number-sections: true
+    css: styles.css
+```
+
+:::
+
+::::
+
+. . .
+
+<br>
+
+Note that the YAML for Quarto:
+- Will follow a `word-word` syntax
+- Instead of using `output: html_document`, you'll use `format: html`
+
+> One source of the difference in syntax is that Quarto is more closely aligned with Pandoc format names and options (thus the use of - as a word separator rather than _).
+
+
+# `r fontawesome::fa("laptop-code", "white")` Our turn {background-color="#447099" transition="slide-in"}
+
+- Open `materials/workshop/04-static/old-rmarkdown.rmd`
+- Render via Quarto CLI
+
+## 
+
+### Converting RMarkdown -> Quarto
+
+::: {.incremental}
+
+- Option 1: Change `.rmd` -> `.qmd` - this will ALWAYS use Quarto for rendering
+
+- Option 2: Change YAML's `output: html_document` -> `format: html`  - uses Quarto
+
+:::
+
+. . .
+
+### Converting `knitr` chunks {.fragment}
+
+- [`knitr` dev version](https://github.com/yihui/knitr/issues/2082#issuecomment-1195464246) as of 2022-08-06 has: `knitr::convert_chunk_header("doc.qmd", output = identity)`  
+
+::: {.incremental}
+
+- `knitr::convert_chunk_header()` converts:
+  - `fig.width=1` syntax to 
+  - `#| fig-width: 1` 
+  - across all code chunks in a entire document  
+
+:::
+
+. . .
+
+<br>
+
+But again - you don't _have_ to convert syntax of all your old documents, can use `quarto render` at terminal or use R + `quarto::quarto_render()` to render existing RMarkdown docs via Quarto
+
+# Aesthetics {background-image="images/howard-gentleman.jpg" background-size="contain" background-position="right" background-color="black"}
+
+## HTML Appearance
+
+Out of the box, Quarto's HTML is styled with Bootstrap 5 and opinionated defaults.
+
+Bootstrap is the most popular CSS Framework for responsive websites, where v5 is the latest.
+
+. . .
+
+Quarto comes pre-installed with 25 themes from [Bootswatch](https://bootswatch.com/) and you can use them like so:
+
+```yaml
+---
+format:
+  html:
+    theme: litera
+---
+```
+
+<br>
+
+. . .
+
+Or you can use a theme and further customize components with SCSS/SASS.
+
+```yaml
+---
+format:
+  html:
+    theme: 
+      - litera
+      - custom.scss
+---
+```
+
+## Bootswatch themes
+
+::: {.r-stack}
+
+![](https://quarto.org/docs/websites/images/theme-litera.png){.fragment fig-alt="Screenshot of the litera theme for a website"}
+
+![](https://quarto.org/docs/websites/images/theme-solar.png){.fragment fig-alt="Screenshot of the solar theme for a website"}
+
+![](https://quarto.org/docs/websites/images/theme-morph.png){.fragment fig-alt="Screenshot of the morph theme for a website"}
+
+:::
+
+# `r fontawesome::fa("laptop-code", "white")` Our turn {background-color="#447099" transition="slide-in"}
+
+- Open `materials/workshop/04-static/bootswatch-themed.qmd` and try out some themes!  
+- 25 bootswatch themes  
+  - <https://quarto.org/docs/output-formats/html-themes.html>  
+  - <https://quarto.org/docs/output-formats/html-themes-more.html>  
+  
+# Presentations {background-color="#a13c65"}
+
+## Embrace `reveal.js`
+
+```yaml
+---
+title: "My first presentation"
+format: revealjs
+---
+```
+
+````markdown
+## Slide 1
+
+- Content
+
+## Slide 2
+
+- Content
+
+![](image.png){fig-alt="A description of an image"}
+
+## Slide 3
+
+```{{r}}
+#| echo: false
+ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point()
+```
+
+````
+
+## Embrace `reveal.js`
+
+- Create new slides with level 1 or level 2 headers (`## Heading`)
+- Add content/lists/images/code
+
+. . .
+
+Use fenced divs `:::` for columns
+
+:::: {.columns}
+
+::: {.column .fragment}
+
+- Content on the left
+- More content
+- Additional list
+
+A paragraph of text that is important to hold on the left, but it's fun to include below a list.
+
+:::
+
+::: {.column .fragment}
+- Image on the right
+
+![](images/howard-comfy.png){fig-alt="A picture of my dog Howard sleeping with his head smushed against the side of the couch"} 
+
+:::
+
+::::
+
+## Columns
+
+```code
+:::: {.columns}
+
+::: {.column .fragment}
+
+- Content on the left
+
+:::
+
+::: {.column .fragment}
+- Image on the right
+
+![](images/howard-comfy.png){fig-alt="A picture of my dog Howard sleeping with his head smushed against the side of the couch"}
+
+:::
+
+::::
+```
+
+# Quarto Projects {background-color="#a13c65"}
+
+## Quarto projects
+
+Quarto projects are directories that provide:
+
+::: {.incremental}
+
+- A way to render all or some of the files in a directory with a single command (e.g. quarto render myproject).
+
+- A way to share YAML configuration across multiple documents.
+
+- The ability to redirect output artifacts to another directory.
+
+- The ability to freeze rendered output (i.e. don’t re-execute documents unless they have changed).
+
+- In addition, projects can have special “types” that introduce additional behavior (e.g. websites or books).
+
+:::
+
+## Quarto Projects
+
+- A Quarto Project is at minimal one Quarto document and the `_quarto.yml` file
+
+```{.yaml filename="_quarto.yml"}
+project:
+  output-dir: _output
+
+toc: true
+number-sections: true
+bibliography: references.bib  
+  
+format:
+  html:
+    css: styles.css
+    html-math-method: katex
+  pdf:
+    documentclass: report
+    margin-left: 30mm
+    margin-right: 30mm
+```
+
+## Quarto Projects
+
+- Books, Websites, Blogs are a Quarto project
+- Want to learn how to build a blog? Join Isabella Velasquez from RStudio in our next Quarto webinar!

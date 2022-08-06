@@ -1,0 +1,49 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!materials/workshop/"
+
+website:
+  title: "Get Started with Quarto"
+  twitter-card:
+    card-style: summary_large_image
+    description: "Two hour workshop on getting started with Quarto"
+    image: "https://raw.githubusercontent.com/rstudio-conf-2022/get-started-quarto/main/preview.jpeg"
+  page-footer:
+    left: "This page was built with ❤️ and [Quarto](https://quarto.org/) by [Tom Mock](https://themockup.blog)."
+  navbar:
+    background: "#447099"
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Workshop
+        menu: 
+          - href: materials/01-intro-quarto.qmd
+            text: "Intro to Quarto"
+          - href: materials/02-authoring.qmd
+            text: "Authoring Quarto"
+    right: 
+      - href: "https://quarto.org/"
+        text: "Quarto Docs"
+      - icon: github
+        href: https://github.com/rstudio-conf-2022/get-started-quarto
+      - icon: twitter
+        href: https://twitter.com/quarto_pub
+  sidebar: 
+    style: docked
+    contents: 
+      - section: "Workshop"
+        contents: 
+          - href: materials/01-intro-quarto.qmd
+            text: "Intro to Quarto"
+          - href: materials/02-authoring.qmd
+            text: "Authoring Quarto"
+
+format:
+  html:
+    theme: 
+      - litera
+      - style.css
+    toc: true
