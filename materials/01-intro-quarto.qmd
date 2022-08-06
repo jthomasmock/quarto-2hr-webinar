@@ -9,6 +9,8 @@ format:
     css: ["theme/theme.css"]
     theme: simple
 editor: source
+filters:
+  - code-filename
 ---
 
 ##  {#TitleSlide data-menu-title="TitleSlide" background-color="#303436" background-image="images/hamlet-quarto.jpeg" background-position="left" background-size="contain"}
@@ -30,7 +32,7 @@ library(gtsummary)
 
 [Tom Mock, RStudio PBC]{style="font-size: 60px; font-weight: bold;"}
 
-<a href="https://jthomasmock.github.io/quarto-2hr-webinar">`r fontawesome::fa("link", "white", height="45px")`</a>&nbsp;[jthomasmock.github.io/quarto-2hr-webinar](https://jthomasmock.github.io/quarto-2hr-webinar){style="font-size: 60px; font-weight: bold; font-color: white;"}
+<a href="https://jthomasmock.github.io/quarto-2hr-webinar">`r fontawesome::fa("link", "white", height="45px")`</a>&nbsp;[jthomasmock.github.io/quarto-2hr-webinar](https://jthomasmock.github.io/quarto-2hr-webinar){style="font-size: 50px; color: white;"}
 
 [2022-07-27]{style="font-size: 50px;font-weight: bold;"}
 :::
@@ -194,19 +196,6 @@ thomasmock$ quarto --help
 ![](https://quarto.org/docs/computations/images/python-vscode.png){.fragment width="1500" fig-alt="A screenshot of a Quarto document rendered inside VSCode"}
 :::
 
-## Quarto, for collaboration
-
-::: {style="font-size: 100px;"}
-```yaml
-contents:
-  contents:
-    - lab-notes/datalake-extracts-dplyr-aws.rmd
-    - lab-notes/data-cleaning-siuba.ipynb
-    - lab-notes/python-r-handoff.qmd  
-    - lab-notes/computer-vision-torch.qmd
-```
-:::
-
 ## RStudio Visual Editor
 
 ![](https://quarto.org/docs/visual-editor/images/visual-editing.png)
@@ -246,6 +235,17 @@ Treat YAML as a "raw cell" in Jupyter - Jupyter doesn't care about YAML, but it'
 
 ![](https://quarto.org/docs/tools/images/jupyter-lab-yaml.png)
 
+## Quarto, for collaboration
+
+::: {style="font-size: 90px;"}
+```yaml
+contents:
+  - datalake-extracts-dplyr-aws.rmd
+  - data-cleaning-siuba.ipynb
+  - python-r-handoff.ipynb  
+  - computer-vision-r-torch.qmd
+```
+:::
 
 ## One install, "Batteries included"
 
@@ -327,8 +327,8 @@ For some of you - nothing changes! Keep using RMarkdown and Jupyter.
 
 However, most existing `.rmd` or `.ipynb` can be rendered as-is via Quarto
 
-::: {style="font-size: 100px;"}
-``` bash
+::: {style="font-size: 80px;"}
+```{.bash filename="terminal"}
 quarto render my-favorite.rmd --to html
 ```
 :::
@@ -339,8 +339,8 @@ quarto render my-favorite.rmd --to html
 
 Since Jupyter notebooks can either be treated as a linear document to be re-executed or an already evaluated document there are additional options like: `--execute`
 
-::: {style="font-size: 100px;"}
-``` bash
+::: {style="font-size: 80px;"}
+```{.bash filename="terminal"}
 quarto render my-favorite.ipynb --to html --execute
 ```
 :::
@@ -358,18 +358,14 @@ Collaboration with other colleagues in other languages - shared format, choose y
 
 ## Rendering
 
-1.  Render in RStudio  
-
-![](https://quarto.org/docs/tools/images/rstudio-render.png){fig-alt="A screenshot of the render button in RStudio"}
+![](https://quarto.org/docs/tools/images/rstudio-render.png){fig-alt="A screenshot of the render button in RStudio" width="1000px"}  
 
 . . .
 
 2.  System shell via `quarto render`
 
-::: {style="font-size: 100px;"}
-```{bash}
-#| eval: false
-#| echo: true
+::: {style="font-size: 60px;"}
+```{.bash filename="terminal"}
 quarto render document.qmd # defaults to html
 quarto render document.qmd --to pdf
 quarto render document.qmd --to docx
@@ -380,7 +376,7 @@ quarto render document.qmd --to docx
 
 3.  R console via `quarto` R package
 
-::: {style="font-size: 100px;"}
+::: {style="font-size: 60px;"}
 ```{r}
 #| eval: false
 #| echo: true
@@ -453,7 +449,7 @@ Output
 
 :::: {.columns style="font-size: 60px;"}
 
-::: {.column width="50%"}
+::: {.column width="45%"}
 ``` yaml
 format: html
 engine: knitr
@@ -461,7 +457,7 @@ engine: knitr
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="55%"}
 
 ``` yaml
 format: html
@@ -677,7 +673,7 @@ Because Quarto is a command line interface (CLI), there are times you'll need to
 +------------------------------------+-------------------------------------------------------+
 | `mkdir howdy`                      | Make a new folder/directory called "howdy"            |
 +------------------------------------+-------------------------------------------------------+
-| `rm folder-name/some-file.qmd`     | Remove a file called `some-file.qmd` from the a sub folder |
+| `rm folder-name/some-file.qmd`     | Delete `some-file.qmd` in the `folder-name` directory |
 +------------------------------------+-------------------------------------------------------+
 
 # `r fontawesome::fa("laptop-code", "white")` Our Turn {background-color="#447099" transition="slide-in"}

@@ -116,7 +116,7 @@
     "href": "materials/01-intro-quarto.html#quarto-for-collaboration",
     "title": "Get Started with Quarto",
     "section": "Quarto, for collaboration",
-    "text": "Quarto, for collaboration\n\ncontents:\n  contents:\n    - lab-notes/datalake-extracts-dplyr-aws.rmd\n    - lab-notes/data-cleaning-siuba.ipynb\n    - lab-notes/python-r-handoff.qmd  \n    - lab-notes/computer-vision-torch.qmd"
+    "text": "Quarto, for collaboration\n\ncontents:\n  - datalake-extracts-dplyr-aws.rmd\n  - data-cleaning-siuba.ipynb\n  - python-r-handoff.ipynb  \n  - computer-vision-r-torch.qmd"
   },
   {
     "objectID": "materials/01-intro-quarto.html#rstudio-visual-editor",
@@ -186,7 +186,7 @@
     "href": "materials/01-intro-quarto.html#what-to-do-with-my-existing-.rmd-or-.ipynb",
     "title": "Get Started with Quarto",
     "section": "What to do with my existing .Rmd or .ipynb?",
-    "text": "What to do with my existing .Rmd or .ipynb?\nFor some of you - nothing changes! Keep using RMarkdown and Jupyter.\n\n\nHowever, most existing .rmd or .ipynb can be rendered as-is via Quarto\n\nquarto render my-favorite.rmd --to html\n\n\n\n\nSince Jupyter notebooks can either be treated as a linear document to be re-executed or an already evaluated document there are additional options like: --execute\n\nquarto render my-favorite.ipynb --to html --execute"
+    "text": "What to do with my existing .Rmd or .ipynb?\nFor some of you - nothing changes! Keep using RMarkdown and Jupyter.\n\n\nHowever, most existing .rmd or .ipynb can be rendered as-is via Quarto\n\n\n\n terminal\n\nquarto render my-favorite.rmd --to html\n\n\n\n\n\nSince Jupyter notebooks can either be treated as a linear document to be re-executed or an already evaluated document there are additional options like: --execute\n\n\n\n terminal\n\nquarto render my-favorite.ipynb --to html --execute"
   },
   {
     "objectID": "materials/01-intro-quarto.html#why-quarto-instead-of-rmarkdown",
@@ -200,7 +200,7 @@
     "href": "materials/01-intro-quarto.html#rendering",
     "title": "Get Started with Quarto",
     "section": "Rendering",
-    "text": "Rendering\n\nRender in RStudio\n\n\n\n\nSystem shell via quarto render\n\n\n\nquarto render document.qmd # defaults to html\nquarto render document.qmd --to pdf\nquarto render document.qmd --to docx\n\n\n\n\n\nR console via quarto R package\n\n\n\nlibrary(quarto)\nquarto_render(\"document.qmd\") # defaults to html\nquarto_render(\"document.qmd\", output_format = \"pdf\")"
+    "text": "Rendering\n\n\n\nSystem shell via quarto render\n\n\n\n\n terminal\n\nquarto render document.qmd # defaults to html\nquarto render document.qmd --to pdf\nquarto render document.qmd --to docx\n\n\n\n\n\nR console via quarto R package\n\n\n\nlibrary(quarto)\nquarto_render(\"document.qmd\") # defaults to html\nquarto_render(\"document.qmd\", output_format = \"pdf\")"
   },
   {
     "objectID": "materials/01-intro-quarto.html#change-your-mental-model",
@@ -284,7 +284,7 @@
     "href": "materials/01-intro-quarto.html#navigating-in-the-terminal",
     "title": "Get Started with Quarto",
     "section": "Navigating in the terminal",
-    "text": "Navigating in the terminal\nBecause Quarto is a command line interface (CLI), there are times you’ll need to use it via the terminal. A great overview of using the command line and navigating files/directories is available via the Data Carpentries or a great interactive tool for understanding commands: https://tldr.ostera.io\n\n\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\npwd\nPrint name of current working directory\n\n\ncd\nChange current working directory\n\n\nls\nList directory contents\n\n\nquarto --help\nReturn quarto help docs\n\n\nmkdir howdy\nMake a new folder/directory called “howdy”\n\n\nrm folder-name/some-file.qmd\nRemove a file called some-file.qmd from the a sub folder"
+    "text": "Navigating in the terminal\nBecause Quarto is a command line interface (CLI), there are times you’ll need to use it via the terminal. A great overview of using the command line and navigating files/directories is available via the Data Carpentries or a great interactive tool for understanding commands: https://tldr.ostera.io\n\n\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\npwd\nPrint name of current working directory\n\n\ncd\nChange current working directory\n\n\nls\nList directory contents\n\n\nquarto --help\nReturn quarto help docs\n\n\nmkdir howdy\nMake a new folder/directory called “howdy”\n\n\nrm folder-name/some-file.qmd\nDelete some-file.qmd in the folder-name directory"
   },
   {
     "objectID": "materials/02-authoring.html#quarto-anatomy",
