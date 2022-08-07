@@ -1027,10 +1027,11 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <div class="fragment">
 <p>Quarto introduces the “hash pipe” in <code>#|</code> - this is the preferred syntax, although Quarto is backwards compatible with the older RMarkdown syntax.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1"></a><span class="in">```{r}</span></span>
+<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="|2-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1"></a><span class="in">```{r}</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a><span class="co">#| eval: true</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb40-4"><a href="#cb40-4"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-3"><a href="#cb40-3"></a><span class="co">#| code-line-numbers: "|2-4"</span></span>
+<span id="cb40-4"><a href="#cb40-4"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb40-5"><a href="#cb40-5"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
@@ -1059,8 +1060,8 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <section id="quarto-chunk-options" class="slide level2">
 <h2>Quarto chunk options</h2>
 <div class="cell" data-layout-align="left">
-<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="|2-7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1"></a><span class="in">```{r}</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="co">#| code-line-numbers: "|2-7"</span></span>
+<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="|3-8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1"></a><span class="in">```{r}</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="co">#| code-line-numbers: "|3-8"</span></span>
 <span id="cb42-3"><a href="#cb42-3"></a><span class="co">#| warning: false</span></span>
 <span id="cb42-4"><a href="#cb42-4"></a><span class="co">#| fig-cap: "Air Quality"</span></span>
 <span id="cb42-5"><a href="#cb42-5"></a><span class="co">#| fig-align: left</span></span>
@@ -1080,8 +1081,8 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <h2>Code in chunk option</h2>
 <p>You can also execute code inside a chunk option via the <code>!expr</code> syntax:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="|2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1"></a><span class="in">```{r}</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a><span class="co">#| code-line-numbers: "|2"</span></span>
+<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="|3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1"></a><span class="in">```{r}</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="co">#| code-line-numbers: "|3"</span></span>
 <span id="cb43-3"><a href="#cb43-3"></a><span class="co">#| fig-cap: !expr glue::glue("The mean temperature was {mean(airquality$Temp)}")</span></span>
 <span id="cb43-4"><a href="#cb43-4"></a><span class="co">#| fig-alt: |</span></span>
 <span id="cb43-5"><a href="#cb43-5"></a><span class="co">#|   "A scatterplot with temperature by ozone levels along with a trend line</span></span>
@@ -1173,8 +1174,8 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <p>You can do similar things with chunk options and plots from code!</p>
 <div class="fragment">
 <div>
-<div class="sourceCode cell-code" id="cb46" data-code-line-numbers="|3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="co">#| code-line-numbers: "|3"</span></span>
+<div class="sourceCode cell-code" id="cb46" data-code-line-numbers="|4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="co">#| code-line-numbers: "|4"</span></span>
 <span id="cb46-3"><a href="#cb46-3"></a><span class="co">#| output-location: fragment</span></span>
 <span id="cb46-4"><a href="#cb46-4"></a><span class="co">#| layout-ncol: 2</span></span>
 <span id="cb46-5"><a href="#cb46-5"></a><span class="co">#| fig-cap:</span></span>
@@ -1216,8 +1217,8 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <section id="chunk-option-layouts" class="slide level2">
 <h2>Chunk option layouts</h2>
 <div>
-<div class="sourceCode cell-code" id="cb47" data-code-line-numbers="|6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="co">#| code-line-numbers: "|6"</span></span>
+<div class="sourceCode cell-code" id="cb47" data-code-line-numbers="|7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="co">#| code-line-numbers: "|7"</span></span>
 <span id="cb47-3"><a href="#cb47-3"></a><span class="co">#| output-location: fragment</span></span>
 <span id="cb47-4"><a href="#cb47-4"></a><span class="co">#| fig-cap:</span></span>
 <span id="cb47-5"><a href="#cb47-5"></a><span class="co">#|   - "Speed and Stopping Distances of Cars"</span></span>

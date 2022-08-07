@@ -726,6 +726,7 @@ Quarto introduces the "hash pipe" in `#|`  - this is the preferred syntax, altho
 ```{r}
 #| echo: fenced
 #| eval: true
+#| code-line-numbers: "|2-4"
 mtcars %>% filter(mpg >= 25)
 ```
 
@@ -745,7 +746,7 @@ mtcars %>% filter(mpg >= 25)
 
 ```{r}
 #| echo: fenced
-#| code-line-numbers: "|2-7"
+#| code-line-numbers: "|3-8"
 #| warning: false
 #| fig-cap: "Air Quality"
 #| fig-align: left
@@ -765,7 +766,7 @@ You can also execute code inside a chunk option via the `!expr` syntax:
 
 ```{r}
 #| echo: fenced
-#| code-line-numbers: "|2"
+#| code-line-numbers: "|3"
 #| fig-cap: !expr glue::glue("The mean temperature was {mean(airquality$Temp)}")
 #| fig-alt: |
 #|   "A scatterplot with temperature by ozone levels along with a trend line 
@@ -876,7 +877,7 @@ You can do similar things with chunk options and plots from code!
 
 ```{r}
 #| echo: fenced
-#| code-line-numbers: "|3"
+#| code-line-numbers: "|4"
 #| output-location: fragment
 #| layout-ncol: 2
 #| fig-cap: 
@@ -894,7 +895,7 @@ mtcars |>
 
 ```{r}
 #| echo: fenced
-#| code-line-numbers: "|6"
+#| code-line-numbers: "|7"
 #| output-location: fragment
 #| fig-cap: 
 #|   - "Speed and Stopping Distances of Cars"
