@@ -5,7 +5,7 @@ format:
     width: 1600
     height: 900
     logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
-    footer: "[Quarto in 2 Hours](https://jthomasmock.github.io/quarto-2hr-webinar/)"
+    footer: "[jthomasmock.github.io/quarto-2hr-webinar](https://jthomasmock.github.io/quarto-2hr-webinar/)"
     css: ["theme/theme.css"]
     theme: simple
 editor: source
@@ -146,6 +146,97 @@ Lua filters written by R/Python/Julia developers should be interchangeable betwe
 ## Quarto, more than *just* `knitr`
 
 ![](images/jupyter-alone.jpeg)
+
+## Quarto, also with Observable Javascript!
+
+> Quarto includes native support for Observable JS, a set of enhancements to vanilla JavaScript created by Mike Bostock (also the author of D3). Observable JS is distinguished by its reactive runtime, which is especially well suited for interactive data exploration and analysis.
+
+. . .
+
+<br>
+
+```{ojs}
+viewof temp = Inputs.range([0, 100], {step: 1, value: 34, label: htl.html`Temp &#x2103;`})
+```
+
+Converting temperature from &#x2103; to &#x2109; <br>  
+Celsius = ${d3.format(".0f")(temp)}&#x2103; and Fahrenheit = ${d3.format(".1f")(temp * 9/5 + 32)}&#x2109;.
+
+. . .
+
+````code
+```{{ojs}}
+viewof temp = Inputs.range([0, 100], {step: 1, value: 34, label: htl.html`Temp &#x2103;`})
+```
+
+Converting temperature from &#x2103; to &#x2109; <br>  
+Celsius = ${d3.format(".0f")(temp)}&#x2103; and Fahrenheit = ${d3.format(".1f")(temp * 9/5 + 32)}&#x2109;.
+
+````
+
+## Quarto + Observable.js
+
+A simple example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset. Here we look at how penguin body mass varies across both sex and species (use the provided inputs to filter the dataset by bill length and island):
+
+```{ojs}
+//| panel: input
+//| echo: false
+viewof bill_length_min = Inputs.range(
+  [32, 50], 
+  {value: 35, step: 1, label: "Bill length (min):"}
+)
+viewof islands = Inputs.checkbox(
+  ["Torgersen", "Biscoe", "Dream"], 
+  { value: ["Torgersen", "Biscoe"], 
+    label: "Islands:"
+  }
+)
+```
+
+::: panel-tabset
+## Plot
+
+```{ojs}
+//| echo: false
+Plot.rectY(filtered, 
+  Plot.binX(
+    {y: "count"}, 
+    {x: "body_mass", fill: "species", thresholds: 20}
+  ))
+  .plot({
+    facet: {
+      data: filtered,
+      x: "sex",
+      y: "species",
+      marginRight: 80
+    },
+    marks: [
+      Plot.frame(),
+    ]
+  }
+)
+```
+
+## Data
+
+```{ojs}
+//| echo: false
+Inputs.table(filtered)
+```
+:::
+
+```{ojs}
+//| echo: false
+data = FileAttachment("palmer-penguins.csv").csv({ typed: true })
+```
+
+```{ojs}
+//| echo: false
+filtered = data.filter(function(penguin) {
+  return bill_length_min < penguin.bill_length &&
+         islands.includes(penguin.island);
+})
+```
 
 ## Quarto is a big universe!
 
@@ -392,13 +483,13 @@ quarto_render("document.qmd", output_format = "pdf")
 ::: {.column width="50%"}
 Source
 
-![](images/word.png){width="650px" fig-alt="A blank Word document"}
+![](images/word.png){width="450px" fig-alt="A blank Word document"}
 :::
 
 ::: {.column width="50%"}
 Output
 
-![](images/word.png){width="650px" fig-alt="A blank Word document"}
+![](images/word.png){width="450px" fig-alt="A blank Word document"}
 :::
 :::
 

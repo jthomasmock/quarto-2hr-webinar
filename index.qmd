@@ -11,7 +11,7 @@ format: html
 
 - Install latest version of RStudio, [`v2022.07.1` or later](https://www.rstudio.com/products/rstudio/download/#download)
 
-Please clone <https://github.com/jthomasmock/quarto-workshop.git> via RStudio 
+- For ALL hands-on materials, please clone <https://github.com/jthomasmock/quarto-workshop.git> via RStudio 
 
 - Install these R packages:
 

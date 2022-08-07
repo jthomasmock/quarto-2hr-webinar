@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tom Mock">
 
-<title>Get Started with Quarto - Getting Started with Quarto</title>
+<title>Get Started with Quarto – ojs-calcs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,12 +116,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
-<meta name="twitter:title" content="Get Started with Quarto - Getting Started with Quarto">
-<meta name="twitter:description" content="Two hour workshop on getting started with Quarto">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/rstudio-conf-2022/get-started-quarto/main/preview.jpeg">
-<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -140,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
+    <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false">Slides</a>
@@ -177,7 +174,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Getting Started with Quarto</h1>
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -215,121 +212,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
-  <ul class="collapse">
-  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
-  </ul></li>
-  <li><a href="#instructor" id="toc-instructor" class="nav-link" data-scroll-target="#instructor">Instructor</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">Getting Started with Quarto</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Tom Mock </p>
-          </div>
-  </div>
-    
-    
-  </div>
-  
-
-</header>
-
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Pre Work
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p>Install latest version of RStudio, <a href="https://www.rstudio.com/products/rstudio/download/#download"><code>v2022.07.1</code> or later</a></p></li>
-<li><p>For ALL hands-on materials, please clone <a href="https://github.com/jthomasmock/quarto-workshop.git" class="uri">https://github.com/jthomasmock/quarto-workshop.git</a> via RStudio</p></li>
-<li><p>Install these R packages:</p></li>
-</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pkg_list <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidyverse"</span>, <span class="st">"gt"</span>, <span class="st">"gtExtras"</span>, <span class="st">"reactable"</span>, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ggiraph"</span>,  <span class="st">"here"</span>, <span class="st">"quarto"</span>, <span class="st">"rmarkdown"</span>, </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"gtsummary"</span>, <span class="st">"palmerpenguins"</span>, <span class="st">"fs"</span>, <span class="st">"skimr"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(pkg_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" data-startfrom="5" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 4;"><span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>viewof temp <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">34</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`Temp &amp;#x2103;`</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
 </div>
 </div>
 </div>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-How to clone a Github repo
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>Navigate to <a href="https://github.com/jthomasmock/quarto-workshop" class="uri">https://github.com/jthomasmock/quarto-workshop</a></p></li>
-<li><p>Click on the green “Code” button and copy the url under the HTTPS tab <a href="https://github.com/jthomasmock/quarto-workshop.git" class="uri">https://github.com/jthomasmock/quarto-workshop.git</a></p></li>
-<li><p>In RStudio, use File &gt; New Project &gt; Version Control &gt; From Git &gt; and then paste the URL into the source repo box and then click enter!</p></li>
-</ol>
-<p><img src="materials/images/clone-repo.gif" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This workshop is designed for those who have no or little prior experience with Quarto. Quarto is the next generation of RMarkdown for publishing, including dynamic and static documents and multi-lingual programming language support. With Quarto you can create documents, books, presentations, blogs or other online resources.</p>
-<section id="schedule" class="level3">
-<h3 class="anchored" data-anchor-id="schedule">Schedule</h3>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Activity</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><a href="materials/01-intro-quarto.html">Intro to Quarto</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="materials/02-authoring.html">Authoring Quarto</a></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="instructor" class="level2">
-<h2 class="anchored" data-anchor-id="instructor">Instructor</h2>
-<p>Tom Mock, PhD is the Customer Enablement Lead at RStudio, helping RStudio’s customers be as successful as possible. He is deeply involved in the global data science community, sharing tips on <code>#RStats</code> Twitter (find him at <span class="citation" data-cites="thomas_mock">@thomas_mock</span>), as co-founder of <code>#TidyTuesday</code>, a weekly Data Science learning challenge, and presenting on various Data Science topics on YouTube or at conferences.</p>
-<hr>
-<p><img src="https://i.creativecommons.org/l/by/4.0/88x31.png" class="img-fluid"> This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+<p>Converting temperature from ℃ to ℉ <br><br>
+Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <span><span id="ojs-element-id-2"></span>℉.</span></p>
 
 
-</section>
+<script type="ojs-module-contents">
+{"contents":[
+  {"methodName":"interpret","inline":"true","source":"htl.html`<span>${d3.format(\".0f\")(temp)}</span>`", "cellName":"ojs-element-id-1"}
+,
+  {"methodName":"interpret","inline":"true","source":"htl.html`<span>${d3.format(\".1f\")(temp * 9/5 + 32)}</span>`", "cellName":"ojs-element-id-2"}
+]}
+</script>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"viewof temp = Inputs.range([0, 100], {step: 1, value: 34, label: htl.html`Temp &#x2103;`})\n"},{"methodName":"interpretQuiet","source":"shinyInput('temp')"}]}
+</script>
+<script type="module">
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

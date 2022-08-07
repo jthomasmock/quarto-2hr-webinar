@@ -629,7 +629,7 @@
 <div class="sourceCode" id="cb17"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a href="#cb17-1"></a>::: &lt;- Starts</span>
 <span id="cb17-2"><a href="#cb17-2"></a>Content</span>
 <span id="cb17-3"><a href="#cb17-3"></a>::: &lt;- Ends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
+</div><div class="column fragment">
 <p>Any number can be used: <code>::::::</code></p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href="#cb18-1"></a>:::::: &lt;- Starts</span>
 <span id="cb18-2"><a href="#cb18-2"></a>Content</span>
@@ -838,8 +838,27 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 <section id="figure-layout" class="slide level2">
 <h2>Figure layout</h2>
 <ul>
-<li>Use a <code>layout</code> div: <code>::: {layout=???}</code></li>
+<li>Use a <code>layout</code> div:
+<ul>
+<li><code>::: {layout-ncol=2}</code> or <code>::: {layout-nrow=3}</code></li>
+<li><code>::: {layout="[[70,30], [100]]"}</code></li>
+<li><code>::: {layout="[[40,-20,40], [100]]"}</code></li>
+</ul></li>
 </ul>
+</section>
+<section id="figure-layout-1" class="slide level2">
+<h2>Figure Layout</h2>
+<pre><code>::: {layout="[[40,-20,40], [100]]"}
+![Surus](surus.png)
+
+![Hanno](hanno.png)
+
+![Lin Wang](lin-wang.png)
+:::
+</code></pre>
+<div class="fragment">
+<p><img data-src="https://quarto.org/docs/authoring/images/layout-attrib-negative.png"></p>
+</div>
 </section>
 <section id="spans" class="slide level2">
 <h2>Spans</h2>
@@ -849,7 +868,7 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 </div>
 <div class="fragment">
 <p>Or a magically <span class="fragment">appearing word</span> <span class="fragment">with an additional point after</span></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb28-1"><a href="#cb28-1"></a>Or a magically [appearing word]{.fragment} [with an additional point after]{.fragment}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb29-1"><a href="#cb29-1"></a>Or a magically [appearing word]{.fragment} [with an additional point after]{.fragment}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn1" role="doc-endnote"><p><code>Maybe a footnote^[This is important text]</code></p></li></ol></aside></section></section>
 <section>
@@ -862,34 +881,34 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>If no engine specified, Quarto will use whatever language is found first (R = knitr, Python/Julia = Jupyter)</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb29-1"><a href="#cb29-1"></a><span class="pp">---</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
-<p>You can force using <code>knitr</code> if you’re mixing R/Python content via <code>reticulate</code> or if your first code chunk is not R but you want to use R.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1"></a><span class="pp">---</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> knitr</span></span>
-<span id="cb30-4"><a href="#cb30-4"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>You can force using <code>knitr</code> if you’re mixing R/Python content via <code>reticulate</code> or if your first code chunk is not R but you want to use R.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb31-1"><a href="#cb31-1"></a><span class="pp">---</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> knitr</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment" style="width:50%;">
 <p>You can specify Jupyter to use defaults</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb31-1"><a href="#cb31-1"></a><span class="pp">---</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> jupyter</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
-<p>Or a specific Python version</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb32-1"><a href="#cb32-1"></a><span class="pp">---</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> python3</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> jupyter</span></span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
-<p>Or even a specific Jupyter Kernel!</p>
+<p>Or a specific Python version</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb33-1"><a href="#cb33-1"></a><span class="pp">---</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="fu">jupyter</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb33-3"><a href="#cb33-3"></a><span class="at">  </span><span class="fu">kernelspec</span><span class="kw">:</span></span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"venvPython"</span></span>
-<span id="cb33-5"><a href="#cb33-5"></a><span class="at">    </span><span class="fu">language</span><span class="kw">:</span><span class="at"> </span><span class="st">"python"</span></span>
-<span id="cb33-6"><a href="#cb33-6"></a><span class="at">    </span><span class="fu">display_name</span><span class="kw">:</span><span class="at"> </span><span class="st">"Python 3.7 (venv Python)"</span></span>
-<span id="cb33-7"><a href="#cb33-7"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> python3</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>Or even a specific Jupyter Kernel!</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1"></a><span class="pp">---</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="fu">jupyter</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="at">  </span><span class="fu">kernelspec</span><span class="kw">:</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"venvPython"</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a><span class="at">    </span><span class="fu">language</span><span class="kw">:</span><span class="at"> </span><span class="st">"python"</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="at">    </span><span class="fu">display_name</span><span class="kw">:</span><span class="at"> </span><span class="st">"Python 3.7 (venv Python)"</span></span>
+<span id="cb34-7"><a href="#cb34-7"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -906,12 +925,12 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 <h2>Anatomy of a code chunk</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource markdown md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a><span class="co">#| label: car-cyl</span></span>
-<span id="cb34-3"><a href="#cb34-3"></a><span class="co">#| echo: false</span></span>
-<span id="cb34-4"><a href="#cb34-4"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb34-5"><a href="#cb34-5"></a>  <span class="fu">distinct</span>(cyl)</span>
-<span id="cb34-6"><a href="#cb34-6"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource markdown md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="co">#| label: car-cyl</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a><span class="co">#| echo: false</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb35-5"><a href="#cb35-5"></a>  <span class="fu">distinct</span>(cyl)</span>
+<span id="cb35-6"><a href="#cb35-6"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <ul>
 <li>Has 3x backticks on each end <code>```</code><br>
@@ -926,19 +945,19 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 <section id="code-2" class="slide level2">
 <h2>Code</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># label: example-code-introduction</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="co">#| echo: fenced</span></span>
-<span id="cb35-3"><a href="#cb35-3"></a><span class="co">#| output-location: column</span></span>
-<span id="cb35-4"><a href="#cb35-4"></a><span class="co">#| label: fig-airquality</span></span>
-<span id="cb35-5"><a href="#cb35-5"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
-<span id="cb35-6"><a href="#cb35-6"></a><span class="co">#| warning: false</span></span>
-<span id="cb35-7"><a href="#cb35-7"></a></span>
-<span id="cb35-8"><a href="#cb35-8"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb35-9"><a href="#cb35-9"></a></span>
-<span id="cb35-10"><a href="#cb35-10"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
-<span id="cb35-11"><a href="#cb35-11"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb35-12"><a href="#cb35-12"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
-<span id="cb35-13"><a href="#cb35-13"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># label: example-code-introduction</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="co">#| echo: fenced</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a><span class="co">#| output-location: column</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="co">#| label: fig-airquality</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a><span class="co">#| warning: false</span></span>
+<span id="cb36-7"><a href="#cb36-7"></a></span>
+<span id="cb36-8"><a href="#cb36-8"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb36-9"><a href="#cb36-9"></a></span>
+<span id="cb36-10"><a href="#cb36-10"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb36-11"><a href="#cb36-11"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb36-12"><a href="#cb36-12"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
+<span id="cb36-13"><a href="#cb36-13"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
@@ -947,24 +966,24 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href="#cb36-1"></a><span class="in">```{python}</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a><span class="co">#| label: fig-polar</span></span>
-<span id="cb36-3"><a href="#cb36-3"></a><span class="co">#| eval: false</span></span>
-<span id="cb36-4"><a href="#cb36-4"></a><span class="co">#| fig-cap: "A line plot on a polar axis"</span></span>
-<span id="cb36-5"><a href="#cb36-5"></a></span>
-<span id="cb36-6"><a href="#cb36-6"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb36-7"><a href="#cb36-7"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb36-8"><a href="#cb36-8"></a></span>
-<span id="cb36-9"><a href="#cb36-9"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
-<span id="cb36-10"><a href="#cb36-10"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
-<span id="cb36-11"><a href="#cb36-11"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
-<span id="cb36-12"><a href="#cb36-12"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
-<span id="cb36-13"><a href="#cb36-13"></a>)</span>
-<span id="cb36-14"><a href="#cb36-14"></a>ax.plot(theta, r)</span>
-<span id="cb36-15"><a href="#cb36-15"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
-<span id="cb36-16"><a href="#cb36-16"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb36-17"><a href="#cb36-17"></a>plt.show()</span>
-<span id="cb36-18"><a href="#cb36-18"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href="#cb37-1"></a><span class="in">```{python}</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="co">#| label: fig-polar</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a><span class="co">#| eval: false</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a><span class="co">#| fig-cap: "A line plot on a polar axis"</span></span>
+<span id="cb37-5"><a href="#cb37-5"></a></span>
+<span id="cb37-6"><a href="#cb37-6"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb37-7"><a href="#cb37-7"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb37-8"><a href="#cb37-8"></a></span>
+<span id="cb37-9"><a href="#cb37-9"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
+<span id="cb37-10"><a href="#cb37-10"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
+<span id="cb37-11"><a href="#cb37-11"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
+<span id="cb37-12"><a href="#cb37-12"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
+<span id="cb37-13"><a href="#cb37-13"></a>)</span>
+<span id="cb37-14"><a href="#cb37-14"></a>ax.plot(theta, r)</span>
+<span id="cb37-15"><a href="#cb37-15"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
+<span id="cb37-16"><a href="#cb37-16"></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb37-17"><a href="#cb37-17"></a>plt.show()</span>
+<span id="cb37-18"><a href="#cb37-18"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="images/polar-axis.png" width="650"></p>
@@ -991,9 +1010,9 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href="#cb37-1"></a><span class="in">```{r, echo = "fenced", eval = TRUE}</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb37-3"><a href="#cb37-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a href="#cb38-1"></a><span class="in">```{r, echo = "fenced", eval = TRUE}</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
@@ -1008,10 +1027,10 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <div class="fragment">
 <p>Quarto introduces the “hash pipe” in <code>#|</code> - this is the preferred syntax, although Quarto is backwards compatible with the older RMarkdown syntax.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb39-1"><a href="#cb39-1"></a><span class="in">```{r}</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a><span class="co">#| eval: true</span></span>
-<span id="cb39-3"><a href="#cb39-3"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb39-4"><a href="#cb39-4"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="co">#| eval: true</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb40-4"><a href="#cb40-4"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
@@ -1033,45 +1052,47 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <h2>Why Quarto + <code>#|</code>?</h2>
 <ol type="1">
 <li>Consistency across engine (Jupyter/knitr)</li>
-<li>Consistency across YAML/Chunk options - decrease mental burden when learning/remembering</li>
+<li>Consistency across YAML/Chunk/<code>:::</code> options - decrease mental burden when learning/remembering</li>
 <li>More control over order/spacing of chunk options - not limited to one running line of options!</li>
 </ol>
 </section>
 <section id="quarto-chunk-options" class="slide level2">
 <h2>Quarto chunk options</h2>
 <div class="cell" data-layout-align="left">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb41-1"><a href="#cb41-1"></a><span class="in">```{r}</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="co">#| warning: false</span></span>
-<span id="cb41-3"><a href="#cb41-3"></a><span class="co">#| fig-cap: "Air Quality"</span></span>
-<span id="cb41-4"><a href="#cb41-4"></a><span class="co">#| fig-align: left</span></span>
-<span id="cb41-5"><a href="#cb41-5"></a><span class="co">#| fig-alt: |</span></span>
-<span id="cb41-6"><a href="#cb41-6"></a><span class="co">#|   "A ggplot2 with temperature by ozone levels along with a trend line</span></span>
-<span id="cb41-7"><a href="#cb41-7"></a><span class="co">#|   indicating the increase in temperature with increasing ozone levels."</span></span>
-<span id="cb41-8"><a href="#cb41-8"></a></span>
-<span id="cb41-9"><a href="#cb41-9"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb41-10"><a href="#cb41-10"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Ozone, Temp)) <span class="sc">+</span> </span>
-<span id="cb41-11"><a href="#cb41-11"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb41-12"><a href="#cb41-12"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb41-13"><a href="#cb41-13"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="|2-7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1"></a><span class="in">```{r}</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="co">#| code-line-numbers: "|2-7"</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a><span class="co">#| warning: false</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a><span class="co">#| fig-cap: "Air Quality"</span></span>
+<span id="cb42-5"><a href="#cb42-5"></a><span class="co">#| fig-align: left</span></span>
+<span id="cb42-6"><a href="#cb42-6"></a><span class="co">#| fig-alt: |</span></span>
+<span id="cb42-7"><a href="#cb42-7"></a><span class="co">#|   "A scatterplot with temperature by ozone levels along with a trend line</span></span>
+<span id="cb42-8"><a href="#cb42-8"></a><span class="co">#|   indicating the increase in temperature with increasing ozone levels."</span></span>
+<span id="cb42-9"><a href="#cb42-9"></a></span>
+<span id="cb42-10"><a href="#cb42-10"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb42-11"><a href="#cb42-11"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Ozone, Temp)) <span class="sc">+</span> </span>
+<span id="cb42-12"><a href="#cb42-12"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb42-13"><a href="#cb42-13"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb42-14"><a href="#cb42-14"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-11-1.png" alt="&quot;A ggplot2 with temperature by ozone levels along with a trend line indicating the increase in temperature with increasing ozone levels.&quot;" width="960" class="r-stretch quarto-figure-left"><p class="caption">Air Quality</p></section>
+<img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-11-1.png" alt="&quot;A scatterplot with temperature by ozone levels along with a trend line indicating the increase in temperature with increasing ozone levels.&quot;" width="960" class="r-stretch quarto-figure-left"><p class="caption">Air Quality</p></section>
 <section id="code-in-chunk-option" class="slide level2">
 <h2>Code in chunk option</h2>
 <p>You can also execute code inside a chunk option via the <code>!expr</code> syntax:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1"></a><span class="in">```{r}</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="co">#| fig-cap: !expr glue::glue("The mean temperature was {mean(airquality$Temp)}")</span></span>
-<span id="cb42-3"><a href="#cb42-3"></a><span class="co">#| fig-alt: |</span></span>
-<span id="cb42-4"><a href="#cb42-4"></a><span class="co">#|   "A ggplot2 with temperature by ozone levels along with a trend line</span></span>
-<span id="cb42-5"><a href="#cb42-5"></a><span class="co">#|   indicating the increase in temperature with increasing ozone levels."</span></span>
-<span id="cb42-6"><a href="#cb42-6"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Ozone, Temp)) <span class="sc">+</span> </span>
-<span id="cb42-7"><a href="#cb42-7"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb42-8"><a href="#cb42-8"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb42-9"><a href="#cb42-9"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="|2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1"></a><span class="in">```{r}</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="co">#| code-line-numbers: "|2"</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="co">#| fig-cap: !expr glue::glue("The mean temperature was {mean(airquality$Temp)}")</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a><span class="co">#| fig-alt: |</span></span>
+<span id="cb43-5"><a href="#cb43-5"></a><span class="co">#|   "A scatterplot with temperature by ozone levels along with a trend line</span></span>
+<span id="cb43-6"><a href="#cb43-6"></a><span class="co">#|   indicating the increase in temperature with increasing ozone levels."</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Ozone, Temp)) <span class="sc">+</span> </span>
+<span id="cb43-8"><a href="#cb43-8"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb43-9"><a href="#cb43-9"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb43-10"><a href="#cb43-10"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-12-1.png" alt="&quot;A ggplot2 with temperature by ozone levels along with a trend line indicating the increase in temperature with increasing ozone levels.&quot;" width="960" class="r-stretch quarto-figure-center"><p class="caption">The mean temperature was 77.8823529411765</p></section>
+<img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-12-1.png" alt="&quot;A scatterplot with temperature by ozone levels along with a trend line indicating the increase in temperature with increasing ozone levels.&quot;" width="960" class="r-stretch quarto-figure-center"><p class="caption">The mean temperature was 77.8823529411765</p></section>
 <section id="quarto-and-rmarkdown" class="slide level2">
 <h2>Quarto and RMarkdown</h2>
 <ul>
@@ -1081,20 +1102,20 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="r-markdown">R Markdown</h3>
-<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb43-3"><a href="#cb43-3"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
-<span id="cb43-4"><a href="#cb43-4"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb43-5"><a href="#cb43-5"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb43-6"><a href="#cb43-6"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <h3 id="quarto">Quarto</h3>
-<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb44-3"><a href="#cb44-3"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb44-4"><a href="#cb44-4"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb44-5"><a href="#cb44-5"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb44-6"><a href="#cb44-6"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1123,10 +1144,14 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <li class="fragment"><p>Option 2: Change YAML’s <code>output: html_document</code> -&gt; <code>format: html</code> - uses Quarto</p></li>
 </ul>
 </div>
-<h3 class="fragment" id="converting-knitr-chunks">Converting <code>knitr</code> chunks</h3>
+<div class="fragment">
+<div class="fragment">
+<!-- -->
+<h3 id="converting-knitr-chunks">Converting <code>knitr</code> chunks</h3>
 <ul>
 <li><a href="https://github.com/yihui/knitr/issues/2082#issuecomment-1195464246"><code>knitr</code> dev version</a> as of 2022-08-06 has: <code>knitr::convert_chunk_header("doc.qmd", output = identity)</code></li>
 </ul>
+</div>
 <div>
 <ul>
 <li class="fragment"><code>knitr::convert_chunk_header()</code> converts:
@@ -1137,9 +1162,102 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 </ul></li>
 </ul>
 </div>
+</div>
 <div class="fragment">
 <p><br></p>
 <p>But again - you don’t <em>have</em> to convert syntax of all your old documents, can use <code>quarto render</code> at terminal or use R + <code>quarto::quarto_render()</code> to render existing RMarkdown docs via Quarto</p>
+</div>
+</section>
+<section id="remember-the-layout" class="slide level2">
+<h2>Remember the <code>::: {layout}</code>?</h2>
+<p>You can do similar things with chunk options and plots from code!</p>
+<div class="fragment">
+<div>
+<div class="sourceCode cell-code" id="cb46" data-code-line-numbers="|3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="co">#| code-line-numbers: "|3"</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="co">#| output-location: fragment</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a><span class="co">#| fig-cap:</span></span>
+<span id="cb46-6"><a href="#cb46-6"></a><span class="co">#|   - "Speed and Stopping Distances of Cars"</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a><span class="co">#|   - "Engine displacement and fuel efficiency in Cars"</span></span>
+<span id="cb46-8"><a href="#cb46-8"></a>cars <span class="sc">|&gt;</span> </span>
+<span id="cb46-9"><a href="#cb46-9"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> speed, <span class="at">y =</span> dist)) <span class="sc">+</span></span>
+<span id="cb46-10"><a href="#cb46-10"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb46-11"><a href="#cb46-11"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb46-12"><a href="#cb46-12"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb46-13"><a href="#cb46-13"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb46-14"><a href="#cb46-14"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+
+</div>
+</div>
+<div class="cell fragment quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+<p></p><figcaption>Speed and Stopping Distances of Cars</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-13-2.png" width="960"></p>
+<p></p><figcaption>Engine displacement and fuel efficiency in Cars</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="chunk-option-layouts" class="slide level2">
+<h2>Chunk option layouts</h2>
+<div>
+<div class="sourceCode cell-code" id="cb47" data-code-line-numbers="|6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="co">#| code-line-numbers: "|6"</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="co">#| output-location: fragment</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a><span class="co">#| fig-cap:</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a><span class="co">#|   - "Speed and Stopping Distances of Cars"</span></span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="co">#|   - "Engine displacement and fuel efficiency in Cars"</span></span>
+<span id="cb47-7"><a href="#cb47-7"></a><span class="co">#| layout: "[[40,-20,40]]"</span></span>
+<span id="cb47-8"><a href="#cb47-8"></a><span class="co">#| fig-height: 4</span></span>
+<span id="cb47-9"><a href="#cb47-9"></a><span class="co">#| fig-format: retina</span></span>
+<span id="cb47-10"><a href="#cb47-10"></a>cars <span class="sc">|&gt;</span> </span>
+<span id="cb47-11"><a href="#cb47-11"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> speed, <span class="at">y =</span> dist)) <span class="sc">+</span></span>
+<span id="cb47-12"><a href="#cb47-12"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb47-13"><a href="#cb47-13"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb47-14"><a href="#cb47-14"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb47-15"><a href="#cb47-15"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb47-16"><a href="#cb47-16"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-fig.format="retina">
+
+</div>
+</div>
+<div class="cell fragment quarto-layout-panel" data-fig.format="retina">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+<p></p><figcaption>Speed and Stopping Distances of Cars</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 20.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-14-2.png" width="960"></p>
+<p></p><figcaption>Engine displacement and fuel efficiency in Cars</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section></section>
 <section>
@@ -1153,22 +1271,22 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <p>Bootstrap is the most popular CSS Framework for responsive websites, where v5 is the latest.</p>
 <div class="fragment">
 <p>Quarto comes pre-installed with 25 themes from <a href="https://bootswatch.com/">Bootswatch</a> and you can use them like so:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb45-1"><a href="#cb45-1"></a><span class="pp">---</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb45-3"><a href="#cb45-3"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb45-4"><a href="#cb45-4"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> litera</span></span>
-<span id="cb45-5"><a href="#cb45-5"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb48-1"><a href="#cb48-1"></a><span class="pp">---</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> litera</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 </div>
 <div class="fragment">
 <p>Or you can use a theme and further customize components with SCSS/SASS.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb46-1"><a href="#cb46-1"></a><span class="pp">---</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb46-3"><a href="#cb46-3"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb46-4"><a href="#cb46-4"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb46-5"><a href="#cb46-5"></a><span class="at">      </span><span class="kw">-</span><span class="at"> litera</span></span>
-<span id="cb46-6"><a href="#cb46-6"></a><span class="at">      </span><span class="kw">-</span><span class="at"> custom.scss</span></span>
-<span id="cb46-7"><a href="#cb46-7"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb49-1"><a href="#cb49-1"></a><span class="pp">---</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb49-5"><a href="#cb49-5"></a><span class="at">      </span><span class="kw">-</span><span class="at"> litera</span></span>
+<span id="cb49-6"><a href="#cb49-6"></a><span class="at">      </span><span class="kw">-</span><span class="at"> custom.scss</span></span>
+<span id="cb49-7"><a href="#cb49-7"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="bootswatch-themes" class="slide level2">
@@ -1200,27 +1318,27 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 </section>
 <section id="embrace-reveal.js" class="slide level2">
 <h2>Embrace <code>reveal.js</code></h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb47-1"><a href="#cb47-1"></a><span class="pp">---</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My first presentation"</span></span>
-<span id="cb47-3"><a href="#cb47-3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> revealjs</span></span>
-<span id="cb47-4"><a href="#cb47-4"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">## Slide 1</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a></span>
-<span id="cb48-3"><a href="#cb48-3"></a><span class="ss">- </span>Content</span>
-<span id="cb48-4"><a href="#cb48-4"></a></span>
-<span id="cb48-5"><a href="#cb48-5"></a><span class="fu">## Slide 2</span></span>
-<span id="cb48-6"><a href="#cb48-6"></a></span>
-<span id="cb48-7"><a href="#cb48-7"></a><span class="ss">- </span>Content</span>
-<span id="cb48-8"><a href="#cb48-8"></a></span>
-<span id="cb48-9"><a href="#cb48-9"></a><span class="al">![](image.png)</span>{fig-alt="A description of an image"}</span>
-<span id="cb48-10"><a href="#cb48-10"></a></span>
-<span id="cb48-11"><a href="#cb48-11"></a><span class="fu">## Slide 3</span></span>
-<span id="cb48-12"><a href="#cb48-12"></a></span>
-<span id="cb48-13"><a href="#cb48-13"></a><span class="in">```{r}</span></span>
-<span id="cb48-14"><a href="#cb48-14"></a><span class="co">#| echo: false</span></span>
-<span id="cb48-15"><a href="#cb48-15"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
-<span id="cb48-16"><a href="#cb48-16"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb48-17"><a href="#cb48-17"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb50-1"><a href="#cb50-1"></a><span class="pp">---</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My first presentation"</span></span>
+<span id="cb50-3"><a href="#cb50-3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> revealjs</span></span>
+<span id="cb50-4"><a href="#cb50-4"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">## Slide 1</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a></span>
+<span id="cb51-3"><a href="#cb51-3"></a><span class="ss">- </span>Content</span>
+<span id="cb51-4"><a href="#cb51-4"></a></span>
+<span id="cb51-5"><a href="#cb51-5"></a><span class="fu">## Slide 2</span></span>
+<span id="cb51-6"><a href="#cb51-6"></a></span>
+<span id="cb51-7"><a href="#cb51-7"></a><span class="ss">- </span>Content</span>
+<span id="cb51-8"><a href="#cb51-8"></a></span>
+<span id="cb51-9"><a href="#cb51-9"></a><span class="al">![](image.png)</span>{fig-alt="A description of an image"}</span>
+<span id="cb51-10"><a href="#cb51-10"></a></span>
+<span id="cb51-11"><a href="#cb51-11"></a><span class="fu">## Slide 3</span></span>
+<span id="cb51-12"><a href="#cb51-12"></a></span>
+<span id="cb51-13"><a href="#cb51-13"></a><span class="in">```{r}</span></span>
+<span id="cb51-14"><a href="#cb51-14"></a><span class="co">#| echo: false</span></span>
+<span id="cb51-15"><a href="#cb51-15"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb51-16"><a href="#cb51-16"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb51-17"><a href="#cb51-17"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="embrace-reveal.js-1" class="slide level2">
 <h2>Embrace <code>reveal.js</code></h2>
@@ -1249,22 +1367,22 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 </section>
 <section id="columns" class="slide level2">
 <h2>Columns</h2>
-<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb49-1"><a href="#cb49-1"></a>:::: {.columns}</span>
-<span id="cb49-2"><a href="#cb49-2"></a></span>
-<span id="cb49-3"><a href="#cb49-3"></a>::: {.column .fragment}</span>
-<span id="cb49-4"><a href="#cb49-4"></a></span>
-<span id="cb49-5"><a href="#cb49-5"></a>- Content on the left</span>
-<span id="cb49-6"><a href="#cb49-6"></a></span>
-<span id="cb49-7"><a href="#cb49-7"></a>:::</span>
-<span id="cb49-8"><a href="#cb49-8"></a></span>
-<span id="cb49-9"><a href="#cb49-9"></a>::: {.column .fragment}</span>
-<span id="cb49-10"><a href="#cb49-10"></a>- Image on the right</span>
-<span id="cb49-11"><a href="#cb49-11"></a></span>
-<span id="cb49-12"><a href="#cb49-12"></a>![](images/howard-comfy.png){fig-alt="A picture of my dog Howard sleeping with his head smushed against the side of the couch"}</span>
-<span id="cb49-13"><a href="#cb49-13"></a></span>
-<span id="cb49-14"><a href="#cb49-14"></a>:::</span>
-<span id="cb49-15"><a href="#cb49-15"></a></span>
-<span id="cb49-16"><a href="#cb49-16"></a>::::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb52-1"><a href="#cb52-1"></a>:::: {.columns}</span>
+<span id="cb52-2"><a href="#cb52-2"></a></span>
+<span id="cb52-3"><a href="#cb52-3"></a>::: {.column .fragment}</span>
+<span id="cb52-4"><a href="#cb52-4"></a></span>
+<span id="cb52-5"><a href="#cb52-5"></a>- Content on the left</span>
+<span id="cb52-6"><a href="#cb52-6"></a></span>
+<span id="cb52-7"><a href="#cb52-7"></a>:::</span>
+<span id="cb52-8"><a href="#cb52-8"></a></span>
+<span id="cb52-9"><a href="#cb52-9"></a>::: {.column .fragment}</span>
+<span id="cb52-10"><a href="#cb52-10"></a>- Image on the right</span>
+<span id="cb52-11"><a href="#cb52-11"></a></span>
+<span id="cb52-12"><a href="#cb52-12"></a>![](images/howard-comfy.png){fig-alt="A picture of my dog Howard sleeping with his head smushed against the side of the couch"}</span>
+<span id="cb52-13"><a href="#cb52-13"></a></span>
+<span id="cb52-14"><a href="#cb52-14"></a>:::</span>
+<span id="cb52-15"><a href="#cb52-15"></a></span>
+<span id="cb52-16"><a href="#cb52-16"></a>::::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="quarto-projects" class="title-slide slide level1 center" data-background-color="#a13c65">
@@ -1293,21 +1411,21 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <div class="code-with-filename-file">
 <pre> <strong>_quarto.yml</strong></pre>
 </div>
-<div class="sourceCode" id="cb50" data-filename="_quarto.yml"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> _output</span></span>
-<span id="cb50-3"><a href="#cb50-3"></a></span>
-<span id="cb50-4"><a href="#cb50-4"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb50-5"><a href="#cb50-5"></a><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb50-6"><a href="#cb50-6"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib  </span></span>
-<span id="cb50-7"><a href="#cb50-7"></a><span class="at">  </span></span>
-<span id="cb50-8"><a href="#cb50-8"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb50-9"><a href="#cb50-9"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb50-10"><a href="#cb50-10"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
-<span id="cb50-11"><a href="#cb50-11"></a><span class="at">    </span><span class="fu">html-math-method</span><span class="kw">:</span><span class="at"> katex</span></span>
-<span id="cb50-12"><a href="#cb50-12"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
-<span id="cb50-13"><a href="#cb50-13"></a><span class="at">    </span><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> report</span></span>
-<span id="cb50-14"><a href="#cb50-14"></a><span class="at">    </span><span class="fu">margin-left</span><span class="kw">:</span><span class="at"> 30mm</span></span>
-<span id="cb50-15"><a href="#cb50-15"></a><span class="at">    </span><span class="fu">margin-right</span><span class="kw">:</span><span class="at"> 30mm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53" data-filename="_quarto.yml"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> _output</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a></span>
+<span id="cb53-4"><a href="#cb53-4"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb53-5"><a href="#cb53-5"></a><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb53-6"><a href="#cb53-6"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib  </span></span>
+<span id="cb53-7"><a href="#cb53-7"></a><span class="at">  </span></span>
+<span id="cb53-8"><a href="#cb53-8"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb53-9"><a href="#cb53-9"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb53-10"><a href="#cb53-10"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
+<span id="cb53-11"><a href="#cb53-11"></a><span class="at">    </span><span class="fu">html-math-method</span><span class="kw">:</span><span class="at"> katex</span></span>
+<span id="cb53-12"><a href="#cb53-12"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb53-13"><a href="#cb53-13"></a><span class="at">    </span><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> report</span></span>
+<span id="cb53-14"><a href="#cb53-14"></a><span class="at">    </span><span class="fu">margin-left</span><span class="kw">:</span><span class="at"> 30mm</span></span>
+<span id="cb53-15"><a href="#cb53-15"></a><span class="at">    </span><span class="fu">margin-right</span><span class="kw">:</span><span class="at"> 30mm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="quarto-projects-3" class="slide level2">
@@ -1319,7 +1437,7 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 
 
 <img src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p><a href="https://jthomasmock.github.io/quarto-2hr-webinar/">Quarto in 2 Hours</a></p>
+<p><a href="https://jthomasmock.github.io/quarto-2hr-webinar/">jthomasmock.github.io/quarto-2hr-webinar</a></p>
 </div>
 </section></section>
 

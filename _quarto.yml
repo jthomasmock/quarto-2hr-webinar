@@ -18,7 +18,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - text: Workshop
+      - text: Slides
         menu: 
           - href: materials/01-intro-quarto.qmd
             text: "Intro to Quarto"
@@ -28,7 +28,7 @@ website:
       - href: "https://quarto.org/"
         text: "Quarto Docs"
       - icon: github
-        href: https://github.com/rstudio-conf-2022/get-started-quarto
+        href:  https://github.com/jthomasmock/quarto-2hr-webinar
       - icon: twitter
         href: https://twitter.com/quarto_pub
   sidebar: 

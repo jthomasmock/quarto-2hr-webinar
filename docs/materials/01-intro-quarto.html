@@ -378,6 +378,8 @@
       margin-right: 0; 
     }
   </style>
+  <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -501,6 +503,123 @@ We’ll teach you
 <h2>Quarto, more than <em>just</em> <code>knitr</code></h2>
 
 <img data-src="images/jupyter-alone.jpeg" class="r-stretch"></section>
+<section id="quarto-also-with-observable-javascript" class="slide level2">
+<h2>Quarto, also with Observable Javascript!</h2>
+<blockquote>
+<p>Quarto includes native support for Observable JS, a set of enhancements to vanilla JavaScript created by Mike Bostock (also the author of D3). Observable JS is distinguished by its reactive runtime, which is especially well suited for interactive data exploration and analysis.</p>
+</blockquote>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="158" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 157;"><span id="cb2-158"><a href="#cb2-158"></a>viewof temp <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">34</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`Temp &amp;#x2103;`</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<p>Converting temperature from ℃ to ℉ <br><br>
+Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <span><span id="ojs-element-id-2"></span>℉.</span></p>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown code number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>viewof temp <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">34</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`Temp &amp;#x2103;`</span>})</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="vs">```</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="vs">Converting temperature from &amp;#x2103; to &amp;#x2109; &lt;br&gt;  </span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="vs">Celsius = </span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">format</span>(<span class="st">".0f"</span>)(temp)<span class="sc">}</span><span class="vs">&amp;#x2103; and Fahrenheit = </span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">format</span>(<span class="st">".1f"</span>)(temp <span class="op">*</span> <span class="dv">9</span><span class="op">/</span><span class="dv">5</span> <span class="op">+</span> <span class="dv">32</span>)<span class="sc">}</span><span class="vs">&amp;#x2109;.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="quarto-observable.js" class="slide level2">
+<h2>Quarto + Observable.js</h2>
+<p>A simple example based on Allison Horst’s <a href="https://allisonhorst.github.io/palmerpenguins/">Palmer Penguins</a> dataset. Here we look at how penguin body mass varies across both sex and species (use the provided inputs to filter the dataset by bill length and island):</p>
+<div class="cell panel-input">
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="184" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 183;"><span id="cb4-184"><a href="#cb4-184"></a>viewof bill_length_min <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb4-185"><a href="#cb4-185"></a>  [<span class="dv">32</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">,</span> </span>
+<span id="cb4-186"><a href="#cb4-186"></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">35</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Bill length (min):"</span>}</span>
+<span id="cb4-187"><a href="#cb4-187"></a>)</span>
+<span id="cb4-188"><a href="#cb4-188"></a>viewof islands <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
+<span id="cb4-189"><a href="#cb4-189"></a>  [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span><span class="op">,</span> <span class="st">"Dream"</span>]<span class="op">,</span> </span>
+<span id="cb4-190"><a href="#cb4-190"></a>  { <span class="dt">value</span><span class="op">:</span> [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span>]<span class="op">,</span> </span>
+<span id="cb4-191"><a href="#cb4-191"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Islands:"</span></span>
+<span id="cb4-192"><a href="#cb4-192"></a>  }</span>
+<span id="cb4-193"><a href="#cb4-193"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Plot</a></li><li><a href="#tabset-1-2">Data</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="200" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 199;"><span id="cb5-200"><a href="#cb5-200"></a>Plot<span class="op">.</span><span class="fu">rectY</span>(filtered<span class="op">,</span> </span>
+<span id="cb5-201"><a href="#cb5-201"></a>  Plot<span class="op">.</span><span class="fu">binX</span>(</span>
+<span id="cb5-202"><a href="#cb5-202"></a>    {<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span> </span>
+<span id="cb5-203"><a href="#cb5-203"></a>    {<span class="dt">x</span><span class="op">:</span> <span class="st">"body_mass"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">20</span>}</span>
+<span id="cb5-204"><a href="#cb5-204"></a>  ))</span>
+<span id="cb5-205"><a href="#cb5-205"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb5-206"><a href="#cb5-206"></a>    <span class="dt">facet</span><span class="op">:</span> {</span>
+<span id="cb5-207"><a href="#cb5-207"></a>      <span class="dt">data</span><span class="op">:</span> filtered<span class="op">,</span></span>
+<span id="cb5-208"><a href="#cb5-208"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"sex"</span><span class="op">,</span></span>
+<span id="cb5-209"><a href="#cb5-209"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span></span>
+<span id="cb5-210"><a href="#cb5-210"></a>      <span class="dt">marginRight</span><span class="op">:</span> <span class="dv">80</span></span>
+<span id="cb5-211"><a href="#cb5-211"></a>    }<span class="op">,</span></span>
+<span id="cb5-212"><a href="#cb5-212"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb5-213"><a href="#cb5-213"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
+<span id="cb5-214"><a href="#cb5-214"></a>    ]</span>
+<span id="cb5-215"><a href="#cb5-215"></a>  }</span>
+<span id="cb5-216"><a href="#cb5-216"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="223" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 222;"><span id="cb6-223"><a href="#cb6-223"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="229" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 228;"><span id="cb7-229"><a href="#cb7-229"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"palmer-penguins.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="234" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 233;"><span id="cb8-234"><a href="#cb8-234"></a>filtered <span class="op">=</span> data<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span>(penguin) {</span>
+<span id="cb8-235"><a href="#cb8-235"></a>  <span class="cf">return</span> bill_length_min <span class="op">&lt;</span> penguin<span class="op">.</span><span class="at">bill_length</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb8-236"><a href="#cb8-236"></a>         islands<span class="op">.</span><span class="fu">includes</span>(penguin<span class="op">.</span><span class="at">island</span>)<span class="op">;</span></span>
+<span id="cb8-237"><a href="#cb8-237"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</section>
 <section id="quarto-is-a-big-universe" class="slide level2">
 <h2>Quarto is a big universe!</h2>
 
@@ -511,30 +630,30 @@ We’ll teach you
 <p>Quarto is a command line interface (CLI) that renders plain text formats (<code>.qmd</code>, <code>.rmd</code>, <code>.md</code>) OR mixed formats (<code>.ipynb</code>/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1|4|10|14|15"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>thomasmock$ quarto <span class="op">--</span><span class="bu">help</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a>  Usage:   quarto</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  Version: <span class="fl">1.0.36</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a>  Description:</span>
-<span id="cb2-7"><a href="#cb2-7"></a>    Quarto CLI</span>
-<span id="cb2-8"><a href="#cb2-8"></a></span>
-<span id="cb2-9"><a href="#cb2-9"></a>  Options:</span>
-<span id="cb2-10"><a href="#cb2-10"></a>    <span class="op">-</span>h, <span class="op">--</span><span class="bu">help</span>     <span class="op">-</span> Show this <span class="bu">help</span>.                            </span>
-<span id="cb2-11"><a href="#cb2-11"></a>    <span class="op">-</span>V, <span class="op">--</span>version  <span class="op">-</span> Show the version number <span class="cf">for</span> this program.  </span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a>  Commands:</span>
-<span id="cb2-14"><a href="#cb2-14"></a>    render          [<span class="bu">input</span>] [args...]   <span class="op">-</span> Render <span class="bu">input</span> <span class="bu">file</span>(s) to various document types.            </span>
-<span id="cb2-15"><a href="#cb2-15"></a>    preview         [<span class="bu">file</span>] [args...]    <span class="op">-</span> Render <span class="kw">and</span> preview a document <span class="kw">or</span> website project.          </span>
-<span id="cb2-16"><a href="#cb2-16"></a>    serve           [<span class="bu">input</span>]             <span class="op">-</span> Serve a Shiny interactive document.                        </span>
-<span id="cb2-17"><a href="#cb2-17"></a>    create<span class="op">-</span>project  [<span class="bu">dir</span>]               <span class="op">-</span> Create a project <span class="cf">for</span> rendering multiple documents          </span>
-<span id="cb2-18"><a href="#cb2-18"></a>    convert         <span class="op">&lt;</span><span class="bu">input</span><span class="op">&gt;</span>             <span class="op">-</span> Convert documents to alternate representations.            </span>
-<span id="cb2-19"><a href="#cb2-19"></a>    pandoc          [args...]           <span class="op">-</span> Run the version of Pandoc embedded within Quarto.          </span>
-<span id="cb2-20"><a href="#cb2-20"></a>    run             [script] [args...]  <span class="op">-</span> Run a TypeScript, R, Python, <span class="kw">or</span> Lua script.                </span>
-<span id="cb2-21"><a href="#cb2-21"></a>    install         <span class="op">&lt;</span><span class="bu">type</span><span class="op">&gt;</span> [target]     <span class="op">-</span> Installs an extension <span class="kw">or</span> <span class="kw">global</span> dependency.                </span>
-<span id="cb2-22"><a href="#cb2-22"></a>    publish         [provider] [path]   <span class="op">-</span> Publish a document <span class="kw">or</span> project. Available providers include:</span>
-<span id="cb2-23"><a href="#cb2-23"></a>    check           [target]            <span class="op">-</span> Verify correct functioning of Quarto installation.         </span>
-<span id="cb2-24"><a href="#cb2-24"></a>    <span class="bu">help</span>            [command]           <span class="op">-</span> Show this <span class="bu">help</span> <span class="kw">or</span> the <span class="bu">help</span> of a sub<span class="op">-</span>command.    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|1|4|10|14|15"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>thomasmock$ quarto <span class="op">--</span><span class="bu">help</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  Usage:   quarto</span>
+<span id="cb9-4"><a href="#cb9-4"></a>  Version: <span class="fl">1.0.36</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>  Description:</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    Quarto CLI</span>
+<span id="cb9-8"><a href="#cb9-8"></a></span>
+<span id="cb9-9"><a href="#cb9-9"></a>  Options:</span>
+<span id="cb9-10"><a href="#cb9-10"></a>    <span class="op">-</span>h, <span class="op">--</span><span class="bu">help</span>     <span class="op">-</span> Show this <span class="bu">help</span>.                            </span>
+<span id="cb9-11"><a href="#cb9-11"></a>    <span class="op">-</span>V, <span class="op">--</span>version  <span class="op">-</span> Show the version number <span class="cf">for</span> this program.  </span>
+<span id="cb9-12"><a href="#cb9-12"></a></span>
+<span id="cb9-13"><a href="#cb9-13"></a>  Commands:</span>
+<span id="cb9-14"><a href="#cb9-14"></a>    render          [<span class="bu">input</span>] [args...]   <span class="op">-</span> Render <span class="bu">input</span> <span class="bu">file</span>(s) to various document types.            </span>
+<span id="cb9-15"><a href="#cb9-15"></a>    preview         [<span class="bu">file</span>] [args...]    <span class="op">-</span> Render <span class="kw">and</span> preview a document <span class="kw">or</span> website project.          </span>
+<span id="cb9-16"><a href="#cb9-16"></a>    serve           [<span class="bu">input</span>]             <span class="op">-</span> Serve a Shiny interactive document.                        </span>
+<span id="cb9-17"><a href="#cb9-17"></a>    create<span class="op">-</span>project  [<span class="bu">dir</span>]               <span class="op">-</span> Create a project <span class="cf">for</span> rendering multiple documents          </span>
+<span id="cb9-18"><a href="#cb9-18"></a>    convert         <span class="op">&lt;</span><span class="bu">input</span><span class="op">&gt;</span>             <span class="op">-</span> Convert documents to alternate representations.            </span>
+<span id="cb9-19"><a href="#cb9-19"></a>    pandoc          [args...]           <span class="op">-</span> Run the version of Pandoc embedded within Quarto.          </span>
+<span id="cb9-20"><a href="#cb9-20"></a>    run             [script] [args...]  <span class="op">-</span> Run a TypeScript, R, Python, <span class="kw">or</span> Lua script.                </span>
+<span id="cb9-21"><a href="#cb9-21"></a>    install         <span class="op">&lt;</span><span class="bu">type</span><span class="op">&gt;</span> [target]     <span class="op">-</span> Installs an extension <span class="kw">or</span> <span class="kw">global</span> dependency.                </span>
+<span id="cb9-22"><a href="#cb9-22"></a>    publish         [provider] [path]   <span class="op">-</span> Publish a document <span class="kw">or</span> project. Available providers include:</span>
+<span id="cb9-23"><a href="#cb9-23"></a>    check           [target]            <span class="op">-</span> Verify correct functioning of Quarto installation.         </span>
+<span id="cb9-24"><a href="#cb9-24"></a>    <span class="bu">help</span>            [command]           <span class="op">-</span> Show this <span class="bu">help</span> <span class="kw">or</span> the <span class="bu">help</span> of a sub<span class="op">-</span>command.    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="comfort-of-your-own-workspace" class="slide level2">
@@ -588,11 +707,11 @@ We’ll teach you
 <section id="quarto-for-collaboration" class="slide level2">
 <h2>Quarto, for collaboration</h2>
 <div style="font-size: 90px;">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">contents</span><span class="kw">:</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> datalake-extracts-dplyr-aws.rmd</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="at">  </span><span class="kw">-</span><span class="at"> data-cleaning-siuba.ipynb</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> python-r-handoff.ipynb  </span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="at">  </span><span class="kw">-</span><span class="at"> computer-vision-r-torch.qmd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">contents</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> datalake-extracts-dplyr-aws.rmd</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="at">  </span><span class="kw">-</span><span class="at"> data-cleaning-siuba.ipynb</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> python-r-handoff.ipynb  </span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="at">  </span><span class="kw">-</span><span class="at"> computer-vision-r-torch.qmd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="one-install-batteries-included" class="slide level2">
@@ -751,7 +870,7 @@ We’ll teach you
 <div class="code-with-filename-file">
 <pre> <strong>terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb4" data-filename="terminal"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">quarto</span> render my-favorite.rmd <span class="at">--to</span> html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11" data-filename="terminal"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="ex">quarto</span> render my-favorite.rmd <span class="at">--to</span> html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -763,7 +882,7 @@ We’ll teach you
 <div class="code-with-filename-file">
 <pre> <strong>terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb5" data-filename="terminal"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">quarto</span> render my-favorite.ipynb <span class="at">--to</span> html <span class="at">--execute</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12" data-filename="terminal"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">quarto</span> render my-favorite.ipynb <span class="at">--to</span> html <span class="at">--execute</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -792,9 +911,9 @@ We’ll teach you
 <div class="code-with-filename-file">
 <pre> <strong>terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb6" data-filename="terminal"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">quarto</span> render document.qmd <span class="co"># defaults to html</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> pdf</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13" data-filename="terminal"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">quarto</span> render document.qmd <span class="co"># defaults to html</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> pdf</span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -804,9 +923,9 @@ We’ll teach you
 </ol>
 <div style="font-size: 60px;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(quarto)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">quarto_render</span>(<span class="st">"document.qmd"</span>) <span class="co"># defaults to html</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">quarto_render</span>(<span class="st">"document.qmd"</span>, <span class="at">output_format =</span> <span class="st">"pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">library</span>(quarto)</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">quarto_render</span>(<span class="st">"document.qmd"</span>) <span class="co"># defaults to html</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="fu">quarto_render</span>(<span class="st">"document.qmd"</span>, <span class="at">output_format =</span> <span class="st">"pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -816,10 +935,10 @@ We’ll teach you
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Source</p>
-<p><img data-src="images/word.png" alt="A blank Word document" width="650"></p>
+<p><img data-src="images/word.png" alt="A blank Word document" width="450"></p>
 </div><div class="column" style="width:50%;">
 <p>Output</p>
-<p><img data-src="images/word.png" alt="A blank Word document" width="650"></p>
+<p><img data-src="images/word.png" alt="A blank Word document" width="450"></p>
 </div>
 </div>
 </section>
@@ -827,34 +946,34 @@ We’ll teach you
 <h2>Change your mental model</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "ggplot2 demo"</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Norah Jones"</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "5/22/2021"</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-width: 8</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-height: 4</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Air Quality</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>@fig-airquality further explores the impact of temperature </span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  on ozone level.</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-airquality</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "ggplot2 demo"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Norah Jones"</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "5/22/2021"</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-width: 8</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-height: 4</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Air Quality</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>@fig-airquality further explores the impact of temperature </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  on ozone level.</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-airquality</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="https://quarto.org/images/hello-knitr.png"></p>
 </div>
@@ -868,11 +987,11 @@ We’ll teach you
 </ul>
 <div class="columns" style="font-size: 60px;">
 <div class="column" style="width:45%;">
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> knitr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> knitr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:55%;">
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> jupyter</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">engine</span><span class="kw">:</span><span class="at"> jupyter</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -882,19 +1001,19 @@ We’ll teach you
 </ul>
 <div class="columns" style="font-size: 60px;">
 <div class="column" style="width:45%;">
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown code number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb11-3"><a href="#cb11-3"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">|&gt;</span> </span>
-<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mpg))</span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource markdown code number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">|&gt;</span> </span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mpg))</span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:55%;">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown code number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="im">from</span> siuba <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>(mtcars</span>
-<span id="cb12-4"><a href="#cb12-4"></a>  <span class="op">&gt;&gt;</span> group_by(_.cyl)</span>
-<span id="cb12-5"><a href="#cb12-5"></a>  <span class="op">&gt;&gt;</span> summarize(avg_mpg <span class="op">=</span> _.mpg.mean()))</span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource markdown code number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1"></a><span class="in">```{python}</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="im">from</span> siuba <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>(mtcars</span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="op">&gt;&gt;</span> group_by(_.cyl)</span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="op">&gt;&gt;</span> summarize(avg_mpg <span class="op">=</span> _.mpg.mean()))</span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -903,9 +1022,9 @@ We’ll teach you
 <li>Text</li>
 </ul>
 <div style="font-size: 70px;">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu"># Heading 1</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>This is a sentence with some **bold text**, *italic text* and an </span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="al">![image](image.png)</span>{fig-alt="Alt text for this image"}.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu"># Heading 1</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>This is a sentence with some **bold text**, *italic text* and an </span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="al">![image](image.png)</span>{fig-alt="Alt text for this image"}.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -918,13 +1037,13 @@ We’ll teach you
 </section>
 <section id="yaml" class="slide level2">
 <h2>YAML</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1"></a><span class="pp">---</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1"></a><span class="pp">---</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="markdown" class="slide level2">
 <h2>Markdown</h2>
@@ -1015,19 +1134,19 @@ We’ll teach you
 <h2>Code</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="co">#| output-location: column</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="co">#| label: fig-airquality</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="co">#| warning: false</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a></span>
-<span id="cb25-7"><a href="#cb25-7"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb25-8"><a href="#cb25-8"></a></span>
-<span id="cb25-9"><a href="#cb25-9"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
-<span id="cb25-10"><a href="#cb25-10"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb25-11"><a href="#cb25-11"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
-<span id="cb25-12"><a href="#cb25-12"></a>)</span>
-<span id="cb25-13"><a href="#cb25-13"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="co">#| label: fig-airquality</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="co">#| fig-cap: Temperature and ozone level.</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="co">#| warning: false</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a></span>
+<span id="cb32-7"><a href="#cb32-7"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb32-8"><a href="#cb32-8"></a></span>
+<span id="cb32-9"><a href="#cb32-9"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb32-10"><a href="#cb32-10"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb32-11"><a href="#cb32-11"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span></span>
+<span id="cb32-12"><a href="#cb32-12"></a>)</span>
+<span id="cb32-13"><a href="#cb32-13"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div id="fig-airquality" class="quarto-figure quarto-figure-center">
@@ -1045,24 +1164,24 @@ We’ll teach you
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1"></a><span class="in">```{python}</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="co">#| eval: false</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="co">#| label: fig-polar</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="co">#| fig-cap: "A line plot on a polar axis"</span></span>
-<span id="cb26-5"><a href="#cb26-5"></a></span>
-<span id="cb26-6"><a href="#cb26-6"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb26-7"><a href="#cb26-7"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb26-8"><a href="#cb26-8"></a></span>
-<span id="cb26-9"><a href="#cb26-9"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
-<span id="cb26-10"><a href="#cb26-10"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
-<span id="cb26-11"><a href="#cb26-11"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
-<span id="cb26-12"><a href="#cb26-12"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
-<span id="cb26-13"><a href="#cb26-13"></a>)</span>
-<span id="cb26-14"><a href="#cb26-14"></a>ax.plot(theta, r)</span>
-<span id="cb26-15"><a href="#cb26-15"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
-<span id="cb26-16"><a href="#cb26-16"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb26-17"><a href="#cb26-17"></a>plt.show()</span>
-<span id="cb26-18"><a href="#cb26-18"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1"></a><span class="in">```{python}</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="co">#| eval: false</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="co">#| label: fig-polar</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="co">#| fig-cap: "A line plot on a polar axis"</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a></span>
+<span id="cb33-6"><a href="#cb33-6"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb33-8"><a href="#cb33-8"></a></span>
+<span id="cb33-9"><a href="#cb33-9"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
+<span id="cb33-10"><a href="#cb33-10"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
+<span id="cb33-11"><a href="#cb33-11"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
+<span id="cb33-12"><a href="#cb33-12"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
+<span id="cb33-13"><a href="#cb33-13"></a>)</span>
+<span id="cb33-14"><a href="#cb33-14"></a>ax.plot(theta, r)</span>
+<span id="cb33-15"><a href="#cb33-15"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
+<span id="cb33-16"><a href="#cb33-16"></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb33-17"><a href="#cb33-17"></a>plt.show()</span>
+<span id="cb33-18"><a href="#cb33-18"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="images/polar-axis.png" width="650"></p>
@@ -1075,30 +1194,30 @@ We’ll teach you
 <p>Quarto is a command line interface (CLI) that renders plain text formats (<code>.qmd</code>, <code>.rmd</code>, <code>.md</code>) OR mixed formats (<code>.ipynb</code>/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="|1|4|10|14|15"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>thomasmock$ quarto <span class="op">--</span><span class="bu">help</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a></span>
-<span id="cb27-3"><a href="#cb27-3"></a>  Usage:   quarto</span>
-<span id="cb27-4"><a href="#cb27-4"></a>  Version: <span class="fl">1.0.36</span></span>
-<span id="cb27-5"><a href="#cb27-5"></a></span>
-<span id="cb27-6"><a href="#cb27-6"></a>  Description:</span>
-<span id="cb27-7"><a href="#cb27-7"></a>    Quarto CLI</span>
-<span id="cb27-8"><a href="#cb27-8"></a></span>
-<span id="cb27-9"><a href="#cb27-9"></a>  Options:</span>
-<span id="cb27-10"><a href="#cb27-10"></a>    <span class="op">-</span>h, <span class="op">--</span><span class="bu">help</span>     <span class="op">-</span> Show this <span class="bu">help</span>.                            </span>
-<span id="cb27-11"><a href="#cb27-11"></a>    <span class="op">-</span>V, <span class="op">--</span>version  <span class="op">-</span> Show the version number <span class="cf">for</span> this program.  </span>
-<span id="cb27-12"><a href="#cb27-12"></a></span>
-<span id="cb27-13"><a href="#cb27-13"></a>  Commands:</span>
-<span id="cb27-14"><a href="#cb27-14"></a>    render          [<span class="bu">input</span>] [args...]   <span class="op">-</span> Render <span class="bu">input</span> <span class="bu">file</span>(s) to various document types.            </span>
-<span id="cb27-15"><a href="#cb27-15"></a>    preview         [<span class="bu">file</span>] [args...]    <span class="op">-</span> Render <span class="kw">and</span> preview a document <span class="kw">or</span> website project.          </span>
-<span id="cb27-16"><a href="#cb27-16"></a>    serve           [<span class="bu">input</span>]             <span class="op">-</span> Serve a Shiny interactive document.                        </span>
-<span id="cb27-17"><a href="#cb27-17"></a>    create<span class="op">-</span>project  [<span class="bu">dir</span>]               <span class="op">-</span> Create a project <span class="cf">for</span> rendering multiple documents          </span>
-<span id="cb27-18"><a href="#cb27-18"></a>    convert         <span class="op">&lt;</span><span class="bu">input</span><span class="op">&gt;</span>             <span class="op">-</span> Convert documents to alternate representations.            </span>
-<span id="cb27-19"><a href="#cb27-19"></a>    pandoc          [args...]           <span class="op">-</span> Run the version of Pandoc embedded within Quarto.          </span>
-<span id="cb27-20"><a href="#cb27-20"></a>    run             [script] [args...]  <span class="op">-</span> Run a TypeScript, R, Python, <span class="kw">or</span> Lua script.                </span>
-<span id="cb27-21"><a href="#cb27-21"></a>    install         <span class="op">&lt;</span><span class="bu">type</span><span class="op">&gt;</span> [target]     <span class="op">-</span> Installs an extension <span class="kw">or</span> <span class="kw">global</span> dependency.                </span>
-<span id="cb27-22"><a href="#cb27-22"></a>    publish         [provider] [path]   <span class="op">-</span> Publish a document <span class="kw">or</span> project. Available providers include:</span>
-<span id="cb27-23"><a href="#cb27-23"></a>    check           [target]            <span class="op">-</span> Verify correct functioning of Quarto installation.         </span>
-<span id="cb27-24"><a href="#cb27-24"></a>    <span class="bu">help</span>            [command]           <span class="op">-</span> Show this <span class="bu">help</span> <span class="kw">or</span> the <span class="bu">help</span> of a sub<span class="op">-</span>command.    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34" data-code-line-numbers="|1|4|10|14|15"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>thomasmock$ quarto <span class="op">--</span><span class="bu">help</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a></span>
+<span id="cb34-3"><a href="#cb34-3"></a>  Usage:   quarto</span>
+<span id="cb34-4"><a href="#cb34-4"></a>  Version: <span class="fl">1.0.36</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a></span>
+<span id="cb34-6"><a href="#cb34-6"></a>  Description:</span>
+<span id="cb34-7"><a href="#cb34-7"></a>    Quarto CLI</span>
+<span id="cb34-8"><a href="#cb34-8"></a></span>
+<span id="cb34-9"><a href="#cb34-9"></a>  Options:</span>
+<span id="cb34-10"><a href="#cb34-10"></a>    <span class="op">-</span>h, <span class="op">--</span><span class="bu">help</span>     <span class="op">-</span> Show this <span class="bu">help</span>.                            </span>
+<span id="cb34-11"><a href="#cb34-11"></a>    <span class="op">-</span>V, <span class="op">--</span>version  <span class="op">-</span> Show the version number <span class="cf">for</span> this program.  </span>
+<span id="cb34-12"><a href="#cb34-12"></a></span>
+<span id="cb34-13"><a href="#cb34-13"></a>  Commands:</span>
+<span id="cb34-14"><a href="#cb34-14"></a>    render          [<span class="bu">input</span>] [args...]   <span class="op">-</span> Render <span class="bu">input</span> <span class="bu">file</span>(s) to various document types.            </span>
+<span id="cb34-15"><a href="#cb34-15"></a>    preview         [<span class="bu">file</span>] [args...]    <span class="op">-</span> Render <span class="kw">and</span> preview a document <span class="kw">or</span> website project.          </span>
+<span id="cb34-16"><a href="#cb34-16"></a>    serve           [<span class="bu">input</span>]             <span class="op">-</span> Serve a Shiny interactive document.                        </span>
+<span id="cb34-17"><a href="#cb34-17"></a>    create<span class="op">-</span>project  [<span class="bu">dir</span>]               <span class="op">-</span> Create a project <span class="cf">for</span> rendering multiple documents          </span>
+<span id="cb34-18"><a href="#cb34-18"></a>    convert         <span class="op">&lt;</span><span class="bu">input</span><span class="op">&gt;</span>             <span class="op">-</span> Convert documents to alternate representations.            </span>
+<span id="cb34-19"><a href="#cb34-19"></a>    pandoc          [args...]           <span class="op">-</span> Run the version of Pandoc embedded within Quarto.          </span>
+<span id="cb34-20"><a href="#cb34-20"></a>    run             [script] [args...]  <span class="op">-</span> Run a TypeScript, R, Python, <span class="kw">or</span> Lua script.                </span>
+<span id="cb34-21"><a href="#cb34-21"></a>    install         <span class="op">&lt;</span><span class="bu">type</span><span class="op">&gt;</span> [target]     <span class="op">-</span> Installs an extension <span class="kw">or</span> <span class="kw">global</span> dependency.                </span>
+<span id="cb34-22"><a href="#cb34-22"></a>    publish         [provider] [path]   <span class="op">-</span> Publish a document <span class="kw">or</span> project. Available providers include:</span>
+<span id="cb34-23"><a href="#cb34-23"></a>    check           [target]            <span class="op">-</span> Verify correct functioning of Quarto installation.         </span>
+<span id="cb34-24"><a href="#cb34-24"></a>    <span class="bu">help</span>            [command]           <span class="op">-</span> Show this <span class="bu">help</span> <span class="kw">or</span> the <span class="bu">help</span> of a sub<span class="op">-</span>command.    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="navigating-in-the-terminal" class="slide level2">
@@ -1161,8 +1280,15 @@ We’ll teach you
 
 
 <img src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p><a href="https://jthomasmock.github.io/quarto-2hr-webinar/">Quarto in 2 Hours</a></p>
+<p><a href="https://jthomasmock.github.io/quarto-2hr-webinar/">jthomasmock.github.io/quarto-2hr-webinar</a></p>
 </div>
+<script type="ojs-module-contents">
+{"contents":[
+  {"methodName":"interpret","inline":"true","source":"htl.html`<span>${d3.format(\".0f\")(temp)}</span>`", "cellName":"ojs-element-id-1"}
+,
+  {"methodName":"interpret","inline":"true","source":"htl.html`<span>${d3.format(\".1f\")(temp * 9/5 + 32)}</span>`", "cellName":"ojs-element-id-2"}
+]}
+</script>
 </section>
     </div>
   </div>
@@ -1374,6 +1500,17 @@ We’ll teach you
           RevealZoom
         ]
       });
+    </script>
+    
+    <script type="ojs-module-contents">
+    {"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"viewof temp = Inputs.range([0, 100], {step: 1, value: 34, label: htl.html`Temp &#x2103;`})\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"viewof bill_length_min = Inputs.range(\n  [32, 50], \n  {value: 35, step: 1, label: \"Bill length (min):\"}\n)\nviewof islands = Inputs.checkbox(\n  [\"Torgersen\", \"Biscoe\", \"Dream\"], \n  { value: [\"Torgersen\", \"Biscoe\"], \n    label: \"Islands:\"\n  }\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"Plot.rectY(filtered, \n  Plot.binX(\n    {y: \"count\"}, \n    {x: \"body_mass\", fill: \"species\", thresholds: 20}\n  ))\n  .plot({\n    facet: {\n      data: filtered,\n      x: \"sex\",\n      y: \"species\",\n      marginRight: 80\n    },\n    marks: [\n      Plot.frame(),\n    ]\n  }\n)\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"Inputs.table(filtered)\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"data = FileAttachment(\"palmer-penguins.csv\").csv({ typed: true })\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"filtered = data.filter(function(penguin) {\n  return bill_length_min < penguin.bill_length &&\n         islands.includes(penguin.island);\n})\n"},{"methodName":"interpretQuiet","source":"shinyInput('temp')"},{"methodName":"interpretQuiet","source":"shinyInput('bill_length_min')"},{"methodName":"interpretQuiet","source":"shinyInput('islands')"}]}
+    </script>
+    <script type="module">
+    window._ojs.paths.runtimeToDoc = "../../materials";
+    window._ojs.paths.runtimeToRoot = "../..";
+    window._ojs.paths.docToRoot = "..";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
     </script>
     
     <script>

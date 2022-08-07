@@ -1,12 +1,11 @@
 ---
 format: 
   revealjs:
-    # self-contained: true
     slide-number: true
     width: 1600
     height: 900
     logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
-    footer: "[Quarto in 2 Hours](https://jthomasmock.github.io/quarto-2hr-webinar/)"
+    footer: "[jthomasmock.github.io/quarto-2hr-webinar](https://jthomasmock.github.io/quarto-2hr-webinar/)"
     css: ["theme/theme.css"]
     theme: simple
 editor: source
@@ -315,7 +314,7 @@ Content
 ```
 :::
 
-::: {.column}
+::: {.column .fragment}
 
 Any number can be used: `::::::`
 
@@ -499,7 +498,27 @@ head(mtcars)
 
 ## Figure layout
 
-- Use a `layout` div: `::: {layout=???}`
+- Use a `layout` div: 
+  - `::: {layout-ncol=2}` or `::: {layout-nrow=3}`
+  - `::: {layout="[[70,30], [100]]"}`
+  - `::: {layout="[[40,-20,40], [100]]"}`
+  
+## Figure Layout
+
+```
+::: {layout="[[40,-20,40], [100]]"}
+![Surus](surus.png)
+
+![Hanno](hanno.png)
+
+![Lin Wang](lin-wang.png)
+:::
+
+```
+
+. . .
+
+![](https://quarto.org/docs/authoring/images/layout-attrib-negative.png)
 
 ## Spans
 
@@ -719,18 +738,19 @@ mtcars %>% filter(mpg >= 25)
 ## Why Quarto + `#|`?
 
 1. Consistency across engine (Jupyter/knitr)
-1. Consistency across YAML/Chunk options - decrease mental burden when learning/remembering
+1. Consistency across YAML/Chunk/`:::` options - decrease mental burden when learning/remembering
 1. More control over order/spacing of chunk options - not limited to one running line of options!
 
 ## Quarto chunk options
 
 ```{r}
 #| echo: fenced
+#| code-line-numbers: "|2-7"
 #| warning: false
 #| fig-cap: "Air Quality"
 #| fig-align: left
 #| fig-alt: |
-#|   "A ggplot2 with temperature by ozone levels along with a trend line 
+#|   "A scatterplot with temperature by ozone levels along with a trend line 
 #|   indicating the increase in temperature with increasing ozone levels."
 
 library(ggplot2)
@@ -745,9 +765,10 @@ You can also execute code inside a chunk option via the `!expr` syntax:
 
 ```{r}
 #| echo: fenced
+#| code-line-numbers: "|2"
 #| fig-cap: !expr glue::glue("The mean temperature was {mean(airquality$Temp)}")
 #| fig-alt: |
-#|   "A ggplot2 with temperature by ozone levels along with a trend line 
+#|   "A scatterplot with temperature by ozone levels along with a trend line 
 #|   indicating the increase in temperature with increasing ozone levels."
 ggplot(airquality, aes(Ozone, Temp)) + 
         geom_point() + 
@@ -824,9 +845,13 @@ Note that the YAML for Quarto:
 
 . . .
 
-### Converting `knitr` chunks {.fragment}
+::: {.fragment}
+
+### Converting `knitr` chunks
 
 - [`knitr` dev version](https://github.com/yihui/knitr/issues/2082#issuecomment-1195464246) as of 2022-08-06 has: `knitr::convert_chunk_header("doc.qmd", output = identity)`  
+
+:::
 
 ::: {.incremental}
 
@@ -842,6 +867,48 @@ Note that the YAML for Quarto:
 <br>
 
 But again - you don't _have_ to convert syntax of all your old documents, can use `quarto render` at terminal or use R + `quarto::quarto_render()` to render existing RMarkdown docs via Quarto
+
+## Remember the `::: {layout}`?
+
+You can do similar things with chunk options and plots from code!
+
+. . .
+
+```{r}
+#| echo: fenced
+#| code-line-numbers: "|3"
+#| output-location: fragment
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Speed and Stopping Distances of Cars"
+#|   - "Engine displacement and fuel efficiency in Cars"
+cars |> 
+  ggplot(aes(x = speed, y = dist)) +
+  geom_point()
+mtcars |> 
+  ggplot(aes(x = disp, y = mpg)) +
+  geom_point()
+```
+
+## Chunk option layouts
+
+```{r}
+#| echo: fenced
+#| code-line-numbers: "|6"
+#| output-location: fragment
+#| fig-cap: 
+#|   - "Speed and Stopping Distances of Cars"
+#|   - "Engine displacement and fuel efficiency in Cars"
+#| layout: "[[40,-20,40]]"
+#| fig-height: 4
+#| fig-format: retina
+cars |> 
+  ggplot(aes(x = speed, y = dist)) +
+  geom_point()
+mtcars |> 
+  ggplot(aes(x = disp, y = mpg)) +
+  geom_point()
+```
 
 # Aesthetics {background-image="images/howard-gentleman.jpg" background-size="contain" background-position="right" background-color="black"}
 
