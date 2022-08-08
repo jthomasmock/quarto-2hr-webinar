@@ -123,6 +123,14 @@ We learned from 10 years of literate programming with `knitr` + `rmarkdown`
 
 ![](images/qmd-knitr.jpeg)
 
+## Quarto, more than *just* `knitr`
+
+![](images/qmd-jupyter.jpeg)
+
+## Quarto, more than *just* `knitr`
+
+![](images/jupyter-alone.jpeg)
+
 ## Quarto, more internals
 
 -   `knitr` or `jupyter` evaluates R/Python/Julia code and returns a `.md` file along with the evaluated code
@@ -138,14 +146,6 @@ The `.md` file is processed via Pandoc and Quarto's Lua filters + Bootstrap CSS 
 . . .
 
 Lua filters written by R/Python/Julia developers should be interchangeable between formats - not language specific and often not even _format_ specific!
-
-## Quarto, more than *just* `knitr`
-
-![](images/qmd-jupyter.jpeg)
-
-## Quarto, more than *just* `knitr`
-
-![](images/jupyter-alone.jpeg)
 
 ## Quarto, also with Observable Javascript!
 
@@ -332,6 +332,30 @@ contents:
   - computer-vision-r-torch.qmd
 ```
 :::
+
+## Quarto Publish
+
+::: {style="font-size: 50px;"}
+```{.bash filename="terminal"}
+quarto publish --help
+
+  Usage:   quarto publish [provider] [path]
+  Version: 1.0.36                          
+                                           
+  Description:
+    Publish a document or project. Available providers include:
+                                                               
+     - Quarto Pub (quarto-pub)                                 
+     - GitHub Pages (gh-pages)                                 
+     - RStudio Connect (connect)                               
+     - Netlify (netlify)                                       
+```
+
+:::
+
+. . .
+
+![](images/quartopub.jpeg){fig-align=center style="width: 900px;" fig-alt="Screenshot of the quartopub.com website"}
 
 ## What about for Data Science at Work?
 

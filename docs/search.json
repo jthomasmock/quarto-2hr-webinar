@@ -326,7 +326,7 @@
     "href": "materials/02-authoring.html#why-yaml",
     "title": "Get Started with Quarto",
     "section": "Why YAML?",
-    "text": "Why YAML?\nTo avoid manually typing out all the options, every time!\n\n\nquarto render document.qmd --to html\n\n\n\n\n\nquarto render document.qmd --to html -M code fold:true\n\n\n\n\n\nquarto render document.qmd --to html -M code-fold:true -P alpha:0.2 -P ratio:0.3"
+    "text": "Why YAML?\nTo avoid manually typing out all the options, every time!\n\n\n\n\n terminal\n\nquarto render document.qmd --to html\n\n\n\n\n\n\n\n\n terminal\n\nquarto render document.qmd --to html -M code fold:true\n\n\n\n\n\n\n\n\n terminal\n\nquarto render document.qmd --to html -M code-fold:true -P alpha:0.2 -P ratio:0.3"
   },
   {
     "objectID": "materials/02-authoring.html#quarto-workflow",
@@ -340,7 +340,7 @@
     "href": "materials/02-authoring.html#rendering",
     "title": "Get Started with Quarto",
     "section": "Rendering",
-    "text": "Rendering\n\nRender in RStudio, starts a background job and previews the output\n\n\n\n\nSystem shell via quarto render\n\n\n\nquarto render document.qmd # defaults to html\nquarto render document.qmd --to pdf\nquarto render document.qmd --to docx\n\n\n\nRenders via terminal\n\n\n\n\nR console via quarto R package\n\n\n\nlibrary(quarto)\nquarto_render(\"document.qmd\") # defaults to html\nquarto_render(\"document.qmd\", output_format = \"pdf\")"
+    "text": "Rendering\n\nRender in RStudio, starts a background job and previews the output\n\n\n\n\nSystem shell via quarto render\n\n\n\n\n terminal\n\nquarto render document.qmd # defaults to html\nquarto render document.qmd --to pdf\nquarto render document.qmd --to docx\n\n\n\nRenders via terminal\n\n\n\n\nR console via quarto R package\n\n\n\nlibrary(quarto)\nquarto_render(\"document.qmd\") # defaults to html\nquarto_render(\"document.qmd\", output_format = \"pdf\")"
   },
   {
     "objectID": "materials/02-authoring.html#quarto-linting",
@@ -746,7 +746,7 @@
     "href": "materials/02-authoring.html#quarto-1",
     "title": "Get Started with Quarto",
     "section": "Quarto",
-    "text": "Quarto\n\nBatteries included, shared syntax across output types and languages\nChoose your own editor and your preferred data science language\nRMarkdown still maintained, but majority of new features built into Quarto\n\nFollow @quarto_pub or me @thomas_mock on Twitter to stay up to date!\n\nWeb resources\n\n\nQuarto.org for documentation or the Quarto FAQ\n“With Quarto Coming, is R Markdown Going Away? No.” - Yihui.org"
+    "text": "Quarto\n\nBatteries included, shared syntax across output types and languages\nChoose your own editor and your preferred data science language\nRMarkdown still maintained, but majority of new features built into Quarto\n\nFollow @quarto_pub or me @thomas_mock on Twitter to stay up to date!\n\nWebinar Slides: https://jthomasmock.github.io/quarto-2hr-webinar/\nFULL workshop materials: rstd.io/get-started-quarto\nWorkshop materials on RStudio Cloud:https://rstudio.cloud/content/4332583\n\n\nWeb resources\n\nQuarto.org for documentation or the Quarto FAQ\n“With Quarto Coming, is R Markdown Going Away? No.” - Yihui.org"
   },
   {
     "objectID": "materials/02-authoring.html#why-the-name-quarto1",
@@ -754,5 +754,12 @@
     "title": "Get Started with Quarto",
     "section": "Why the name “Quarto”?1",
     "text": "Why the name “Quarto”?1\n\n\n\n\n\n\n\n\n\n\njthomasmock.github.io/quarto-2hr-webinar\n\nWhy Quarto? We wanted to use a name that had meaning in the history of publishing and landed on Quarto, which is the format of a book or pamphlet produced from full sheets printed with eight pages of text, four to a side, then folded twice to produce four leaves. The earliest known European printed book is a Quarto, the Sibyllenbuch, believed to have been printed by Johannes Gutenberg in 1452–53."
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#quarto-publish",
+    "href": "materials/01-intro-quarto.html#quarto-publish",
+    "title": "Get Started with Quarto",
+    "section": "Quarto Publish",
+    "text": "Quarto Publish\n\n\n\n terminal\n\nquarto publish --help\n\n  Usage:   quarto publish [provider] [path]\n  Version: 1.0.36                          \n                                           \n  Description:\n    Publish a document or project. Available providers include:\n                                                               \n     - Quarto Pub (quarto-pub)                                 \n     - GitHub Pages (gh-pages)                                 \n     - RStudio Connect (connect)                               \n     - Netlify (netlify)"
   }
 ]

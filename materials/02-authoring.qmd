@@ -145,7 +145,7 @@ To avoid manually typing out all the options, every time!
 . . .
 
 ::: {style="font-size: 70px;"}
-```bash
+```{.bash filename="terminal"}
 quarto render document.qmd --to html
 ```
 :::
@@ -155,7 +155,7 @@ quarto render document.qmd --to html
 . . .
 
 ::: {style="font-size: 70px;"}
-```bash
+```{.bash filename="terminal"}
 quarto render document.qmd --to html -M code fold:true
 ```
 :::
@@ -165,7 +165,7 @@ quarto render document.qmd --to html -M code fold:true
 . . .
 
 ::: {style="font-size: 70px;"}
-```bash
+```{.bash filename="terminal"}
 quarto render document.qmd --to html -M code-fold:true -P alpha:0.2 -P ratio:0.3
 ```
 :::
@@ -190,9 +190,7 @@ Executing the Quarto Render button in RStudio will call Quarto render in a backg
 
 ::: {style="font-size: 70px;"}
 
-```{bash}
-#| eval: false
-#| echo: true
+```{.bash filename="terminal"}
 quarto render document.qmd # defaults to html
 quarto render document.qmd --to pdf
 quarto render document.qmd --to docx
