@@ -46,7 +46,7 @@
     "href": "materials/01-intro-quarto.html#workshop-prep",
     "title": "Get Started with Quarto",
     "section": "Workshop Prep",
-    "text": "Workshop Prep\n\nContent Website: https://jthomasmock.github.io/quarto-2hr-webinar/\nFULL workshop materials: rstd.io/get-started-quarto\nAre you on the latest version of RStudio i.e. v2022.07.1 or later?\n\npkg_list <- c(\n  \"tidyverse\", \"gt\", \"gtExtras\", \"reactable\", \"ggiraph\", \"here\", \"quarto\",\n  \"rmarkdown\", \"gtsummary\", \"palmerpenguins\", \"fs\", \"skimr\"\n  )\ninstall.packages(pkg_list)\n\nGreat, let’s get started!"
+    "text": "Workshop Prep\n\nContent Website: https://jthomasmock.github.io/quarto-2hr-webinar/\nFULL workshop materials: rstd.io/get-started-quarto or on RStudio Cloud\nAre you on the latest version of RStudio i.e. v2022.07.1 or later?\n\npkg_list <- c(\n  \"tidyverse\", \"gt\", \"gtExtras\", \"reactable\", \"ggiraph\", \"here\", \"quarto\",\n  \"rmarkdown\", \"gtsummary\", \"palmerpenguins\", \"fs\", \"skimr\"\n  )\ninstall.packages(pkg_list)\n\nGreat, let’s get started!"
   },
   {
     "objectID": "materials/01-intro-quarto.html#hello-quarto",
@@ -592,7 +592,7 @@
     "href": "materials/02-authoring.html#quarto-projects-3",
     "title": "Get Started with Quarto",
     "section": "Quarto Projects",
-    "text": "Quarto Projects\n\nBooks, Websites, Blogs are a Quarto project\nWant to learn how to build a blog? Join Isabella Velasquez from RStudio in our next Quarto webinar!\n\n\n\n\njthomasmock.github.io/quarto-2hr-webinar"
+    "text": "Quarto Projects\n\nBooks, Websites, Blogs are a Quarto project\nWant to learn how to build a blog? Join Isabella Velasquez from RStudio in our next Quarto webinar!"
   },
   {
     "objectID": "materials/images/mermaid.html",
@@ -726,5 +726,33 @@
     "title": "Get Started with Quarto",
     "section": "Observable.js",
     "text": "Observable.js\n\nviewof bill_length_min = Inputs.range(\n  [32, 50], \n  {value: 35, step: 1, label: \"Bill length (min):\"}\n)\nviewof islands = Inputs.checkbox(\n  [\"Torgersen\", \"Biscoe\", \"Dream\"], \n  { value: [\"Torgersen\", \"Biscoe\"], \n    label: \"Islands:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlotData\n\n\n\nPlot.rectY(filtered, \n  Plot.binX(\n    {y: \"count\"}, \n    {x: \"body_mass\", fill: \"species\", thresholds: 20}\n  ))\n  .plot({\n    facet: {\n      data: filtered,\n      x: \"sex\",\n      y: \"species\",\n      marginRight: 80\n    },\n    marks: [\n      Plot.frame(),\n    ]\n  }\n)\n\n\n\n\n\n\n\n\n\nInputs.table(filtered)\n\n\n\n\n\n\n\n\n\n\ndata = FileAttachment(\"palmer-penguins.csv\").csv({ typed: true })\n\n\n\n\n\n\n\nfiltered = data.filter(function(penguin) {\n  return bill_length_min < penguin.bill_length &&\n         islands.includes(penguin.island);\n})"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#what-about-for-data-science-at-work",
+    "href": "materials/01-intro-quarto.html#what-about-for-data-science-at-work",
+    "title": "Get Started with Quarto",
+    "section": "What about for Data Science at Work?",
+    "text": "What about for Data Science at Work?\n\nUse Quarto in RStudio Workbench (v2022.07.1) and RStudio Connect (v2022.07.0)!\n\n\n\n\n\nhttps://solutions.rstudio.com/example/bike_predict/"
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-crafted-with-love-and-care",
+    "href": "materials/02-authoring.html#quarto-crafted-with-love-and-care",
+    "title": "Get Started with Quarto",
+    "section": "Quarto, crafted with love and care",
+    "text": "Quarto, crafted with love and care\n\nDevelopment of Quarto is sponsored by RStudio, PBC. The same core team works on both Quarto and R Markdown:\n\n\nCarlos Scheidegger (@cscheid)\nCharles Teague (@dragonstyle)\nChristophe Dervieux (@cderv)\nJ.J. Allaire (@jjallaire)\nYihui Xie (@yihui)\n\nHere is the full contributors list. Quarto is open source and we welcome contributions in our github repository as well! https://github.com/quarto-dev/quarto-cli."
+  },
+  {
+    "objectID": "materials/02-authoring.html#quarto-1",
+    "href": "materials/02-authoring.html#quarto-1",
+    "title": "Get Started with Quarto",
+    "section": "Quarto",
+    "text": "Quarto\n\nBatteries included, shared syntax across output types and languages\nChoose your own editor and your preferred data science language\nRMarkdown still maintained, but majority of new features built into Quarto\n\nFollow @quarto_pub or me @thomas_mock on Twitter to stay up to date!\n\nWeb resources\n\n\nQuarto.org for documentation or the Quarto FAQ\n“With Quarto Coming, is R Markdown Going Away? No.” - Yihui.org"
+  },
+  {
+    "objectID": "materials/02-authoring.html#why-the-name-quarto1",
+    "href": "materials/02-authoring.html#why-the-name-quarto1",
+    "title": "Get Started with Quarto",
+    "section": "Why the name “Quarto”?1",
+    "text": "Why the name “Quarto”?1\n\n\n\n\n\n\n\n\n\n\njthomasmock.github.io/quarto-2hr-webinar\n\nWhy Quarto? We wanted to use a name that had meaning in the history of publishing and landed on Quarto, which is the format of a book or pamphlet produced from full sheets printed with eight pages of text, four to a side, then folded twice to produce four leaves. The earliest known European printed book is a Quarto, the Sibyllenbuch, believed to have been printed by Johannes Gutenberg in 1452–53."
   }
 ]

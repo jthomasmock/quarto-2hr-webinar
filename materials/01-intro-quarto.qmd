@@ -80,7 +80,7 @@ Find me at:
 ## Workshop Prep
 
 -   Content Website: <https://jthomasmock.github.io/quarto-2hr-webinar/>
--   FULL workshop materials: [rstd.io/get-started-quarto](https://rstd.io/get-started-quarto)
+-   FULL workshop materials: [rstd.io/get-started-quarto](https://rstd.io/get-started-quarto) or on [RStudio Cloud](https://rstudio.cloud/content/4332583)
 -   Are you on the latest version of RStudio i.e. [`v2022.07.1` or later](https://www.rstudio.com/products/rstudio/download/#download)?
 
 ``` r
@@ -332,6 +332,14 @@ contents:
   - computer-vision-r-torch.qmd
 ```
 :::
+
+## What about for Data Science at Work?
+
+-   Use Quarto in RStudio Workbench (v2022.07.1) and RStudio Connect (v2022.07.0)!
+
+. . .
+
+![<https://solutions.rstudio.com/example/bike_predict/>](https://raw.githubusercontent.com/sol-eng/bike_predict/main/img/arrows.drawio.png){style="width: 1300px;" fig-alt="diagram of Rendering a complex data science workflow via RStudio Connect - Quarto is used as the rendering mechanism for the notebooks and code"}
 
 ## One install, "Batteries included"
 

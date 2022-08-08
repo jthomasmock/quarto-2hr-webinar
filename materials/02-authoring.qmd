@@ -1095,3 +1095,54 @@ format:
 
 - Books, Websites, Blogs are a Quarto project
 - Want to learn how to build a blog? Join Isabella Velasquez from RStudio in our next Quarto webinar!
+
+<iframe width="1152" height="648" src="https://www.youtube.com/embed/CVcvXfRyfE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Quarto, crafted with love and care
+
+> Development of Quarto is sponsored by RStudio, PBC. The same core team works on both Quarto and R Markdown:
+
+-   Carlos Scheidegger ([\@cscheid](https://github.com/cscheid))
+
+-   Charles Teague ([\@dragonstyle](https://github.com/dragonstyle))
+
+-   Christophe Dervieux ([\@cderv](https://github.com/cderv))
+
+-   J.J. Allaire ([\@jjallaire](https://github.com/jjallaire/))
+
+-   Yihui Xie ([\@yihui](https://github.com/yihui))
+
+Here is the [full contributors list](https://github.com/quarto-dev/quarto-cli/graphs/contributors). Quarto is open source and we welcome contributions in our github repository as well! <https://github.com/quarto-dev/quarto-cli>.
+
+## Quarto
+
+- Batteries included, shared syntax across output types and languages
+- Choose your own editor and your preferred data science language
+- RMarkdown still maintained, but majority of new features built into Quarto
+
+Follow [\@quarto_pub](https://twitter.com/quarto_pub) or me [\@thomas_mock](https://twitter.com/thomas_mock) on Twitter to stay up to date!
+
+- Webinar Slides: <https://jthomasmock.github.io/quarto-2hr-webinar/>
+- FULL workshop materials: [rstd.io/get-started-quarto](https://rstd.io/get-started-quarto)
+- Workshop materials on RStudio Cloud:<https://rstudio.cloud/content/4332583>
+
+. . .
+
+### Web resources
+
+-   [Quarto.org](https://quarto.org/) for documentation or the [Quarto FAQ](https://quarto.org/docs/faq/)
+-   ["With Quarto Coming, is R Markdown Going Away? No." - Yihui.org](https://yihui.org/en/2022/04/quarto-r-markdown/)
+
+## Why the name "Quarto"?[^1]
+
+[^1]: [Why Quarto?](https://quarto.org/docs/faq/#why-the-name-quarto) We wanted to use a name that had meaning in the history of publishing and landed on Quarto, which is the format of a book or pamphlet produced from full sheets printed with eight pages of text, four to a side, then folded twice to produce four leaves. The earliest known European printed book is a Quarto, the [Sibyllenbuch](https://en.wikipedia.org/wiki/Sibyllenbuch_fragment), believed to have been printed by [Johannes Gutenberg](https://en.wikipedia.org/wiki/Johannes_Gutenberg) in 1452–53.
+
+::: columns
+::: {.column width="50%"}
+![](images/quarto-hamlet-1.jpeg){alt-text="A quarto folded book, where each of the pages can be folded to align the text." width="450px"}
+:::
+
+::: {.column width="50%"}
+![](images/quarto-hamlet-2.jpeg){alt-text="A quarto folded book, where each of the pages can be folded to align the text." width="450px"}
+:::
+:::
