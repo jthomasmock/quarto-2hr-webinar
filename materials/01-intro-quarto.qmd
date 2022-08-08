@@ -34,7 +34,7 @@ library(gtsummary)
 
 <a href="https://jthomasmock.github.io/quarto-2hr-webinar">`r fontawesome::fa("link", "white", height="45px")`</a>&nbsp;[jthomasmock.github.io/quarto-2hr-webinar](https://jthomasmock.github.io/quarto-2hr-webinar){style="font-size: 50px; color: white;"}
 
-[2022-07-27]{style="font-size: 50px;font-weight: bold;"}
+[2022-08-09]{style="font-size: 50px;font-weight: bold;"}
 :::
 
 ::: footer
