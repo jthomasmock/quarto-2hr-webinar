@@ -447,12 +447,17 @@ We’ll teach you
 <section>
 <section id="our-turn" class="title-slide slide level1 center" data-background-color="#447099" data-transition="slide-in">
 <h1><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M128 96h384v256h64V80C576 53.63 554.4 32 528 32h-416C85.63 32 64 53.63 64 80V352h64V96zM624 384h-608C7.25 384 0 391.3 0 400V416c0 35.25 28.75 64 64 64h512c35.25 0 64-28.75 64-64v-16C640 391.3 632.8 384 624 384zM365.9 286.2C369.8 290.1 374.9 292 380 292s10.23-1.938 14.14-5.844l48-48c7.812-7.813 7.812-20.5 0-28.31l-48-48c-7.812-7.813-20.47-7.813-28.28 0c-7.812 7.813-7.812 20.5 0 28.31l33.86 33.84l-33.86 33.84C358 265.7 358 278.4 365.9 286.2zM274.1 161.9c-7.812-7.813-20.47-7.813-28.28 0l-48 48c-7.812 7.813-7.812 20.5 0 28.31l48 48C249.8 290.1 254.9 292 260 292s10.23-1.938 14.14-5.844c7.812-7.813 7.812-20.5 0-28.31L240.3 224l33.86-33.84C281.1 182.4 281.1 169.7 274.1 161.9z"></path></svg> Our Turn</h1>
-<ul>
-<li>Open <del>Sesame</del> RStudio v2022.07.1 or RStudio Cloud</li>
-<li>If you haven’t already, clone the workshop: <code>https://github.com/jthomasmock/quarto-workshop.git</code></li>
-<li>Open the <code>quarto-workshop</code> RProject</li>
-</ul>
+
 </section>
+<h3 id="local">Local</h3>
+<ul>
+<li>Install/Open RStudio <a href="https://www.rstudio.com/products/rstudio/download/#download">v2022.07.1</a></li>
+<li>Clone the workshop: <code>https://github.com/jthomasmock/quarto-workshop.git</code> locally</li>
+</ul>
+<h3 id="rstudio-cloud">RStudio Cloud</h3>
+<ul>
+<li>Use the pre-built RStudio Cloud with all the workshop materials already installed: <a href="https://rstudio.cloud/content/4332583">https://rstudio.cloud/content/4332583</a></li>
+</ul>
 <section id="hello-quarto" class="slide level2">
 <h2>Hello Quarto</h2>
 <blockquote>
@@ -511,7 +516,7 @@ We’ll teach you
 <div class="fragment">
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="158" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 157;"><span id="cb2-158"><a href="#cb2-158"></a>viewof temp <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">34</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`Temp &amp;#x2103;`</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="161" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 160;"><span id="cb2-161"><a href="#cb2-161"></a>viewof temp <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">34</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`Temp &amp;#x2103;`</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -533,16 +538,16 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 <section id="observable.js" class="slide level2">
 <h2>Observable.js</h2>
 <div class="cell panel-input">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="181" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 180;"><span id="cb4-181"><a href="#cb4-181"></a>viewof bill_length_min <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
-<span id="cb4-182"><a href="#cb4-182"></a>  [<span class="dv">32</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">,</span> </span>
-<span id="cb4-183"><a href="#cb4-183"></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">35</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Bill length (min):"</span>}</span>
-<span id="cb4-184"><a href="#cb4-184"></a>)</span>
-<span id="cb4-185"><a href="#cb4-185"></a>viewof islands <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
-<span id="cb4-186"><a href="#cb4-186"></a>  [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span><span class="op">,</span> <span class="st">"Dream"</span>]<span class="op">,</span> </span>
-<span id="cb4-187"><a href="#cb4-187"></a>  { <span class="dt">value</span><span class="op">:</span> [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span>]<span class="op">,</span> </span>
-<span id="cb4-188"><a href="#cb4-188"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Islands:"</span></span>
-<span id="cb4-189"><a href="#cb4-189"></a>  }</span>
-<span id="cb4-190"><a href="#cb4-190"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="184" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 183;"><span id="cb4-184"><a href="#cb4-184"></a>viewof bill_length_min <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb4-185"><a href="#cb4-185"></a>  [<span class="dv">32</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">,</span> </span>
+<span id="cb4-186"><a href="#cb4-186"></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">35</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Bill length (min):"</span>}</span>
+<span id="cb4-187"><a href="#cb4-187"></a>)</span>
+<span id="cb4-188"><a href="#cb4-188"></a>viewof islands <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
+<span id="cb4-189"><a href="#cb4-189"></a>  [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span><span class="op">,</span> <span class="st">"Dream"</span>]<span class="op">,</span> </span>
+<span id="cb4-190"><a href="#cb4-190"></a>  { <span class="dt">value</span><span class="op">:</span> [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span>]<span class="op">,</span> </span>
+<span id="cb4-191"><a href="#cb4-191"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Islands:"</span></span>
+<span id="cb4-192"><a href="#cb4-192"></a>  }</span>
+<span id="cb4-193"><a href="#cb4-193"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-2-1" data-nodetype="declaration">
@@ -563,23 +568,23 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="197" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 196;"><span id="cb5-197"><a href="#cb5-197"></a>Plot<span class="op">.</span><span class="fu">rectY</span>(filtered<span class="op">,</span> </span>
-<span id="cb5-198"><a href="#cb5-198"></a>  Plot<span class="op">.</span><span class="fu">binX</span>(</span>
-<span id="cb5-199"><a href="#cb5-199"></a>    {<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span> </span>
-<span id="cb5-200"><a href="#cb5-200"></a>    {<span class="dt">x</span><span class="op">:</span> <span class="st">"body_mass"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">20</span>}</span>
-<span id="cb5-201"><a href="#cb5-201"></a>  ))</span>
-<span id="cb5-202"><a href="#cb5-202"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb5-203"><a href="#cb5-203"></a>    <span class="dt">facet</span><span class="op">:</span> {</span>
-<span id="cb5-204"><a href="#cb5-204"></a>      <span class="dt">data</span><span class="op">:</span> filtered<span class="op">,</span></span>
-<span id="cb5-205"><a href="#cb5-205"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"sex"</span><span class="op">,</span></span>
-<span id="cb5-206"><a href="#cb5-206"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span></span>
-<span id="cb5-207"><a href="#cb5-207"></a>      <span class="dt">marginRight</span><span class="op">:</span> <span class="dv">80</span></span>
-<span id="cb5-208"><a href="#cb5-208"></a>    }<span class="op">,</span></span>
-<span id="cb5-209"><a href="#cb5-209"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb5-210"><a href="#cb5-210"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
-<span id="cb5-211"><a href="#cb5-211"></a>    ]</span>
-<span id="cb5-212"><a href="#cb5-212"></a>  }</span>
-<span id="cb5-213"><a href="#cb5-213"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="200" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 199;"><span id="cb5-200"><a href="#cb5-200"></a>Plot<span class="op">.</span><span class="fu">rectY</span>(filtered<span class="op">,</span> </span>
+<span id="cb5-201"><a href="#cb5-201"></a>  Plot<span class="op">.</span><span class="fu">binX</span>(</span>
+<span id="cb5-202"><a href="#cb5-202"></a>    {<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span> </span>
+<span id="cb5-203"><a href="#cb5-203"></a>    {<span class="dt">x</span><span class="op">:</span> <span class="st">"body_mass"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">20</span>}</span>
+<span id="cb5-204"><a href="#cb5-204"></a>  ))</span>
+<span id="cb5-205"><a href="#cb5-205"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb5-206"><a href="#cb5-206"></a>    <span class="dt">facet</span><span class="op">:</span> {</span>
+<span id="cb5-207"><a href="#cb5-207"></a>      <span class="dt">data</span><span class="op">:</span> filtered<span class="op">,</span></span>
+<span id="cb5-208"><a href="#cb5-208"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"sex"</span><span class="op">,</span></span>
+<span id="cb5-209"><a href="#cb5-209"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span></span>
+<span id="cb5-210"><a href="#cb5-210"></a>      <span class="dt">marginRight</span><span class="op">:</span> <span class="dv">80</span></span>
+<span id="cb5-211"><a href="#cb5-211"></a>    }<span class="op">,</span></span>
+<span id="cb5-212"><a href="#cb5-212"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb5-213"><a href="#cb5-213"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
+<span id="cb5-214"><a href="#cb5-214"></a>    ]</span>
+<span id="cb5-215"><a href="#cb5-215"></a>  }</span>
+<span id="cb5-216"><a href="#cb5-216"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="expression">
 
@@ -589,7 +594,7 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="219" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 218;"><span id="cb6-219"><a href="#cb6-219"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="222" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 221;"><span id="cb6-222"><a href="#cb6-222"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-4" data-nodetype="expression">
 
@@ -600,7 +605,7 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="225" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 224;"><span id="cb7-225"><a href="#cb7-225"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"palmer-penguins.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="228" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 227;"><span id="cb7-228"><a href="#cb7-228"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"palmer-penguins.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="declaration">
 
@@ -608,10 +613,10 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="229" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 228;"><span id="cb8-229"><a href="#cb8-229"></a>filtered <span class="op">=</span> data<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span>(penguin) {</span>
-<span id="cb8-230"><a href="#cb8-230"></a>  <span class="cf">return</span> bill_length_min <span class="op">&lt;</span> penguin<span class="op">.</span><span class="at">bill_length</span> <span class="op">&amp;&amp;</span></span>
-<span id="cb8-231"><a href="#cb8-231"></a>         islands<span class="op">.</span><span class="fu">includes</span>(penguin<span class="op">.</span><span class="at">island</span>)<span class="op">;</span></span>
-<span id="cb8-232"><a href="#cb8-232"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="232" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 231;"><span id="cb8-232"><a href="#cb8-232"></a>filtered <span class="op">=</span> data<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span>(penguin) {</span>
+<span id="cb8-233"><a href="#cb8-233"></a>  <span class="cf">return</span> bill_length_min <span class="op">&lt;</span> penguin<span class="op">.</span><span class="at">bill_length</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb8-234"><a href="#cb8-234"></a>         islands<span class="op">.</span><span class="fu">includes</span>(penguin<span class="op">.</span><span class="at">island</span>)<span class="op">;</span></span>
+<span id="cb8-235"><a href="#cb8-235"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-6" data-nodetype="declaration">
 
@@ -622,7 +627,7 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 <section id="quarto-is-a-big-universe" class="slide level2">
 <h2>Quarto is a big universe!</h2>
 
-<img data-src="images/horst_quarto_schematic.png" class="r-stretch"></section>
+<img data-src="images/horst_quarto_schematic.png" alt="A diagram of the R, Python, Julia, Observable icons passed into Quarto to generate HTML, PDF, Word, and more!" class="r-stretch"></section>
 <section id="so-what-is-quarto" class="slide level2">
 <h2>So what is Quarto?</h2>
 <blockquote>
@@ -680,29 +685,29 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 <section id="vs-code" class="slide level2">
 <h2>VS Code</h2>
 
-<img data-src="https://quarto.org/docs/tools/images/vscode-render.png" class="r-stretch"></section>
+<img data-src="https://quarto.org/docs/tools/images/vscode-render.png" alt="Screenshot of VSCode with a Quarto document" class="r-stretch"></section>
 <section id="vs-code-yaml" class="slide level2">
 <h2>VS Code YAML</h2>
-
-<img data-src="https://quarto.org/docs/tools/images/vscode-raw.png" class="r-stretch"></section>
+<p><img data-src="https://quarto.org/docs/tools/images/vscode-raw.png">{fig-alt = “Screenshot of a .ipynb with Quarto YAML edited in VSCode”}</p>
+</section>
 <section id="vs-code-yaml-intelligence" class="slide level2">
 <h2>VS Code, YAML Intelligence</h2>
-
-<img data-src="https://quarto.org/docs/tools/images/vscode-yaml-completion.png" class="r-stretch"></section>
+<p><img data-src="https://quarto.org/docs/tools/images/vscode-yaml-completion.png">{fig-alt = “Screenshot of a .ipynb with Quarto YAML edited in VSCode”}</p>
+</section>
 <section id="jupyterjupyter-lab" class="slide level2">
 <h2>Jupyter/Jupyter Lab</h2>
-
-<img data-src="https://quarto.org/docs/tools/images/jupyter-lab.png" class="r-stretch"></section>
+<p><img data-src="https://quarto.org/docs/tools/images/jupyter-lab.png">{fig-alt = “Screenshot of a .ipynb with Quarto YAML edited in Jupyter”}</p>
+</section>
 <section id="jupyter" class="slide level2">
 <h2>Jupyter</h2>
 <p><code>quarto preview notebook.ipynb --to html</code></p>
-
-<img data-src="https://quarto.org/docs/tools/images/jupyterlab-preview.png" class="r-stretch"></section>
+<p><img data-src="https://quarto.org/docs/tools/images/jupyterlab-preview.png">{fig-alt = “Screenshot of a .ipynb with Quarto YAML edited in Jupyter”}</p>
+</section>
 <section id="jupyter-yaml" class="slide level2">
 <h2>Jupyter YAML</h2>
 <p>Treat YAML as a “raw cell” in Jupyter - Jupyter doesn’t care about YAML, but it’s needed/used by Quarto</p>
-
-<img data-src="https://quarto.org/docs/tools/images/jupyter-lab-yaml.png" class="r-stretch"></section>
+<p><img data-src="https://quarto.org/docs/tools/images/jupyter-lab-yaml.png">{fig-alt = “Screenshot of a .ipynb with Quarto YAML edited inJupyter”}</p>
+</section>
 <section id="quarto-for-collaboration" class="slide level2">
 <h2>Quarto, for collaboration</h2>
 <div style="font-size: 90px;">

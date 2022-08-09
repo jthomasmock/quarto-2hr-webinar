@@ -97,9 +97,12 @@ install.packages(pkg_list)
 
 # `r fontawesome::fa("laptop-code", "white")` Our Turn {background-color="#447099" transition="slide-in"}
 
--   Open ~~Sesame~~ RStudio v2022.07.1 or RStudio Cloud
--   If you haven't already, clone the workshop: `https://github.com/jthomasmock/quarto-workshop.git`
--   Open the `quarto-workshop` RProject
+### Local
+-   Install/Open RStudio [v2022.07.1](https://www.rstudio.com/products/rstudio/download/#download)
+-   Clone the workshop: `https://github.com/jthomasmock/quarto-workshop.git` locally
+
+### RStudio Cloud
+-   Use the pre-built RStudio Cloud with all the workshop materials already installed: [https://rstudio.cloud/content/4332583](https://rstudio.cloud/content/4332583)
 
 ## Hello Quarto
 
@@ -235,7 +238,7 @@ filtered = data.filter(function(penguin) {
 
 ## Quarto is a big universe!
 
-![](images/horst_quarto_schematic.png)
+![](images/horst_quarto_schematic.png){fig-alt="A diagram of the R, Python, Julia, Observable icons passed into Quarto to generate HTML, PDF, Word, and more!"}
 
 ## So what is Quarto?
 
@@ -295,31 +298,31 @@ thomasmock$ quarto --help
 
 ## VS Code
 
-![](https://quarto.org/docs/tools/images/vscode-render.png)
+![](https://quarto.org/docs/tools/images/vscode-render.png){fig-alt="Screenshot of VSCode with a Quarto document"}
 
 ## VS Code YAML
 
-![](https://quarto.org/docs/tools/images/vscode-raw.png)
+![](https://quarto.org/docs/tools/images/vscode-raw.png){fig-alt = "Screenshot of a .ipynb with Quarto YAML edited in VSCode"}
 
 ## VS Code, YAML Intelligence
 
-![](https://quarto.org/docs/tools/images/vscode-yaml-completion.png)
+![](https://quarto.org/docs/tools/images/vscode-yaml-completion.png){fig-alt = "Screenshot of a .ipynb with Quarto YAML edited in VSCode"}
 
 ## Jupyter/Jupyter Lab
 
-![](https://quarto.org/docs/tools/images/jupyter-lab.png)
+![](https://quarto.org/docs/tools/images/jupyter-lab.png){fig-alt = "Screenshot of a .ipynb with Quarto YAML edited in Jupyter"}
 
 ## Jupyter
 
 `quarto preview notebook.ipynb --to html`
 
-![](https://quarto.org/docs/tools/images/jupyterlab-preview.png)
+![](https://quarto.org/docs/tools/images/jupyterlab-preview.png){fig-alt = "Screenshot of a .ipynb with Quarto YAML edited in Jupyter"}
 
 ## Jupyter YAML
 
 Treat YAML as a "raw cell" in Jupyter - Jupyter doesn't care about YAML, but it's needed/used by Quarto
 
-![](https://quarto.org/docs/tools/images/jupyter-lab-yaml.png)
+![](https://quarto.org/docs/tools/images/jupyter-lab-yaml.png){fig-alt = "Screenshot of a .ipynb with Quarto YAML edited inJupyter"}
 
 ## Quarto, for collaboration
 

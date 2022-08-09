@@ -137,35 +137,35 @@
     "href": "materials/01-intro-quarto.html#vs-code-yaml",
     "title": "Get Started with Quarto",
     "section": "VS Code YAML",
-    "text": "VS Code YAML"
+    "text": "VS Code YAML\n{fig-alt = “Screenshot of a .ipynb with Quarto YAML edited in VSCode”}"
   },
   {
     "objectID": "materials/01-intro-quarto.html#vs-code-yaml-intelligence",
     "href": "materials/01-intro-quarto.html#vs-code-yaml-intelligence",
     "title": "Get Started with Quarto",
     "section": "VS Code, YAML Intelligence",
-    "text": "VS Code, YAML Intelligence"
+    "text": "VS Code, YAML Intelligence\n{fig-alt = “Screenshot of a .ipynb with Quarto YAML edited in VSCode”}"
   },
   {
     "objectID": "materials/01-intro-quarto.html#jupyterjupyter-lab",
     "href": "materials/01-intro-quarto.html#jupyterjupyter-lab",
     "title": "Get Started with Quarto",
     "section": "Jupyter/Jupyter Lab",
-    "text": "Jupyter/Jupyter Lab"
+    "text": "Jupyter/Jupyter Lab\n{fig-alt = “Screenshot of a .ipynb with Quarto YAML edited in Jupyter”}"
   },
   {
     "objectID": "materials/01-intro-quarto.html#jupyter",
     "href": "materials/01-intro-quarto.html#jupyter",
     "title": "Get Started with Quarto",
     "section": "Jupyter",
-    "text": "Jupyter\nquarto preview notebook.ipynb --to html"
+    "text": "Jupyter\nquarto preview notebook.ipynb --to html\n{fig-alt = “Screenshot of a .ipynb with Quarto YAML edited in Jupyter”}"
   },
   {
     "objectID": "materials/01-intro-quarto.html#jupyter-yaml",
     "href": "materials/01-intro-quarto.html#jupyter-yaml",
     "title": "Get Started with Quarto",
     "section": "Jupyter YAML",
-    "text": "Jupyter YAML\nTreat YAML as a “raw cell” in Jupyter - Jupyter doesn’t care about YAML, but it’s needed/used by Quarto"
+    "text": "Jupyter YAML\nTreat YAML as a “raw cell” in Jupyter - Jupyter doesn’t care about YAML, but it’s needed/used by Quarto\n{fig-alt = “Screenshot of a .ipynb with Quarto YAML edited inJupyter”}"
   },
   {
     "objectID": "materials/01-intro-quarto.html#quarto-for-collaboration",

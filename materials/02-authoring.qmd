@@ -133,8 +133,12 @@ Sub-options should be below the main format output and spacing matters!
 ---
 format: 
   html:
-    option1: text
+    option1: "text"
     option2: logical
+    option3:
+      - sub-option
+      - sub-option
+    option4: [sub-option1, sub-option2]
 ---
 ```
 
