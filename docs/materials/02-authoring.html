@@ -542,7 +542,7 @@
 <li>Render in RStudio, starts a background job and previews the output</li>
 </ol>
 
-<img data-src="https://quarto.org/docs/tools/images/rstudio-render.png" alt="A screenshot of the RStudio Render button, a blue arrow facing to the right with the text 'Render' next to it" width="1600" class="r-stretch"><div class="fragment">
+<img data-src="https://quarto.org/docs/tools/images/rstudio-render.png" alt="A screenshot of the RStudio Render button, a blue arrow facing to the right with the text 'Render' next to it" width="600" class="r-stretch"><div class="fragment">
 <ol start="2" type="1">
 <li>System shell via <code>quarto render</code></li>
 </ol>
@@ -556,9 +556,6 @@
 <span id="cb12-3"><a href="#cb12-3"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<ul>
-<li>Renders via terminal</li>
-</ul>
 </div>
 <div class="fragment">
 <ol start="3" type="1">
@@ -835,27 +832,25 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 </section>
 <section id="tabsets-2" class="slide level2">
 <h2>Tabsets</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: fenced</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<div class="sourceCode" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: fenced</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Output</span></span>
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Output</span></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="figure-layout" class="slide level2">
 <h2>Figure layout</h2>
@@ -870,16 +865,18 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 </section>
 <section id="figure-layout-1" class="slide level2">
 <h2>Figure Layout</h2>
+<div class="columns">
+<div class="column">
 <pre><code>::: {layout="[[40,-20,40], [100]]"}
 ![Surus](surus.png)
 
 ![Hanno](hanno.png)
 
 ![Lin Wang](lin-wang.png)
-:::
-</code></pre>
-<div class="fragment">
+:::</code></pre>
+</div><div class="column fragment">
 <p><img data-src="https://quarto.org/docs/authoring/images/layout-attrib-negative.png"></p>
+</div>
 </div>
 </section>
 <section id="spans" class="slide level2">
@@ -890,6 +887,8 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 </div>
 <div class="fragment">
 <p>Or a magically <span class="fragment">appearing word</span> <span class="fragment">with an additional point after</span></p>
+</div>
+<div class="fragment">
 <div class="sourceCode" id="cb29"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb29-1"><a href="#cb29-1"></a>Or a magically [appearing word]{.fragment} [with an additional point after]{.fragment}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn1" role="doc-endnote"><p><code>Maybe a footnote^[This is important text]</code></p></li></ol></aside></section></section>
@@ -1049,9 +1048,9 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <div class="fragment">
 <p>Quarto introduces the “hash pipe” in <code>#|</code> - this is the preferred syntax, although Quarto is backwards compatible with the older RMarkdown syntax.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="|2-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1"></a><span class="in">```{r}</span></span>
+<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="|2-3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1"></a><span class="in">```{r}</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a><span class="co">#| eval: true</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a><span class="co">#| code-line-numbers: "|2-4"</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a><span class="co">#| code-line-numbers: "|2-3"</span></span>
 <span id="cb40-4"><a href="#cb40-4"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(mpg <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
 <span id="cb40-5"><a href="#cb40-5"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1105,7 +1104,7 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43" data-code-line-numbers="|3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1"></a><span class="in">```{r}</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a><span class="co">#| code-line-numbers: "|3"</span></span>
-<span id="cb43-3"><a href="#cb43-3"></a><span class="co">#| fig-cap: !expr glue::glue("The mean temperature was {mean(airquality$Temp)}")</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="co">#| fig-cap: !expr glue::glue("The mean temperature was {mean(airquality$Temp) |&gt; round()}")</span></span>
 <span id="cb43-4"><a href="#cb43-4"></a><span class="co">#| fig-alt: |</span></span>
 <span id="cb43-5"><a href="#cb43-5"></a><span class="co">#|   "A scatterplot with temperature by ozone levels along with a trend line</span></span>
 <span id="cb43-6"><a href="#cb43-6"></a><span class="co">#|   indicating the increase in temperature with increasing ozone levels."</span></span>
@@ -1115,7 +1114,7 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <span id="cb43-10"><a href="#cb43-10"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-11-1.png" alt="&quot;A scatterplot with temperature by ozone levels along with a trend line indicating the increase in temperature with increasing ozone levels.&quot;" width="960" class="r-stretch quarto-figure-center"><p class="caption">The mean temperature was 77.8823529411765</p></section>
+<img data-src="02-authoring_files/figure-revealjs/unnamed-chunk-11-1.png" alt="&quot;A scatterplot with temperature by ozone levels along with a trend line indicating the increase in temperature with increasing ozone levels.&quot;" width="960" class="r-stretch quarto-figure-center"><p class="caption">The mean temperature was 78</p></section>
 <section id="quarto-and-rmarkdown" class="slide level2">
 <h2>Quarto and RMarkdown</h2>
 <ul>
@@ -1144,7 +1143,12 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 </div>
 <div class="fragment">
 <p><br></p>
-<p>Note that the YAML for Quarto: - Will follow a <code>word-word</code> syntax - Instead of using <code>output: html_document</code>, you’ll use <code>format: html</code></p>
+<p>Note that the YAML for Quarto:</p>
+<ul>
+<li>Will follow a <code>word-word</code> syntax<br>
+</li>
+<li>Instead of using <code>output: html_document</code>, you’ll use <code>format: html</code></li>
+</ul>
 <blockquote>
 <p>One source of the difference in syntax is that Quarto is more closely aligned with Pandoc format names and options (thus the use of - as a word separator rather than _).</p>
 </blockquote>

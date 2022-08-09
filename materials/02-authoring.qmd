@@ -186,7 +186,7 @@ Executing the Quarto Render button in RStudio will call Quarto render in a backg
 
 1. Render in RStudio, starts a background job and previews the output  
 
-![](https://quarto.org/docs/tools/images/rstudio-render.png){width="1600" fig-alt="A screenshot of the RStudio Render button, a blue arrow facing to the right with the text 'Render' next to it"}
+![](https://quarto.org/docs/tools/images/rstudio-render.png){width="600" fig-alt="A screenshot of the RStudio Render button, a blue arrow facing to the right with the text 'Render' next to it"}
 
 . . .
 
@@ -201,8 +201,6 @@ quarto render document.qmd --to docx
 ```
 
 :::
-
-- Renders via terminal
 
 . . .
 
@@ -475,7 +473,6 @@ head(mtcars)
 ## Tabsets
 
 ````
-
 ::: {.panel-tabset}
 
 ## Code
@@ -485,7 +482,6 @@ head(mtcars)
 #| eval: false
 head(mtcars)
 ```
-
 
 ## Output
 
@@ -507,6 +503,10 @@ head(mtcars)
   
 ## Figure Layout
 
+::: {.columns}
+
+::: {.column}
+
 ```
 ::: {layout="[[40,-20,40], [100]]"}
 ![Surus](surus.png)
@@ -515,12 +515,16 @@ head(mtcars)
 
 ![Lin Wang](lin-wang.png)
 :::
-
 ```
+:::
 
-. . .
+::: {.column .fragment}
 
 ![](https://quarto.org/docs/authoring/images/layout-attrib-negative.png)
+
+:::
+
+:::
 
 ## Spans
 
@@ -533,6 +537,8 @@ Maybe a footnote^[`Maybe a footnote^[This is important text]`]
 . . .
 
 Or a magically [appearing word]{.fragment} [with an additional point after]{.fragment}
+
+. . .
 
 ```code
 Or a magically [appearing word]{.fragment} [with an additional point after]{.fragment}
@@ -728,7 +734,7 @@ Quarto introduces the "hash pipe" in `#|`  - this is the preferred syntax, altho
 ```{r}
 #| echo: fenced
 #| eval: true
-#| code-line-numbers: "|2-4"
+#| code-line-numbers: "|2-3"
 mtcars %>% filter(mpg >= 25)
 ```
 
@@ -769,7 +775,7 @@ You can also execute code inside a chunk option via the `!expr` syntax:
 ```{r}
 #| echo: fenced
 #| code-line-numbers: "|3"
-#| fig-cap: !expr glue::glue("The mean temperature was {mean(airquality$Temp)}")
+#| fig-cap: !expr glue::glue("The mean temperature was {mean(airquality$Temp) |> round()}")
 #| fig-alt: |
 #|   "A scatterplot with temperature by ozone levels along with a trend line 
 #|   indicating the increase in temperature with increasing ozone levels."
@@ -822,9 +828,10 @@ format:
 
 <br>
 
-Note that the YAML for Quarto:
-- Will follow a `word-word` syntax
-- Instead of using `output: html_document`, you'll use `format: html`
+Note that the YAML for Quarto:  
+
+- Will follow a `word-word` syntax  
+- Instead of using `output: html_document`, you'll use `format: html`  
 
 > One source of the difference in syntax is that Quarto is more closely aligned with Pandoc format names and options (thus the use of - as a word separator rather than _).
 

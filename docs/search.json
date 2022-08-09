@@ -340,7 +340,7 @@
     "href": "materials/02-authoring.html#rendering",
     "title": "Get Started with Quarto",
     "section": "Rendering",
-    "text": "Rendering\n\nRender in RStudio, starts a background job and previews the output\n\n\n\n\nSystem shell via quarto render\n\n\n\n\n terminal\n\nquarto render document.qmd # defaults to html\nquarto render document.qmd --to pdf\nquarto render document.qmd --to docx\n\n\n\nRenders via terminal\n\n\n\n\nR console via quarto R package\n\n\n\nlibrary(quarto)\nquarto_render(\"document.qmd\") # defaults to html\nquarto_render(\"document.qmd\", output_format = \"pdf\")"
+    "text": "Rendering\n\nRender in RStudio, starts a background job and previews the output\n\n\n\n\nSystem shell via quarto render\n\n\n\n\n terminal\n\nquarto render document.qmd # defaults to html\nquarto render document.qmd --to pdf\nquarto render document.qmd --to docx\n\n\n\n\n\nR console via quarto R package\n\n\n\nlibrary(quarto)\nquarto_render(\"document.qmd\") # defaults to html\nquarto_render(\"document.qmd\", output_format = \"pdf\")"
   },
   {
     "objectID": "materials/02-authoring.html#quarto-linting",
@@ -410,7 +410,7 @@
     "href": "materials/02-authoring.html#tabsets-2",
     "title": "Get Started with Quarto",
     "section": "Tabsets",
-    "text": "Tabsets\n\n::: {.panel-tabset}\n\n## Code\n\n```{r}\n#| echo: fenced\n#| eval: false\nhead(mtcars)\n```\n\n\n## Output\n\n```{r}\n#| eval: true\n#| echo: false\nhead(mtcars)\n```\n\n:::"
+    "text": "Tabsets\n::: {.panel-tabset}\n\n## Code\n\n```{r}\n#| echo: fenced\n#| eval: false\nhead(mtcars)\n```\n\n## Output\n\n```{r}\n#| eval: true\n#| echo: false\nhead(mtcars)\n```\n\n:::"
   },
   {
     "objectID": "materials/02-authoring.html#figure-layout",
@@ -424,14 +424,14 @@
     "href": "materials/02-authoring.html#figure-layout-1",
     "title": "Get Started with Quarto",
     "section": "Figure Layout",
-    "text": "Figure Layout\n::: {layout=\"[[40,-20,40], [100]]\"}\n![Surus](surus.png)\n\n![Hanno](hanno.png)\n\n![Lin Wang](lin-wang.png)\n:::"
+    "text": "Figure Layout\n\n\n::: {layout=\"[[40,-20,40], [100]]\"}\n![Surus](surus.png)\n\n![Hanno](hanno.png)\n\n![Lin Wang](lin-wang.png)\n:::"
   },
   {
     "objectID": "materials/02-authoring.html#spans",
     "href": "materials/02-authoring.html#spans",
     "title": "Get Started with Quarto",
     "section": "Spans",
-    "text": "Spans\nWhereas a ::: fenced div is useful for application across a paragraph of text or set of images, a [span]{.class} is useful for application to a single item/string within a sentence.\n\nMaybe a footnote1\n\n\nOr a magically appearing word with an additional point after\nOr a magically [appearing word]{.fragment} [with an additional point after]{.fragment}\n\nMaybe a footnote^[This is important text]"
+    "text": "Spans\nWhereas a ::: fenced div is useful for application across a paragraph of text or set of images, a [span]{.class} is useful for application to a single item/string within a sentence.\n\nMaybe a footnote1\n\n\nOr a magically appearing word with an additional point after\n\n\nOr a magically [appearing word]{.fragment} [with an additional point after]{.fragment}\n\nMaybe a footnote^[This is important text]"
   },
   {
     "objectID": "materials/02-authoring.html#choose-your-engine",
@@ -480,7 +480,7 @@
     "href": "materials/02-authoring.html#code-chunks-options",
     "title": "Get Started with Quarto",
     "section": "Code chunks options",
-    "text": "Code chunks options\nAll code chunk options at yihui.org/knitr/options/\n\nIf you’ve used RMarkdown before, you’re likely used to syntax like:\n```{r chunk-label, option=TRUE}\n\n\n\n```{r, echo = \"fenced\", eval = TRUE}\nmtcars %>% filter(mpg >= 25)\n```\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\n\n\n\n\nQuarto introduces the “hash pipe” in #| - this is the preferred syntax, although Quarto is backwards compatible with the older RMarkdown syntax.\n\n```{r}\n#| eval: true\n#| code-line-numbers: \"|2-4\"\nmtcars %>% filter(mpg >= 25)\n```\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2"
+    "text": "Code chunks options\nAll code chunk options at yihui.org/knitr/options/\n\nIf you’ve used RMarkdown before, you’re likely used to syntax like:\n```{r chunk-label, option=TRUE}\n\n\n\n```{r, echo = \"fenced\", eval = TRUE}\nmtcars %>% filter(mpg >= 25)\n```\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\n\n\n\n\nQuarto introduces the “hash pipe” in #| - this is the preferred syntax, although Quarto is backwards compatible with the older RMarkdown syntax.\n\n```{r}\n#| eval: true\n#| code-line-numbers: \"|2-3\"\nmtcars %>% filter(mpg >= 25)\n```\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2"
   },
   {
     "objectID": "materials/02-authoring.html#quartos-hash-pipe",
@@ -508,14 +508,14 @@
     "href": "materials/02-authoring.html#code-in-chunk-option",
     "title": "Get Started with Quarto",
     "section": "Code in chunk option",
-    "text": "Code in chunk option\nYou can also execute code inside a chunk option via the !expr syntax:\n\n```{r}\n#| code-line-numbers: \"|3\"\n#| fig-cap: !expr glue::glue(\"The mean temperature was {mean(airquality$Temp)}\")\n#| fig-alt: |\n#|   \"A scatterplot with temperature by ozone levels along with a trend line\n#|   indicating the increase in temperature with increasing ozone levels.\"\nggplot(airquality, aes(Ozone, Temp)) + \n        geom_point() + \n        geom_smooth(method = \"loess\", se = FALSE)\n```\n\n\nThe mean temperature was 77.8823529411765"
+    "text": "Code in chunk option\nYou can also execute code inside a chunk option via the !expr syntax:\n\n```{r}\n#| code-line-numbers: \"|3\"\n#| fig-cap: !expr glue::glue(\"The mean temperature was {mean(airquality$Temp) |> round()}\")\n#| fig-alt: |\n#|   \"A scatterplot with temperature by ozone levels along with a trend line\n#|   indicating the increase in temperature with increasing ozone levels.\"\nggplot(airquality, aes(Ozone, Temp)) + \n        geom_point() + \n        geom_smooth(method = \"loess\", se = FALSE)\n```\n\n\nThe mean temperature was 78"
   },
   {
     "objectID": "materials/02-authoring.html#quarto-and-rmarkdown",
     "href": "materials/02-authoring.html#quarto-and-rmarkdown",
     "title": "Get Started with Quarto",
     "section": "Quarto and RMarkdown",
-    "text": "Quarto and RMarkdown\n\nBasic RMarkdown documents that render to static HTML and PDF are the most transferable directly to Quarto\n\n\n\n\nR Markdown\ntitle: \"My Document\"\noutput:\n  html_document:\n    toc: true\n    number_sections: true\n    css: styles.css\n\nQuarto\ntitle: \"My Document\"\nformat:\n  html:\n    toc: true\n    number-sections: true\n    css: styles.css\n\n\n\n\n\nNote that the YAML for Quarto: - Will follow a word-word syntax - Instead of using output: html_document, you’ll use format: html\n\nOne source of the difference in syntax is that Quarto is more closely aligned with Pandoc format names and options (thus the use of - as a word separator rather than _)."
+    "text": "Quarto and RMarkdown\n\nBasic RMarkdown documents that render to static HTML and PDF are the most transferable directly to Quarto\n\n\n\n\nR Markdown\ntitle: \"My Document\"\noutput:\n  html_document:\n    toc: true\n    number_sections: true\n    css: styles.css\n\nQuarto\ntitle: \"My Document\"\nformat:\n  html:\n    toc: true\n    number-sections: true\n    css: styles.css\n\n\n\n\n\nNote that the YAML for Quarto:\n\nWill follow a word-word syntax\n\nInstead of using output: html_document, you’ll use format: html\n\n\nOne source of the difference in syntax is that Quarto is more closely aligned with Pandoc format names and options (thus the use of - as a word separator rather than _)."
   },
   {
     "objectID": "materials/02-authoring.html#section",
