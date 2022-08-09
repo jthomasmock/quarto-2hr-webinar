@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Getting Started with Quarto",
     "section": "",
-    "text": "Pre Work\n\n\n\n\nInstall latest version of RStudio, v2022.07.1 or later\nFor ALL hands-on materials, please clone https://github.com/jthomasmock/quarto-workshop.git via RStudio\nInstall these R packages:\n\n\npkg_list <- c(\n  \"tidyverse\", \"gt\", \"gtExtras\", \"reactable\", \n  \"ggiraph\",  \"here\", \"quarto\", \"rmarkdown\", \n  \"gtsummary\", \"palmerpenguins\", \"fs\", \"skimr\"\n  )\ninstall.packages(pkg_list)"
+    "text": "Pre Work\n\n\n\n\nInstall latest version of RStudio, v2022.07.1 or later\nFor ALL hands-on materials, please clone https://github.com/jthomasmock/quarto-workshop.git via RStudio\nAlternatively, you can use RStudio Cloud which has the workshop materials pre-installed: https://rstudio.cloud/content/4332583\nInstall these R packages:\n\n\npkg_list <- c(\n  \"tidyverse\", \"gt\", \"gtExtras\", \"reactable\", \n  \"ggiraph\",  \"here\", \"quarto\", \"rmarkdown\", \n  \"gtsummary\", \"palmerpenguins\", \"fs\", \"skimr\"\n  )\ninstall.packages(pkg_list)"
   },
   {
     "objectID": "index.html#overview",
@@ -74,7 +74,7 @@
     "href": "materials/01-intro-quarto.html#quarto-more-internals",
     "title": "Get Started with Quarto",
     "section": "Quarto, more internals",
-    "text": "Quarto, more internals\n\nknitr or jupyter evaluates R/Python/Julia code and returns a .md file along with the evaluated code\n\n\n\nQuarto uses an engine like knitr to execute R code, applies Lua filters pre-processors to generate a .md file\n\n\n\nThe .md file is processed via Pandoc and Quarto’s Lua filters + Bootstrap CSS for HTML or LaTeX for PDF and converted to a final output format\n\n\nLua filters written by R/Python/Julia developers should be interchangeable between formats - not language specific and often not even format specific!"
+    "text": "Quarto, more internals\n\nQuarto uses an engine like knitr to execute code and generate a temporary output .md\n\n\nThe .md file is processed via Pandoc and Quarto’s Lua filters + Bootstrap CSS for HTML or LaTeX for PDF and converted to a final output format\n\n\nLua filters written by R/Python/Julia developers should be interchangeable between formats - typically not language specific!"
   },
   {
     "objectID": "materials/01-intro-quarto.html#quarto-more-than-just-knitr-1",
@@ -95,7 +95,7 @@
     "href": "materials/01-intro-quarto.html#quarto-also-with-observable-javascript",
     "title": "Get Started with Quarto",
     "section": "Quarto, also with Observable Javascript!",
-    "text": "Quarto, also with Observable Javascript!\n\nQuarto includes native support for Observable JS, a set of enhancements to vanilla JavaScript created by Mike Bostock (also the author of D3). Observable JS is distinguished by its reactive runtime, which is especially well suited for interactive data exploration and analysis.\n\n\n\n\nviewof temp = Inputs.range([0, 100], {step: 1, value: 34, label: htl.html`Temp &#x2103;`})\n\n\n\n\n\n\nConverting temperature from ℃ to ℉ \nCelsius = ℃ and Fahrenheit = ℉.\n\n\n```{ojs}\nviewof temp = Inputs.range([0, 100], {step: 1, value: 34, label: htl.html`Temp &#x2103;`})\n```\n\nConverting temperature from &#x2103; to &#x2109; <br>  \nCelsius = ${d3.format(\".0f\")(temp)}&#x2103; and Fahrenheit = ${d3.format(\".1f\")(temp * 9/5 + 32)}&#x2109;."
+    "text": "Quarto, also with Observable Javascript!\n\n\n\nviewof temp = Inputs.range([0, 100], {step: 1, value: 34, label: htl.html`Temp &#x2103;`})\n\n\n\n\n\n\nConverting temperature from ℃ to ℉ \nCelsius = ℃ and Fahrenheit = ℉.\n\n\n```{ojs}\nviewof temp = Inputs.range([0, 100], {step: 1, value: 34, label: htl.html`Temp &#x2103;`})\n```\n\nConverting temperature from &#x2103; to &#x2109; <br>  \nCelsius = ${d3.format(\".0f\")(temp)}&#x2103; and Fahrenheit = ${d3.format(\".1f\")(temp * 9/5 + 32)}&#x2109;."
   },
   {
     "objectID": "materials/01-intro-quarto.html#quarto-is-a-big-universe",
@@ -319,7 +319,7 @@
     "href": "materials/02-authoring.html#output-options",
     "title": "Get Started with Quarto",
     "section": "Output Options",
-    "text": "Output Options\n---\nformat: something\n---\n\n---\nformat: html\n---\n---\nformat: pdf\n---\n---\nformat: revealjs\n---\n\n\nThen add option arguments!\n---\nformat: \n  html:\n    toc: true\n    code-fold: true\n---\n\n\nSub-options should be below the main format output and spacing matters!\n---\nformat: \n  html:\n    option1: text\n    option2: logical\n---"
+    "text": "Output Options\n---\nformat: something\n---\n\n---\nformat: html\n---\n---\nformat: pdf\n---\n---\nformat: revealjs\n---\n\n\nThen add option arguments!\n---\nformat: \n  html:\n    toc: true\n    code-fold: true\n---\n\n\nSub-options should be below the main format output and spacing matters!\n---\nformat: \n  html:\n    option1: \"text\"\n    option2: logical\n    option3:\n      - sub-option\n      - sub-option\n    option4: [sub-option1, sub-option2]\n---"
   },
   {
     "objectID": "materials/02-authoring.html#why-yaml",
@@ -761,5 +761,12 @@
     "title": "Get Started with Quarto",
     "section": "Quarto Publish",
     "text": "Quarto Publish\n\n\n\n terminal\n\nquarto publish --help\n\n  Usage:   quarto publish [provider] [path]\n  Version: 1.0.36                          \n                                           \n  Description:\n    Publish a document or project. Available providers include:\n                                                               \n     - Quarto Pub (quarto-pub)                                 \n     - GitHub Pages (gh-pages)                                 \n     - RStudio Connect (connect)                               \n     - Netlify (netlify)"
+  },
+  {
+    "objectID": "materials/01-intro-quarto.html#widgets",
+    "href": "materials/01-intro-quarto.html#widgets",
+    "title": "Get Started with Quarto",
+    "section": "Widgets",
+    "text": "Widgets\n\nQuarto can support both htmlwidgets in R and Jupyter widgets for Python/Julia\n\n\n\nQuarto includes native support for Observable JS, a set of enhancements to vanilla JavaScript created by Mike Bostock (also the author of D3). Observable JS is distinguished by its reactive runtime, which is especially well suited for interactive data exploration and analysis."
   }
 ]

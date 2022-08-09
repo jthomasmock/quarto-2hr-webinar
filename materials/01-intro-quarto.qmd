@@ -138,11 +138,7 @@ We learned from 10 years of literate programming with `knitr` + `rmarkdown`
 
 ## Quarto, more internals
 
--   `knitr` or `jupyter` evaluates R/Python/Julia code and returns a `.md` file along with the evaluated code
-
-. . .
-
--   Quarto uses an engine like `knitr` to execute R code, applies Lua filters pre-processors to generate a `.md` file
+-   Quarto uses an engine like `knitr` to execute code and generate a temporary output `.md`
 
 . . .
 
@@ -150,11 +146,17 @@ The `.md` file is processed via Pandoc and Quarto's Lua filters + Bootstrap CSS 
 
 . . .
 
-Lua filters written by R/Python/Julia developers should be interchangeable between formats - not language specific and often not even _format_ specific!
+Lua filters written by R/Python/Julia developers should be interchangeable between formats - typically not language specific!
 
-## Quarto, also with Observable Javascript!
+## Widgets
+
+- Quarto can support both `htmlwidgets` in R and Jupyter widgets for Python/Julia
+
+. . .
 
 > Quarto includes native support for Observable JS, a set of enhancements to vanilla JavaScript created by Mike Bostock (also the author of D3). Observable JS is distinguished by its reactive runtime, which is especially well suited for interactive data exploration and analysis.
+
+## Quarto, also with Observable Javascript!
 
 . . .
 

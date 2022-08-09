@@ -497,29 +497,32 @@ RStudio Cloud
 <section id="quarto-more-internals" class="slide level2">
 <h2>Quarto, more internals</h2>
 <ul>
-<li><code>knitr</code> or <code>jupyter</code> evaluates R/Python/Julia code and returns a <code>.md</code> file along with the evaluated code</li>
+<li>Quarto uses an engine like <code>knitr</code> to execute code and generate a temporary output <code>.md</code></li>
 </ul>
-<div class="fragment">
-<ul>
-<li>Quarto uses an engine like <code>knitr</code> to execute R code, applies Lua filters pre-processors to generate a <code>.md</code> file</li>
-</ul>
-</div>
 <div class="fragment">
 <p>The <code>.md</code> file is processed via Pandoc and Quarto’s Lua filters + Bootstrap CSS for HTML or LaTeX for PDF and converted to a final output format</p>
 </div>
 <div class="fragment">
-<p>Lua filters written by R/Python/Julia developers should be interchangeable between formats - not language specific and often not even <em>format</em> specific!</p>
+<p>Lua filters written by R/Python/Julia developers should be interchangeable between formats - typically not language specific!</p>
+</div>
+</section>
+<section id="widgets" class="slide level2">
+<h2>Widgets</h2>
+<ul>
+<li>Quarto can support both <code>htmlwidgets</code> in R and Jupyter widgets for Python/Julia</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>Quarto includes native support for Observable JS, a set of enhancements to vanilla JavaScript created by Mike Bostock (also the author of D3). Observable JS is distinguished by its reactive runtime, which is especially well suited for interactive data exploration and analysis.</p>
+</blockquote>
 </div>
 </section>
 <section id="quarto-also-with-observable-javascript" class="slide level2">
 <h2>Quarto, also with Observable Javascript!</h2>
-<blockquote>
-<p>Quarto includes native support for Observable JS, a set of enhancements to vanilla JavaScript created by Mike Bostock (also the author of D3). Observable JS is distinguished by its reactive runtime, which is especially well suited for interactive data exploration and analysis.</p>
-</blockquote>
 <div class="fragment">
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="163" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 162;"><span id="cb2-163"><a href="#cb2-163"></a>viewof temp <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">34</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`Temp &amp;#x2103;`</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="165" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 164;"><span id="cb2-165"><a href="#cb2-165"></a>viewof temp <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">34</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`Temp &amp;#x2103;`</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -541,16 +544,16 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 <section id="observable.js" class="slide level2">
 <h2>Observable.js</h2>
 <div class="cell panel-input">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="186" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 185;"><span id="cb4-186"><a href="#cb4-186"></a>viewof bill_length_min <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
-<span id="cb4-187"><a href="#cb4-187"></a>  [<span class="dv">32</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">,</span> </span>
-<span id="cb4-188"><a href="#cb4-188"></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">35</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Bill length (min):"</span>}</span>
-<span id="cb4-189"><a href="#cb4-189"></a>)</span>
-<span id="cb4-190"><a href="#cb4-190"></a>viewof islands <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
-<span id="cb4-191"><a href="#cb4-191"></a>  [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span><span class="op">,</span> <span class="st">"Dream"</span>]<span class="op">,</span> </span>
-<span id="cb4-192"><a href="#cb4-192"></a>  { <span class="dt">value</span><span class="op">:</span> [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span>]<span class="op">,</span> </span>
-<span id="cb4-193"><a href="#cb4-193"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Islands:"</span></span>
-<span id="cb4-194"><a href="#cb4-194"></a>  }</span>
-<span id="cb4-195"><a href="#cb4-195"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="188" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 187;"><span id="cb4-188"><a href="#cb4-188"></a>viewof bill_length_min <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb4-189"><a href="#cb4-189"></a>  [<span class="dv">32</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">,</span> </span>
+<span id="cb4-190"><a href="#cb4-190"></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">35</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Bill length (min):"</span>}</span>
+<span id="cb4-191"><a href="#cb4-191"></a>)</span>
+<span id="cb4-192"><a href="#cb4-192"></a>viewof islands <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
+<span id="cb4-193"><a href="#cb4-193"></a>  [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span><span class="op">,</span> <span class="st">"Dream"</span>]<span class="op">,</span> </span>
+<span id="cb4-194"><a href="#cb4-194"></a>  { <span class="dt">value</span><span class="op">:</span> [<span class="st">"Torgersen"</span><span class="op">,</span> <span class="st">"Biscoe"</span>]<span class="op">,</span> </span>
+<span id="cb4-195"><a href="#cb4-195"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Islands:"</span></span>
+<span id="cb4-196"><a href="#cb4-196"></a>  }</span>
+<span id="cb4-197"><a href="#cb4-197"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-2-1" data-nodetype="declaration">
@@ -571,23 +574,23 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="202" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 201;"><span id="cb5-202"><a href="#cb5-202"></a>Plot<span class="op">.</span><span class="fu">rectY</span>(filtered<span class="op">,</span> </span>
-<span id="cb5-203"><a href="#cb5-203"></a>  Plot<span class="op">.</span><span class="fu">binX</span>(</span>
-<span id="cb5-204"><a href="#cb5-204"></a>    {<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span> </span>
-<span id="cb5-205"><a href="#cb5-205"></a>    {<span class="dt">x</span><span class="op">:</span> <span class="st">"body_mass"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">20</span>}</span>
-<span id="cb5-206"><a href="#cb5-206"></a>  ))</span>
-<span id="cb5-207"><a href="#cb5-207"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb5-208"><a href="#cb5-208"></a>    <span class="dt">facet</span><span class="op">:</span> {</span>
-<span id="cb5-209"><a href="#cb5-209"></a>      <span class="dt">data</span><span class="op">:</span> filtered<span class="op">,</span></span>
-<span id="cb5-210"><a href="#cb5-210"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"sex"</span><span class="op">,</span></span>
-<span id="cb5-211"><a href="#cb5-211"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span></span>
-<span id="cb5-212"><a href="#cb5-212"></a>      <span class="dt">marginRight</span><span class="op">:</span> <span class="dv">80</span></span>
-<span id="cb5-213"><a href="#cb5-213"></a>    }<span class="op">,</span></span>
-<span id="cb5-214"><a href="#cb5-214"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb5-215"><a href="#cb5-215"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
-<span id="cb5-216"><a href="#cb5-216"></a>    ]</span>
-<span id="cb5-217"><a href="#cb5-217"></a>  }</span>
-<span id="cb5-218"><a href="#cb5-218"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="204" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 203;"><span id="cb5-204"><a href="#cb5-204"></a>Plot<span class="op">.</span><span class="fu">rectY</span>(filtered<span class="op">,</span> </span>
+<span id="cb5-205"><a href="#cb5-205"></a>  Plot<span class="op">.</span><span class="fu">binX</span>(</span>
+<span id="cb5-206"><a href="#cb5-206"></a>    {<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span> </span>
+<span id="cb5-207"><a href="#cb5-207"></a>    {<span class="dt">x</span><span class="op">:</span> <span class="st">"body_mass"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="dv">20</span>}</span>
+<span id="cb5-208"><a href="#cb5-208"></a>  ))</span>
+<span id="cb5-209"><a href="#cb5-209"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb5-210"><a href="#cb5-210"></a>    <span class="dt">facet</span><span class="op">:</span> {</span>
+<span id="cb5-211"><a href="#cb5-211"></a>      <span class="dt">data</span><span class="op">:</span> filtered<span class="op">,</span></span>
+<span id="cb5-212"><a href="#cb5-212"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"sex"</span><span class="op">,</span></span>
+<span id="cb5-213"><a href="#cb5-213"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"species"</span><span class="op">,</span></span>
+<span id="cb5-214"><a href="#cb5-214"></a>      <span class="dt">marginRight</span><span class="op">:</span> <span class="dv">80</span></span>
+<span id="cb5-215"><a href="#cb5-215"></a>    }<span class="op">,</span></span>
+<span id="cb5-216"><a href="#cb5-216"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb5-217"><a href="#cb5-217"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
+<span id="cb5-218"><a href="#cb5-218"></a>    ]</span>
+<span id="cb5-219"><a href="#cb5-219"></a>  }</span>
+<span id="cb5-220"><a href="#cb5-220"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="expression">
 
@@ -597,7 +600,7 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="224" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 223;"><span id="cb6-224"><a href="#cb6-224"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="226" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 225;"><span id="cb6-226"><a href="#cb6-226"></a>Inputs<span class="op">.</span><span class="fu">table</span>(filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-4" data-nodetype="expression">
 
@@ -608,7 +611,7 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="230" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 229;"><span id="cb7-230"><a href="#cb7-230"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"palmer-penguins.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="232" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 231;"><span id="cb7-232"><a href="#cb7-232"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"palmer-penguins.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="declaration">
 
@@ -616,10 +619,10 @@ Celsius = <span><span id="ojs-element-id-1"></span>℃</span> and Fahrenheit = <
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="234" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 233;"><span id="cb8-234"><a href="#cb8-234"></a>filtered <span class="op">=</span> data<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span>(penguin) {</span>
-<span id="cb8-235"><a href="#cb8-235"></a>  <span class="cf">return</span> bill_length_min <span class="op">&lt;</span> penguin<span class="op">.</span><span class="at">bill_length</span> <span class="op">&amp;&amp;</span></span>
-<span id="cb8-236"><a href="#cb8-236"></a>         islands<span class="op">.</span><span class="fu">includes</span>(penguin<span class="op">.</span><span class="at">island</span>)<span class="op">;</span></span>
-<span id="cb8-237"><a href="#cb8-237"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="236" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 235;"><span id="cb8-236"><a href="#cb8-236"></a>filtered <span class="op">=</span> data<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span>(penguin) {</span>
+<span id="cb8-237"><a href="#cb8-237"></a>  <span class="cf">return</span> bill_length_min <span class="op">&lt;</span> penguin<span class="op">.</span><span class="at">bill_length</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb8-238"><a href="#cb8-238"></a>         islands<span class="op">.</span><span class="fu">includes</span>(penguin<span class="op">.</span><span class="at">island</span>)<span class="op">;</span></span>
+<span id="cb8-239"><a href="#cb8-239"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-6" data-nodetype="declaration">
 
