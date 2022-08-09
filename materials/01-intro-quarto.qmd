@@ -97,11 +97,13 @@ install.packages(pkg_list)
 
 # `r fontawesome::fa("laptop-code", "white")` Our Turn {background-color="#447099" transition="slide-in"}
 
-### Local
+<h2>Local</h2>
+
 -   Install/Open RStudio [v2022.07.1](https://www.rstudio.com/products/rstudio/download/#download)
 -   Clone the workshop: `https://github.com/jthomasmock/quarto-workshop.git` locally
 
-### RStudio Cloud
+<h2>RStudio Cloud</h2>
+
 -   Use the pre-built RStudio Cloud with all the workshop materials already installed: [https://rstudio.cloud/content/4332583](https://rstudio.cloud/content/4332583)
 
 ## Hello Quarto
