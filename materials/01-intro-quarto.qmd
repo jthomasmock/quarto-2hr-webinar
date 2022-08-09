@@ -302,31 +302,31 @@ thomasmock$ quarto --help
 
 ## VS Code
 
-![](https://quarto.org/docs/tools/images/vscode-render.png){fig-alt="Screenshot of VSCode with a Quarto document"}
+![](https://quarto.org/docs/tools/images/vscode-render.png){fig-alt="Screenshot of VSCode with a Quarto document"}  
 
 ## VS Code YAML
 
-![](https://quarto.org/docs/tools/images/vscode-raw.png){fig-alt = "Screenshot of a .ipynb with Quarto YAML edited in VSCode"}
+![](https://quarto.org/docs/tools/images/vscode-raw.png){fig-alt="Screenshot of a .ipynb with Quarto YAML edited in VSCode"}  
 
 ## VS Code, YAML Intelligence
 
-![](https://quarto.org/docs/tools/images/vscode-yaml-completion.png){fig-alt = "Screenshot of a .ipynb with Quarto YAML edited in VSCode"}
+![](https://quarto.org/docs/tools/images/vscode-yaml-completion.png){fig-alt="Screenshot of a .ipynb with Quarto YAML edited in VSCode"}  
 
 ## Jupyter/Jupyter Lab
 
-![](https://quarto.org/docs/tools/images/jupyter-lab.png){fig-alt = "Screenshot of a .ipynb with Quarto YAML edited in Jupyter"}
+![](https://quarto.org/docs/tools/images/jupyter-lab.png){fig-alt="Screenshot of a .ipynb with Quarto YAML edited in Jupyter"}  
 
 ## Jupyter
 
 `quarto preview notebook.ipynb --to html`
 
-![](https://quarto.org/docs/tools/images/jupyterlab-preview.png){fig-alt = "Screenshot of a .ipynb with Quarto YAML edited in Jupyter"}
+![](https://quarto.org/docs/tools/images/jupyterlab-preview.png){fig-alt="Screenshot of a .ipynb with Quarto YAML edited in Jupyter"}  
 
 ## Jupyter YAML
 
 Treat YAML as a "raw cell" in Jupyter - Jupyter doesn't care about YAML, but it's needed/used by Quarto
 
-![](https://quarto.org/docs/tools/images/jupyter-lab-yaml.png){fig-alt = "Screenshot of a .ipynb with Quarto YAML edited inJupyter"}
+![](https://quarto.org/docs/tools/images/jupyter-lab-yaml.png){fig-alt="Screenshot of a .ipynb with Quarto YAML edited inJupyter"}
 
 ## Quarto, for collaboration
 
