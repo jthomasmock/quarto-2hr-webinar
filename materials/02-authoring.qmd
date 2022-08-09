@@ -27,7 +27,7 @@ filters:
 
 . . .
 
-Add it all together, and you have beautiful, powerful, and useful outputs!
+Add it all together, and you have beautiful, powerful, and useful outputs, all with plain text input!
 
 ```{r include=FALSE}
 library(tidyverse)

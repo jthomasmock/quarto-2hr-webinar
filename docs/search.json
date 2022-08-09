@@ -242,7 +242,7 @@
     "href": "materials/01-intro-quarto.html#yaml",
     "title": "Get Started with Quarto",
     "section": "YAML",
-    "text": "YAML\n---\ntitle: \"My Document\"\nformat: \n  html:\n    toc: true\n    code-fold: true\n---"
+    "text": "YAML\n\n---\ntitle: \"My Document\"\nformat: \n  html:\n    toc: true\n    code-fold: true\n---"
   },
   {
     "objectID": "materials/01-intro-quarto.html#markdown",
@@ -298,7 +298,7 @@
     "href": "materials/02-authoring.html#quarto-anatomy",
     "title": "Get Started with Quarto",
     "section": "Quarto, anatomy",
-    "text": "Quarto, anatomy\n\nMetadata: YAML\nText: Markdown\nCode: knitr or jupyter\n\n\nAdd it all together, and you have beautiful, powerful, and useful outputs!"
+    "text": "Quarto, anatomy\n\nMetadata: YAML\nText: Markdown\nCode: knitr or jupyter\n\n\nAdd it all together, and you have beautiful, powerful, and useful outputs, all with plain text input!"
   },
   {
     "objectID": "materials/02-authoring.html#literate-programming",

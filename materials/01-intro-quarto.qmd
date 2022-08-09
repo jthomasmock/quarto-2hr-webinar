@@ -648,6 +648,7 @@ The [YAML](https://yaml.org/) metadata or header is:
 
 ## YAML
 
+::: {style="font-size: 80px;"}
 ``` yaml
 ---
 title: "My Document"
@@ -657,6 +658,7 @@ format:
     code-fold: true
 ---
 ```
+:::
 
 ## Markdown
 
