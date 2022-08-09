@@ -1104,6 +1104,7 @@ format:
 
 - Books, Websites, Blogs are a Quarto project
 - Want to learn how to build a blog? Join Isabella Velasquez from RStudio in our next Quarto webinar!
+- Add to your calendar: [rstd.io/quarto-blog](rstd.io/quarto-blog)
 
 <iframe width="1152" height="648" src="https://www.youtube.com/embed/CVcvXfRyfE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
